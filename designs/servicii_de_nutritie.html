@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="ro"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#797c73",
+                    "surface-variant": "#e2e3d9",
+                    "secondary-dim": "#664f37",
+                    "on-primary": "#faf7f6",
+                    "surface-container-highest": "#e2e3d9",
+                    "secondary-fixed-dim": "#f0cfb0",
+                    "on-tertiary-container": "#5f5b55",
+                    "tertiary": "#625f58",
+                    "inverse-on-surface": "#9e9d99",
+                    "surface-container-high": "#e8e9e0",
+                    "error-dim": "#4e0309",
+                    "tertiary-fixed-dim": "#eae5dc",
+                    "primary-dim": "#535252",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#4c4943",
+                    "on-secondary": "#fff7f3",
+                    "on-primary-fixed-variant": "#5c5b5b",
+                    "on-tertiary-fixed-variant": "#69665f",
+                    "on-error": "#fff7f6",
+                    "on-tertiary": "#fef8ef",
+                    "surface-container": "#efeee6",
+                    "background": "#fbf9f4",
+                    "on-primary-container": "#525151",
+                    "tertiary-container": "#f9f3ea",
+                    "tertiary-dim": "#56534c",
+                    "surface-tint": "#5f5e5e",
+                    "tertiary-fixed": "#f9f3ea",
+                    "primary": "#5f5e5e",
+                    "on-error-container": "#752121",
+                    "on-surface": "#31332c",
+                    "surface-bright": "#fbf9f4",
+                    "surface-container-low": "#f5f4ed",
+                    "on-secondary-fixed-variant": "#6f573e",
+                    "inverse-primary": "#ffffff",
+                    "error": "#9f403d",
+                    "on-surface-variant": "#5e6058",
+                    "surface": "#fbf9f4",
+                    "primary-container": "#e4e2e1",
+                    "secondary": "#735a42",
+                    "on-secondary-fixed": "#513b25",
+                    "primary-fixed-dim": "#d6d4d3",
+                    "on-primary-fixed": "#3f3f3f",
+                    "error-container": "#fe8983",
+                    "primary-fixed": "#e4e2e1",
+                    "on-background": "#31332c",
+                    "surface-dim": "#d9dbcf",
+                    "outline-variant": "#b1b3a9",
+                    "on-secondary-container": "#654d35",
+                    "secondary-fixed": "#ffdcbd",
+                    "inverse-surface": "#0e0e0c",
+                    "secondary-container": "#ffdcbd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f4;
+            color: #31332c;
+            font-family: 'Manrope', sans-serif;
+        }
+        .editorial-shadow {
+            box-shadow: 0px 12px 32px rgba(49, 51, 44, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f4]/80 dark:bg-[#2B2B2B]/80 backdrop-blur-2xl">
+<div class="flex justify-between items-center px-12 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif text-[#5f5e5e] dark:text-[#faf7f6] tracking-tight font-['Newsreader'] italic">
+                Dr. Camelia Ștefănescu
+            </div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-10">
+<a class="text-[#5f5e5e]/60 dark:text-white/50 font-sans Manrope uppercase tracking-widest text-[10px] hover:text-[#5f5e5e] dark:hover:text-white transition-opacity duration-300" href="#">Slăbit</a>
+<a class="text-[#5f5e5e]/60 dark:text-white/50 font-sans Manrope uppercase tracking-widest text-[10px] hover:text-[#5f5e5e] dark:hover:text-white transition-opacity duration-300" href="#">Clinică</a>
+<a class="text-[#5f5e5e]/60 dark:text-white/50 font-sans Manrope uppercase tracking-widest text-[10px] hover:text-[#5f5e5e] dark:hover:text-white transition-opacity duration-300" href="#">Sportivă</a>
+<a class="text-[#5f5e5e]/60 dark:text-white/50 font-sans Manrope uppercase tracking-widest text-[10px] hover:text-[#5f5e5e] dark:hover:text-white transition-opacity duration-300" href="#">Despre</a>
+<a class="text-[#5f5e5e]/60 dark:text-white/50 font-sans Manrope uppercase tracking-widest text-[10px] hover:text-[#5f5e5e] dark:hover:text-white transition-opacity duration-300" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-full font-label text-[11px] uppercase tracking-[0.2em] scale-95 active:scale-90 transition-transform">
+                Programare
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-[1440px] mx-auto">
+<!-- Header & Breadcrumbs -->
+<header class="mb-32 flex flex-col items-center text-center">
+<nav class="flex items-center gap-3 mb-8 font-label text-[10px] uppercase tracking-widest text-outline">
+<a class="hover:text-primary transition-colors" href="#">Acasă</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-on-surface">Servicii de nutriție</span>
+</nav>
+<h1 class="font-headline text-7xl md:text-9xl text-on-surface italic leading-tight max-w-5xl">
+                Servicii de nutriție
+            </h1>
+</header>
+<!-- Intro Text Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40 items-start">
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow">
+<img class="w-full h-full object-cover" data-alt="Close-up of fresh organic salad in a ceramic bowl on a rustic linen cloth with soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHSi3eKUYf54KPXBHLx05M-3kd1f8PlvRPlVTQD-p_kG3hO3CctmX6KOPzr21SeujE5VLR56u9C08RMYEmh0BrLlVNOE476Yo2edmHaPYQ3B-wyxsTEhS-JvDtgNT03KtgJkFZcPaQ_C82vPToxNGNa7AjsXIisV3nko5_8FfhwVJ2Sji6TPJf3cpb9x90bJFrY6MEoLm4JY30sXTN3AQydvSQWh3vQButNCSTON97OTXrC2bpkP72GFwd6a7k0VqN-vk31J5b9-E"/>
+</div>
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-fixed rounded-full flex items-center justify-center p-6 text-center editorial-shadow">
+<span class="font-headline italic text-on-secondary-container text-lg">Echilibru prin știință și empatie</span>
+</div>
+</div>
+<div class="lg:col-span-7 lg:pl-20 pt-16">
+<div class="space-y-10">
+<h2 class="font-headline text-5xl text-on-surface italic">Primul pas către sănătate</h2>
+<p class="font-body text-base leading-loose text-on-surface-variant max-w-2xl">
+                        Indiferent de varianta de consultație de nutriție, la prima noastră întâlnire voi avea nevoie de chestionarul de evaluare nutrițională completat și un set de analize recente. Formularele le găsești la rubrica Programări.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10">
+<div class="p-10 bg-surface-container-low rounded-3xl space-y-5">
+<span class="material-symbols-outlined text-primary text-3xl">assignment_turned_in</span>
+<h3 class="font-label text-[11px] uppercase tracking-[0.2em] font-bold">Chestionar Nutrițional</h3>
+<p class="font-body text-sm leading-relaxed text-on-surface-variant">O analiză exhaustivă a obiceiurilor alimentare actuale și a sensibilităților.</p>
+</div>
+<div class="p-10 bg-surface-container-low rounded-3xl space-y-5">
+<span class="material-symbols-outlined text-primary text-3xl">clinical_notes</span>
+<h3 class="font-label text-[11px] uppercase tracking-[0.2em] font-bold">Evaluare Inițială</h3>
+<p class="font-body text-sm leading-relaxed text-on-surface-variant">Discuție aprofundată despre starea de sănătate și stabilirea indicatorilor de succes.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="space-y-40">
+<!-- Nutriție pentru slăbit -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="order-2 lg:order-1 space-y-10">
+<div class="flex items-center gap-4 text-outline font-label text-[10px] uppercase tracking-[0.2em]"><span class="w-12 h-[1px] bg-outline/30"></span> SĂNĂTATE SISTEMICĂ</div>
+<h2 class="font-headline text-6xl text-on-surface italic text-7xl md:text-8xl">Nutriție pentru slăbit</h2>
+<p class="font-body text-base text-on-surface-variant leading-loose">
+                        Modificările comportamentului alimentar timp de ani de zile generează tulburări hormonale majore ce determină organismul să depoziteze țesut gras la nivel somatic și visceral. Prin urmare, revenirea organismului la un metabolism corect, care să asigure menținerea unei greutăți optime, va necesita o perioadă de cel puțin 3 luni de aplicare a principiilor programului de Recalibrare a Răspunsului Hormonal. Urmărirea și consilierea în această perioadă se fac la un interval de 2–3 săptămâni.
+                    </p>
+<div class="space-y-6 pt-4">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-[#735a42] flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">check</span>
+</div>
+<span class="font-body text-[#5e6058]">Optimizarea metabolismului bazal</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-[#735a42] flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">check</span>
+</div>
+<span class="font-body text-[#5e6058]">Gestionarea sațietății și a poftelor</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-[#735a42] flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[14px]">check</span>
+</div>
+<span class="font-body text-[#5e6058]">Educație pentru menținere pe viață</span>
+</div>
+</div>
+<button class="flex items-center gap-4 group font-label text-[12px] uppercase tracking-[0.2em] font-bold text-primary pt-4">
+                        Detalii Program <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="order-1 lg:order-2">
+<div class="aspect-[16/10] rounded-[2rem] overflow-hidden editorial-shadow">
+<img class="w-full h-full object-cover" data-alt="Elegant flat lay of vibrant healthy vegetables including kale, sweet potatoes, and avocado on a minimalist light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCePsnuFhxZZLN01Kf0qkV2Ae2fS7hbNRwjvx83shZ_E5QYAh7-bGZ8v664yZ-LVxGIaevhnv3kbhPjpPA7VHlciXiJATIiWLbKU1bA1CCiHQVl65Lf3jciF8Ca57Z-pBZaISWMQ-BpG1uUsr94knZc1H5eilDiT-R1MiDkJFzHljkJNonwrIJK5Xkdx_sHJ4p-u7tynjdyoRXxEey3VKjCJRwj6pl0Jk36dLcJI3yTX2bqS2TiKtOA7C_liqrMqRPrwhRM2sOcOgo"/>
+</div>
+</div>
+</div>
+<!-- Nutriție clinică -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center bg-surface-container-low rounded-[4rem] p-12 lg:p-24">
+<div class="lg:col-span-5">
+<div class="aspect-square rounded-[3rem] overflow-hidden editorial-shadow">
+<img class="w-full h-full object-cover" data-alt="Zen-like composition with clear glass of water, essential oils, and a sprig of lavender on a soft linen surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC5tuO3TE4R5vh8lmDuG_PoSGQeXawI0R6c5sNjhg-QuTQqkCbkeWFcHgwS-Fwe0N9mH-HBttlgDN9ZiGbSao_8GdCks9XVycOM327maGx-qOUB62o0HbYB80BbJZ2FnDStXcw6l3l8mJpd9cOZWyUv03EwCrkIY5FQcZRnwrX3eWyvRp608-L01gp9YGNbAVUPli1J9EW94gkWlRE9SE3KQoqwk73aOYnEy23vQrZ-b6d_KOAizfbbwVnZ_bOPhz_5pRYcXdNJew"/>
+</div>
+</div>
+<div class="lg:col-span-7 space-y-10 lg:pl-12">
+<div class="flex items-center gap-4 text-outline font-label text-[10px] uppercase tracking-[0.2em]">
+<span class="w-8 h-[1px] bg-outline/40"></span>
+    SĂNĂTATE SISTEMICĂ
+</div>
+<h2 class="font-headline text-6xl text-on-surface italic text-7xl md:text-8xl">Nutriție clinică</h2>
+<p class="font-body text-base text-on-surface-variant leading-loose">
+                        Condițiile vieții moderne provoacă, într-un număr din ce în ce mai mare, diverse afecțiuni. Ai probleme de digestie, imunitatea ți-a scăzut considerabil, ficatul îți creează disconfort, ai frecvent infecții urinare, stresul ți-a dereglat funcția tiroidiană sau simptomele menopauzei ți-au schimbat drastic viața? Toate se pot optimiza, astfel încât să îți recapeți energia și pofta de viață.
+                    </p>
+<div class="grid grid-cols-2 gap-6 pt-4">
+<div class="flex items-center gap-4 p-5 bg-surface-container-lowest rounded-2xl">
+<span class="material-symbols-outlined text-primary">feed</span>
+<span class="font-label text-[10px] uppercase tracking-[0.15em]">Digestie</span>
+</div>
+<div class="flex items-center gap-4 p-5 bg-surface-container-lowest rounded-2xl">
+<span class="material-symbols-outlined text-primary">self_care</span>
+<span class="font-label text-[10px] uppercase tracking-[0.15em]">Anti-Stres</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Nutriție sportivă -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-10">
+<div class="flex items-center gap-4 text-outline font-label text-[10px] uppercase tracking-[0.2em]">
+<span class="w-8 h-[1px] bg-outline/40"></span>
+    PERFORMANȚĂ &amp; ENERGIE
+</div>
+<h2 class="font-headline text-6xl text-on-surface italic text-7xl md:text-8xl">Nutriție sportivă</h2>
+<p class="font-body text-base text-on-surface-variant leading-loose">
+                        Pentru cei care practică sport de plăcere sau de performanță, nutriția trebuie gândită în funcție de necesitățile fiecăruia. Sunt atleți care, prin natura sportului, trebuie să se concentreze pe forță, viteză de reacție și/sau anduranță. Alimentația, hidratarea și administrarea de suplimente trebuie atent planificate pentru a acoperi nevoile energetice din timpul antrenamentului sau competiției sportive, dar și pentru a permite o recuperare optimă. Totul este personalizat în funcție de vârstă, constituția sportivului, compoziția corporală (masă musculară, grăsime somatică, grăsime viscerală, nivel de hidratare).
+                    </p>
+<div class="flex items-center gap-16 pt-4">
+<div class="text-center">
+<div class="font-headline text-5xl text-primary mb-2">94%</div>
+<div class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Recuperare Rapidă</div>
+</div>
+<div class="text-center">
+<div class="font-headline text-5xl text-primary mb-2">2.5x</div>
+<div class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Rezistență Sporită</div>
+</div>
+</div>
+<div class="pt-6">
+<button class="bg-primary text-on-primary px-12 py-5 rounded-full font-label text-[11px] uppercase tracking-[0.2em] hover:bg-primary-dim transition-all">
+                        Solicită Evaluarea
+                    </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow">
+<img class="w-full h-full object-cover" data-alt="Dynamic shot of a focused athlete in a minimalist gym with high ceilings and soft dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX0qHYOnG63_dsXqhiNiJoXUimPYgfwFiSE6pAKrF9CtL5MrhreHJFTfrBd3ZPHe8lIlTfFcOz9GXh80MEwWq1svmD0odsadSsAy53VA-jcO82bgGuV-kcmMfmN95W2MCSAw7psYx3kK5Paz4gPDKMtsBYzGkD-R31EsNzXtqyC373k29C-9x-elkB_-wr9j46J1IJXLx_t5pXY0jupAtBrKfcdawEEPKxwN4TNCOWdXRAeAvZ9HxJaFzEXMRjxnD3_XHkUXw6Mn4"/>
+</div>
+<div class="absolute top-16 -left-12 bg-surface-bright/90 backdrop-blur-md p-10 rounded-3xl editorial-shadow max-w-[280px]">
+<span class="material-symbols-outlined text-secondary text-4xl mb-5">bolt</span>
+<p class="font-headline text-lg italic text-on-surface">"Combustibilul corect transformă efortul în excelență."</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA / Calm Section -->
+<section class="mt-48 text-center py-40 bg-secondary-fixed/20 rounded-[4rem]">
+<div class="max-w-3xl mx-auto space-y-12">
+<h2 class="font-headline text-6xl text-on-surface italic leading-tight text-7xl md:text-8xl">Începe călătoria ta către o viață echilibrată</h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">Suntem aici să te ghidăm cu expertiză clinică și o abordare profund umană. Programează astăzi prima ta discuție.</p>
+<div class="flex flex-wrap justify-center gap-8 pt-8">
+<button class="bg-primary text-on-primary px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] hover:shadow-xl transition-all">Programare Online</button>
+<button class="bg-surface-container-lowest text-on-surface px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] border border-outline-variant/30 hover:bg-surface-container transition-all">Contactează-ne</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-[#f5f4ed] dark:bg-[#1f1f1f] border-t border-[#b1b3a9]/15">
+<div class="flex flex-col items-center py-20 px-8 gap-8 max-w-[1440px] mx-auto">
+<div class="font-serif text-xl Newsreader italic text-[#5f5e5e] dark:text-[#faf7f6]">
+            Dr. Camelia Ștefănescu
+        </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-sans text-xs uppercase tracking-widest Manrope text-[#5f5e5e]/50 dark:text-[#faf7f6]/50 hover:text-[#5f5e5e] dark:hover:text-[#faf7f6] transition-colors ease-in-out duration-200" href="#">Termeni și Condiții</a>
+<a class="font-sans text-xs uppercase tracking-widest Manrope text-[#5f5e5e]/50 dark:text-[#faf7f6]/50 hover:text-[#5f5e5e] dark:hover:text-[#faf7f6] transition-colors ease-in-out duration-200" href="#">Politica de Confidențialitate</a>
+<a class="font-sans text-xs uppercase tracking-widest Manrope text-[#5f5e5e]/50 dark:text-[#faf7f6]/50 hover:text-[#5f5e5e] dark:hover:text-[#faf7f6] transition-colors ease-in-out duration-200" href="#">Întrebări Frecvente</a>
+</nav>
+<div class="font-sans text-xs uppercase tracking-widest Manrope text-[#5f5e5e] dark:text-[#faf7f6] mt-4">
+            © 2024 Dr. Camelia Ștefănescu. Editorial Wellness System.
+        </div>
+</div>
+</footer>
+</body></html>

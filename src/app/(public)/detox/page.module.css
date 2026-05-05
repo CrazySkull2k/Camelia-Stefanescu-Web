@@ -1,0 +1,123 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.card {
+  border-radius: 34px;
+  border: 1px solid rgba(20, 20, 20, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 242, 0.96), rgba(255, 255, 255, 1));
+  box-shadow: 0 24px 64px rgba(92, 58, 38, 0.08);
+}
+
+.primaryCard {
+  padding: 42px 38px;
+  min-height: 100%;
+}
+
+.secondaryCard {
+  padding: 38px 34px;
+}
+
+.wideCard {
+  grid-column: 1 / -1;
+  padding: 42px 38px 38px;
+}
+
+.cardTitle {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.cardText {
+  margin-bottom: 0 !important;
+  color: #2b2b2b;
+  font-size: 17px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.benefitsGrid {
+  --benefits-gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--benefits-gap);
+  margin-top: 28px;
+}
+
+.benefitCard {
+  border-radius: 24px;
+  border: 1px solid rgba(116, 75, 54, 0.12);
+  background: linear-gradient(180deg, rgba(247, 252, 251, 1), rgba(239, 248, 246, 1));
+  padding: 24px 22px;
+  text-align: center;
+}
+
+.benefitCard:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - var(--benefits-gap)) / 2);
+}
+
+.benefitText {
+  margin-bottom: 0 !important;
+  color: #2b2b2b;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+@media (max-width: 1199px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .wideCard {
+    grid-column: auto;
+  }
+
+  .primaryCard,
+  .secondaryCard,
+  .wideCard {
+    padding: 36px 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .layout {
+    gap: 20px;
+  }
+
+  .card {
+    border-radius: 24px;
+  }
+
+  .primaryCard,
+  .secondaryCard,
+  .wideCard {
+    padding: 28px 22px;
+  }
+
+  .cardText {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .benefitsGrid {
+    --benefits-gap: 14px;
+    grid-template-columns: 1fr;
+    margin-top: 22px;
+  }
+
+  .benefitCard {
+    border-radius: 18px;
+    padding: 20px 18px;
+  }
+
+  .benefitCard:last-child:nth-child(odd) {
+    width: 100%;
+  }
+}

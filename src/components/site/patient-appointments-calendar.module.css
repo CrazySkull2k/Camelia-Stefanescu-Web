@@ -1,0 +1,410 @@
+.dayTileInner {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.dayTileHeader {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.dayTileDateNumber {
+  color: #31332c;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.dayTileCountBadge {
+  align-items: center;
+  background: #5f5e5e;
+  border-radius: 999px;
+  color: white;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  justify-content: center;
+  letter-spacing: 0.18em;
+  padding: 0.125rem 0.5rem;
+  text-transform: uppercase;
+}
+
+.dayTileRail {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+}
+
+.dayTileRailStacked {
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.dayTilePill {
+  background: #efeee6;
+  border-radius: 999px;
+  color: #5e6058;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+
+.dayTileMoreBadge {
+  background: #f9f3ea;
+  border-radius: 999px;
+  color: #654d35;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.25rem 0.55rem;
+}
+
+.selectedWeek {
+  --morph-expanded-height: 5.5rem;
+  --selected-day-duration: 420ms;
+  --selected-day-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  height: var(--morph-expanded-height);
+  min-height: 5.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.selectedWeekClosing {
+  pointer-events: none;
+}
+
+.calendarDayBase {
+  transition:
+    opacity var(--selected-day-duration) var(--selected-day-easing),
+    transform var(--selected-day-duration) var(--selected-day-easing);
+  will-change: opacity, transform;
+}
+
+.calendarDayShifted {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(var(--shift-x)) scale(0.82);
+}
+
+.calendarDayReturning {
+  opacity: 1;
+  pointer-events: none;
+  transform: translateX(0) scale(1);
+}
+
+.calendarDayPlaceholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.morphCard {
+  overflow: hidden;
+  position: absolute;
+  transition:
+    left var(--selected-day-duration) var(--selected-day-easing),
+    top var(--selected-day-duration) var(--selected-day-easing),
+    width var(--selected-day-duration) var(--selected-day-easing),
+    height var(--selected-day-duration) var(--selected-day-easing),
+    background-color var(--selected-day-duration) var(--selected-day-easing),
+    border-color var(--selected-day-duration) var(--selected-day-easing),
+    box-shadow var(--selected-day-duration) var(--selected-day-easing),
+    border-radius var(--selected-day-duration) var(--selected-day-easing);
+  will-change:
+    left,
+    top,
+    width,
+    height,
+    background-color,
+    border-color,
+    box-shadow,
+    border-radius;
+  z-index: 4;
+}
+
+.morphCardCollapsed {
+  background: #ffffff;
+  border: 1px solid rgb(177 179 169 / 0.12);
+  border-radius: 1.15rem;
+  box-shadow: 0 0 0 rgb(49 51 44 / 0);
+}
+
+.morphCardExpanded {
+  background: #ffdcbd;
+  border: 1px solid #f0cfb0;
+  border-radius: 1.45rem;
+  box-shadow: none;
+  max-height: var(--morph-expanded-height);
+  min-height: var(--morph-expanded-height);
+}
+
+.morphCardInteractive {
+  pointer-events: auto;
+}
+
+.morphInner {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.morphDateNumber {
+  color: #31332c;
+  font-size: 0.875rem;
+  font-weight: 600;
+  left: var(--morph-date-left, 0.75rem);
+  line-height: 1;
+  position: absolute;
+  top: var(--morph-date-top, 0.75rem);
+  transition:
+    color var(--selected-day-duration) var(--selected-day-easing),
+    font-size var(--selected-day-duration) var(--selected-day-easing),
+    left var(--selected-day-duration) var(--selected-day-easing),
+    top var(--selected-day-duration) var(--selected-day-easing);
+}
+
+.morphDateNumberExpanded {
+  color: #654d35;
+  font-size: 0.95rem;
+  left: 1rem;
+  top: 1rem;
+}
+
+.morphCountBadge {
+  align-items: center;
+  background: #5f5e5e;
+  border-radius: 999px;
+  box-sizing: border-box;
+  box-shadow: 0 0 0 rgb(49 51 44 / 0);
+  color: white;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  height: var(--morph-count-height, auto);
+  justify-content: center;
+  letter-spacing: 0.18em;
+  line-height: normal;
+  padding: 0.125rem 0.5rem;
+  position: absolute;
+  right: var(--morph-count-right, 0.75rem);
+  text-transform: uppercase;
+  top: var(--morph-count-top, 0.5rem);
+  white-space: nowrap;
+  width: var(--morph-count-width, auto);
+  transition:
+    background-color var(--selected-day-duration) var(--selected-day-easing),
+    box-shadow var(--selected-day-duration) var(--selected-day-easing),
+    color var(--selected-day-duration) var(--selected-day-easing),
+    height var(--selected-day-duration) var(--selected-day-easing),
+    font-size var(--selected-day-duration) var(--selected-day-easing),
+    padding var(--selected-day-duration) var(--selected-day-easing),
+    right var(--selected-day-duration) var(--selected-day-easing),
+    top var(--selected-day-duration) var(--selected-day-easing),
+    transform var(--selected-day-duration) var(--selected-day-easing),
+    width var(--selected-day-duration) var(--selected-day-easing);
+}
+
+.morphCountBadgeExpanded {
+  background: rgb(255 255 255 / 0.68);
+  box-shadow: none;
+  color: #654d35;
+  font-size: 0.62rem;
+  height: auto;
+  padding: 0.2rem 0.6rem;
+  right: 4.2rem;
+  top: 0.95rem;
+  transform: translateY(0) scale(1);
+  width: auto;
+}
+
+.morphDateMeta {
+  left: 3rem;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% + 8px));
+  transition:
+    opacity 240ms var(--selected-day-easing),
+    transform 240ms var(--selected-day-easing);
+  white-space: nowrap;
+}
+
+.morphDateMetaExpanded {
+  opacity: 1;
+  transform: translateY(-50%);
+  transition-delay: 100ms;
+}
+
+.morphPrimaryRail {
+  align-items: flex-start;
+  bottom: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  left: var(--morph-rail-left, 0.75rem);
+  position: absolute;
+  right: var(--morph-rail-right, 0.75rem);
+  top: var(--morph-rail-top, 2.4rem);
+  transition:
+    gap var(--selected-day-duration) var(--selected-day-easing),
+    left var(--selected-day-duration) var(--selected-day-easing),
+    right var(--selected-day-duration) var(--selected-day-easing),
+    top var(--selected-day-duration) var(--selected-day-easing),
+    transform var(--selected-day-duration) var(--selected-day-easing);
+}
+
+.morphPrimaryRailExpanded {
+  align-content: center;
+  align-items: center;
+  display: grid;
+  gap: 0.38rem 0.5rem;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat(auto-fit, minmax(4.45rem, max-content));
+  justify-content: end;
+  justify-items: end;
+  left: clamp(11.25rem, 46%, 18rem);
+  right: 4.25rem;
+  top: 0.7rem;
+  transform: none;
+}
+
+.morphPrimaryRailCollapsedStacked {
+  align-items: flex-start;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  right: auto;
+}
+
+.morphPrimaryPill {
+  align-items: center;
+  appearance: none;
+  background: #efeee6;
+  border: 0;
+  border-radius: 999px;
+  color: #5e6058;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  pointer-events: none;
+  transition:
+    background-color var(--selected-day-duration) var(--selected-day-easing),
+    box-shadow var(--selected-day-duration) var(--selected-day-easing),
+    color var(--selected-day-duration) var(--selected-day-easing),
+    font-size var(--selected-day-duration) var(--selected-day-easing),
+    padding var(--selected-day-duration) var(--selected-day-easing),
+    transform var(--selected-day-duration) var(--selected-day-easing);
+}
+
+.morphPrimaryPillExpanded {
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgb(101 77 53 / 0.08);
+  color: #654d35;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 0.42rem 0.82rem;
+  pointer-events: auto;
+}
+
+.morphPrimaryPillExpanded:hover {
+  background: #fff8f1;
+  box-shadow: 0 12px 22px rgb(101 77 53 / 0.14);
+  color: #4f3b27;
+  transform: translateY(-1px);
+}
+
+.morphPrimaryPillExpanded:focus-visible {
+  background: #fff8f1;
+  box-shadow:
+    0 0 0 2px rgb(255 255 255 / 0.96),
+    0 0 0 4px rgb(101 77 53 / 0.22),
+    0 12px 22px rgb(101 77 53 / 0.14);
+  color: #4f3b27;
+  outline: none;
+}
+
+.morphMoreBadge {
+  align-items: center;
+  background: #f9f3ea;
+  border-radius: 999px;
+  color: #654d35;
+  display: inline-flex;
+  font-size: 0.62rem;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1;
+  padding: 0.25rem 0.55rem;
+  transition:
+    opacity 220ms var(--selected-day-easing),
+    transform 220ms var(--selected-day-easing);
+}
+
+.morphMoreBadgeHidden {
+  opacity: 0;
+  transform: translateY(6px) scale(0.86);
+}
+
+.morphCloseButton {
+  align-items: center;
+  background: rgb(255 255 255 / 0.8);
+  border-radius: 999px;
+  color: #654d35;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(calc(-50% - 6px)) scale(0.92);
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    opacity 220ms var(--selected-day-easing),
+    transform 220ms var(--selected-day-easing);
+  width: 2.5rem;
+}
+
+.morphCloseButtonExpanded {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+  transition-delay: 110ms;
+}
+
+.morphCloseButtonExpanded:hover {
+  background: white;
+  color: #252c28;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .selectedWeek,
+  .calendarDayBase,
+  .morphCard,
+  .morphDateNumber,
+  .morphCountBadge,
+  .morphDateMeta,
+  .morphPrimaryRail,
+  .morphPrimaryPill,
+  .morphMoreBadge,
+  .morphCloseButton {
+    transition: none;
+  }
+}

@@ -1,0 +1,479 @@
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-top: clamp(2.25rem, 4vw, 3.75rem);
+  border-top: 1px solid rgba(116, 75, 54, 0.08);
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255, 220, 189, 0.58), transparent 28rem),
+    radial-gradient(circle at 88% 8%, rgba(236, 205, 185, 0.38), transparent 24rem),
+    linear-gradient(180deg, #fff8f2 0%, #fbf1e9 46%, #f5e4d5 100%);
+  color: #2c2e35;
+}
+
+.glowOne,
+.glowTwo {
+  position: absolute;
+  z-index: 0;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(76px);
+}
+
+.glowOne {
+  right: -8rem;
+  bottom: 8rem;
+  background: rgba(255, 220, 189, 0.68);
+}
+
+.glowTwo {
+  left: -9rem;
+  bottom: -5rem;
+  background: rgba(116, 75, 54, 0.16);
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(1180px, calc(100vw - 2rem));
+  min-height: clamp(16rem, 21vw, 19rem);
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.25vw, 1.15rem);
+  margin: 0 auto;
+  padding: clamp(1rem, 1.65vw, 1.45rem) 0 1rem;
+}
+
+.introGrid,
+.nav,
+.contactGrid,
+.logoRail,
+.bottomBar {
+  position: relative;
+  z-index: 2;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.8fr);
+  gap: clamp(0.85rem, 1.7vw, 1.6rem);
+  align-items: center;
+}
+
+.brandPanel {
+  display: flex;
+  min-height: 5.6rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.35rem;
+  color: #735a42;
+  font-family: var(--app-font-sans);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 13ch;
+  margin: 0;
+  color: #221d18;
+  font-family: var(--app-font-serif);
+  font-size: clamp(1.85rem, 3.45vw, 3.15rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 0.86;
+}
+
+.description {
+  max-width: 31rem;
+  margin: 0.35rem 0 0;
+  color: rgba(44, 46, 53, 0.78);
+  font-family: var(--app-font-sans);
+  font-size: clamp(0.82rem, 0.9vw, 0.9rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.ctaPanel {
+  display: grid;
+  align-content: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(116, 75, 54, 0.12);
+  border-radius: 1.1rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 242, 0.68));
+  box-shadow:
+    0 28px 80px rgba(92, 58, 38, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+  padding: clamp(0.62rem, 0.95vw, 0.82rem);
+  backdrop-filter: blur(16px);
+}
+
+.ctaIcon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.78rem;
+  background: #23272b;
+  color: #fff8f2;
+  box-shadow: 0 18px 35px rgba(35, 39, 43, 0.18);
+}
+
+.ctaIcon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.ctaKicker {
+  margin: 0 0 0.18rem;
+  color: #735a42;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ctaTitle {
+  margin: 0;
+  color: #221d18;
+  font-family: var(--app-font-serif);
+  font-size: clamp(1.22rem, 1.7vw, 1.55rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+.ctaCopy {
+  margin: 0.25rem 0 0;
+  color: rgba(44, 46, 53, 0.72);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ctaLink {
+  display: inline-flex;
+  min-height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  border-radius: 999px;
+  background: #23272b;
+  color: #fff8f2;
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 0 1rem;
+  text-decoration: none;
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.ctaLink:hover,
+.ctaLink:focus-visible {
+  background: #121417;
+  box-shadow: 0 16px 34px rgba(18, 20, 23, 0.2);
+  color: #fff8f2;
+  transform: translateY(-1px);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.45rem;
+  border-block: 1px solid rgba(116, 75, 54, 0.1);
+  padding: 0.62rem 0;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(116, 75, 54, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.44);
+  color: #3a342e;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0.55rem 0.78rem;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  border-color: rgba(116, 75, 54, 0.22);
+  background: #ffffff;
+  color: #221d18;
+  transform: translateY(-1px);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 11.5rem));
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: clamp(0.7rem, 1.4vw, 1.2rem);
+}
+
+.contactCard {
+  display: flex;
+  min-width: 0;
+  gap: 0.65rem;
+  align-items: center;
+  border: 1px solid rgba(116, 75, 54, 0.1);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.52);
+  color: #2d2925;
+  padding: 0.68rem 0.8rem;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.contactCard:hover,
+.contactCard:focus-visible {
+  border-color: rgba(116, 75, 54, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 34px rgba(92, 58, 38, 0.09);
+  color: #221d18;
+  transform: translateY(-2px);
+}
+
+.contactIcon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.75rem;
+  background: #ffdcbd;
+  color: #654d35;
+}
+
+.contactIcon svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.contactTitle,
+.contactLabel {
+  display: block;
+}
+
+.contactTitle {
+  margin-bottom: 0.18rem;
+  color: #735a42;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.contactLabel {
+  color: #2c2e35;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.brandWord {
+  position: absolute;
+  z-index: 0;
+  right: 50%;
+  bottom: 4.5rem;
+  width: max-content;
+  max-width: 96vw;
+  transform: translateX(50%);
+  background: linear-gradient(
+    180deg,
+    rgba(34, 29, 24, 0.14),
+    rgba(34, 29, 24, 0.055) 54%,
+    rgba(34, 29, 24, 0)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: var(--app-font-sans);
+  font-size: clamp(3rem, 11.5vw, 8.4rem);
+  font-weight: 900;
+  letter-spacing: -0.095em;
+  line-height: 0.78;
+  pointer-events: none;
+  text-align: center;
+  user-select: none;
+}
+
+.logoRail {
+  display: flex;
+  min-height: 5.6rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.railLine {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(116, 75, 54, 0.24),
+    transparent
+  );
+}
+
+.logoCard {
+  position: relative;
+  display: inline-flex;
+  width: clamp(8rem, 14vw, 10.4rem);
+  min-height: clamp(3.9rem, 5.6vw, 4.6rem);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(145deg, rgba(44, 46, 53, 0.96), rgba(25, 24, 22, 0.98));
+  box-shadow:
+    0 26px 70px rgba(44, 46, 53, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 0.78rem;
+  text-decoration: none;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.logoCard:hover,
+.logoCard:focus-visible {
+  box-shadow:
+    0 30px 78px rgba(44, 46, 53, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.logo {
+  width: min(100%, 8.2rem);
+  height: auto;
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(44, 46, 53, 0.68);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.bottomBar p {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .shell {
+    width: min(720px, calc(100vw - 1.5rem));
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .brandPanel {
+    min-height: auto;
+    text-align: center;
+  }
+
+  .title,
+  .description {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .ctaPanel {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .ctaLink {
+    justify-self: center;
+  }
+
+  .contactGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    margin-top: 2rem;
+  }
+
+  .shell {
+    width: min(100vw - 1rem, 32rem);
+    min-height: 0;
+    padding-top: 1.45rem;
+  }
+
+  .title {
+    font-size: clamp(1.9rem, 10vw, 2.8rem);
+  }
+
+  .description {
+    font-size: 0.86rem;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+
+  .navLink {
+    flex: 1 1 calc(50% - 0.4rem);
+    justify-content: center;
+  }
+
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .brandWord {
+    bottom: 4.45rem;
+    font-size: clamp(2.75rem, 17vw, 4.75rem);
+  }
+
+  .logoRail {
+    min-height: 5.25rem;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+  }
+}

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ro"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ce putem trata - Dr. Camelia Ștefănescu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500;1,6..72,600;1,6..72,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#93000a",
+                      "outline": "#89726c",
+                      "surface-variant": "#e5e2df",
+                      "on-surface": "#1c1b1a",
+                      "surface-bright": "#fdf9f6",
+                      "surface-container-low": "#f7f3f0",
+                      "on-secondary-fixed-variant": "#1f4e4e",
+                      "inverse-primary": "#ffb4a2",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e5e2df",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#a0cfcf",
+                      "on-tertiary-container": "#fffbff",
+                      "on-surface-variant": "#56423d",
+                      "tertiary": "#7f521f",
+                      "inverse-on-surface": "#f4f0ed",
+                      "surface-container-high": "#ebe7e4",
+                      "surface": "#fdf9f6",
+                      "primary-container": "#b9573e",
+                      "tertiary-fixed-dim": "#f7bb7e",
+                      "secondary": "#386666",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#2c1600",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed-variant": "#7e2b16",
+                      "on-secondary-fixed": "#002020",
+                      "primary-fixed-dim": "#ffb4a2",
+                      "on-tertiary-fixed-variant": "#663d0b",
+                      "on-primary-fixed": "#3c0800",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "surface-container": "#f1edea",
+                      "background": "#fdf9f6",
+                      "on-primary-container": "#fffbff",
+                      "primary-fixed": "#ffdbd2",
+                      "on-background": "#1c1b1a",
+                      "surface-dim": "#ddd9d6",
+                      "tertiary-container": "#9b6a35",
+                      "outline-variant": "#dcc0ba",
+                      "on-secondary-container": "#3d6a6a",
+                      "secondary-fixed": "#bcebeb",
+                      "inverse-surface": "#31302f",
+                      "surface-tint": "#9d422b",
+                      "secondary-container": "#b9e9e8",
+                      "tertiary-fixed": "#ffdcbd",
+                      "primary": "#9a4028"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Newsreader"
+                      ],
+                      "body": [
+                              "Manrope"
+                      ],
+                      "label": [
+                              "Manrope"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          .glass-nav {
+              background: rgba(253, 249, 246, 0.8);
+              backdrop-filter: blur(16px);
+              -webkit-backdrop-filter: blur(16px);
+          }
+          .organic-mask-1 {
+              mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.3,-46.3C90.8,-33.5,96.8,-18.1,96.5,-2.9C96.2,12.3,89.5,27.3,80.1,40.1C70.7,52.9,58.6,63.5,44.5,71.8C30.4,80.1,14.3,86.1,-1.5,88.7C-17.3,91.3,-32.8,90.5,-46.5,83.1C-60.2,75.7,-72.1,61.7,-80.7,46.1C-89.3,30.5,-94.6,13.3,-93.2,-3.4C-91.8,-20.1,-83.7,-36.3,-72.4,-49.4C-61.1,-62.5,-46.6,-72.5,-31.6,-78.9C-16.6,-85.3,-1.1,-88.1,13.8,-86.3C28.7,-84.5,43,-78.1,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+              mask-size: cover;
+              mask-position: center;
+              mask-repeat: no-repeat;
+          }
+          .hotspot {
+              position: absolute;
+              width: 32px;
+              height: 32px;
+              background-color: theme('colors.primary');
+              color: theme('colors.on-primary');
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: theme('fontFamily.label');
+              font-size: 14px;
+              font-weight: 700;
+              box-shadow: 0 4px 12px rgba(154, 64, 40, 0.3);
+              cursor: pointer;
+              transition: transform 0.3s ease, background-color 0.3s ease;
+              border: 2px solid rgba(255,255,255,0.6);
+          }
+          .hotspot:hover {
+              transform: scale(1.15);
+              background-color: theme('colors.secondary');
+          }
+          .condition-row {
+              transition: all 0.3s ease;
+              cursor: pointer;
+          }
+          .condition-row:hover {
+              background-color: theme('colors.surface-container-low');
+          }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-primary/20 selection:text-primary">
+<!-- TopNavBar -->
+<header class="glass-nav sticky top-0 z-50 w-full shadow-none border-none">
+<div class="flex justify-between items-center px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="font-headline text-2xl font-semibold text-[#2B2B2B]">Dr. Camelia Ștefănescu</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-stone-600 font-label font-medium uppercase tracking-widest text-[11px] hover:text-primary transition-colors duration-300" href="#">Terapii</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label uppercase tracking-widest text-[11px] hover:text-primary transition-colors duration-300" href="#">Afecțiuni</a>
+<a class="text-stone-600 font-label font-medium uppercase tracking-widest text-[11px] hover:text-primary transition-colors duration-300" href="#">Despre Clinică</a>
+<a class="text-stone-600 font-label font-medium uppercase tracking-widest text-[11px] hover:text-primary transition-colors duration-300" href="#">Contact</a>
+</nav>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-label font-medium px-6 py-2.5 rounded-full text-sm uppercase tracking-wider hover:opacity-90 transition-opacity scale-95 active:scale-90 transition-transform">
+                Programare
+            </button>
+</div>
+</header>
+<main>
+<!-- Combined Hero & Anatomy Section -->
+<section class="pt-12 pb-16 px-6 md:px-12 max-w-[1400px] mx-auto">
+<div class="w-full bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-[0_32px_64px_-12px_rgba(28,27,26,0.08)] border border-outline-variant/30">
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[900px]">
+<!-- Left Side: Interactive Image Container -->
+<div class="lg:col-span-7 relative bg-[#f7f3f0] overflow-hidden">
+<!-- Background Image Covering Container -->
+<img alt="Anatomical mapping" class="absolute inset-0 w-full h-full object-cover z-0 mix-blend-multiply opacity-90" src="https://lh3.googleusercontent.com/aida/ADBb0uiBZPODpdDe4DC31vA-wSDZFdiMf2XtZqbPOEevQkhK8onh4BEiLBV_mgfMRHywM2ojrqihVgfJGcq7qCpdDE9w_L3mQarpDPw5mvLhuS-oSTDBuYWag-YFK4WwP9_sZ2T8xoPXznqDEMHBI5pX4ZVdjY21ICk6hrE0kC1hd_gNR3rtsqBuTBbrRgytVNNebK7ztc7MD60dhi4cIHriNHEhGh8mHDrcwUy2nt_7HvcRw513_nnSq85UIBaqUL4d4EF6cV24ns36UA"/>
+<!-- Content Overlay -->
+<div class="absolute inset-0 bg-gradient-to-b from-[#f7f3f0]/80 via-transparent to-transparent z-0 pointer-events-none"></div>
+<div class="relative z-10 p-10 lg:p-16 h-full flex flex-col pointer-events-none">
+<div class="max-w-xl pointer-events-auto">
+<h1 class="font-headline text-5xl md:text-7xl font-light mb-6 leading-tight italic text-[#2B2B2B]">
+                            Ce putem <span class="text-primary font-medium">trata</span>
+</h1>
+<p class="font-body text-lg text-on-surface-variant font-light leading-relaxed">
+                            O abordare modernă și neinvazivă pentru afecțiunile musculo-scheletale. Terapia Shockwave oferă rezultate remarcabile acolo unde alte tratamente au eșuat, redându-vă libertatea de mișcare.
+                        </p>
+</div>
+<!-- Hotspots Container -->
+<div class="absolute inset-0 pointer-events-auto">
+<div class="hotspot" style="top: 66%; left: 45.8%;">1</div>
+<div class="hotspot" style="top: 79.5%; left: 37.8%;">2</div>
+<div class="hotspot" style="top: 69.5%; left: 49.8%;">3</div>
+<div class="hotspot" style="top: 75%; left: 34%;">4</div>
+<div class="hotspot" style="top: 55.5%; left: 72.2%;">5</div>
+<div class="hotspot" style="top: 88.3%; left: 60.8%;">6</div>
+<div class="hotspot" style="top: 48.8%; left: 60.5%;">7</div>
+<div class="hotspot" style="top: 30.5%; left: 55.4%;">8</div>
+<div class="hotspot" style="top: 12.2%; left: 65.4%;">9</div>
+<div class="hotspot" style="top: 21.5%; left: 63.2%;">10</div>
+</div>
+</div>
+</div>
+<!-- Right Side: Clinical List -->
+<div class="lg:col-span-5 bg-surface-container-lowest p-10 lg:p-16 flex flex-col justify-center">
+<h2 class="font-headline text-3xl text-[#2B2B2B] mb-8">Afecțiuni vizate frecvent</h2>
+<div class="flex-grow flex flex-col">
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">1</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Epicondilita laterală</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">2</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Leziuni ale coifului rotatorilor</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">3</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Epicondilita medială</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">4</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Puncte trigger</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">5</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Pseudoartroză</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">6</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Bursita trohanteriană</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">7</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Tendinita patelară</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">8</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Periostita tibială</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">9</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Fascita plantară</span>
+</div>
+<div class="condition-row flex items-center gap-6 py-4 px-4 rounded-xl">
+<span class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">10</span>
+<span class="font-body text-[1.1rem] text-[#2B2B2B]">Tendinita ahileană</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Supporting Text Section -->
+<section class="py-24 px-6 md:px-12 bg-surface-container-low relative overflow-hidden mt-16">
+<div class="absolute top-[-50%] right-[-10%] w-[60vw] h-[60vw] bg-surface rounded-full blur-[100px] -z-10 opacity-70"></div>
+<div class="max-w-4xl mx-auto text-center">
+<p class="font-headline text-3xl md:text-4xl text-[#2B2B2B] leading-snug mb-8">
+                    "Dacă ați fost diagnosticat cu una din afecțiunile de mai sus, nu vă obișnuiți să trăiți cu durerea."
+                </p>
+<p class="font-body text-lg text-on-surface-variant font-light leading-relaxed max-w-2xl mx-auto">
+                    Toate aceste afecțiuni pot fi vindecate sau ameliorate. În anumite situații, chiar după prima ședință, durerea scade până la dispariție. Abordarea noastră pune accent pe recuperarea rapidă și de lungă durată.
+                </p>
+</div>
+</section>
+<!-- "Alte indicații" Section -->
+<section class="py-24 px-6 md:px-12 max-w-screen-xl mx-auto">
+<div class="mb-16 flex flex-col md:flex-row justify-between items-end gap-8">
+<div>
+<h2 class="font-headline text-4xl text-[#2B2B2B] italic mb-4">Alte indicații terapeutice</h2>
+<p class="font-body text-on-surface-variant max-w-md">Terapia cu unde de șoc și-a dovedit eficacitatea într-un spectru larg de afecțiuni, depășind sfera strict ortopedică.</p>
+</div>
+<div class="hidden md:block w-32 h-px bg-outline-variant/40"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_10px_30px_rgba(28,27,26,0.03)] group hover:shadow-[0_20px_40px_rgba(28,27,26,0.08)] transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
+<h3 class="font-headline text-2xl text-[#2B2B2B] mb-4">Dermatologie</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Tratament eficient pentru regenerarea țesuturilor cutanate compromise.</p>
+<ul class="font-body text-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">healing</span> Arsuri</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">healing</span> Cicatrici</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">healing</span> Răni greu vindecabile</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">healing</span> Acnee</li>
+</ul>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_10px_30px_rgba(28,27,26,0.03)] group hover:shadow-[0_20px_40px_rgba(28,27,26,0.08)] transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
+<h3 class="font-headline text-2xl text-[#2B2B2B] mb-4">Afecțiuni Diabetice</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Stimularea vascularizației pentru complicațiile specifice diabetului.</p>
+<ul class="font-body text-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">vital_signs</span> Picior diabetic</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">vital_signs</span> Ulcere varicoase</li>
+</ul>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_10px_30px_rgba(28,27,26,0.03)] group hover:shadow-[0_20px_40px_rgba(28,27,26,0.08)] transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
+<h3 class="font-headline text-2xl text-[#2B2B2B] mb-4">Sănătate Intimă</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Terapii non-invazive pentru îmbunătățirea calității vieții.</p>
+<ul class="font-body text-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">male</span> Disfuncții erectile</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">male</span> Boală Peyronie</li>
+</ul>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_10px_30px_rgba(28,27,26,0.03)] group hover:shadow-[0_20px_40px_rgba(28,27,26,0.08)] transition-all duration-500 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
+<h3 class="font-headline text-2xl text-[#2B2B2B] mb-4">Stomatologie</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Sprijin în regenerarea țesuturilor gingivale.</p>
+<ul class="font-body text-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">dentistry</span> Parodontoză</li>
+</ul>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-[0_10px_30px_rgba(28,27,26,0.03)] group hover:shadow-[0_20px_40px_rgba(28,27,26,0.08)] transition-all duration-500 relative overflow-hidden lg:col-span-2">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary-container transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500"></div>
+<div class="flex flex-col md:flex-row gap-8 items-center">
+<div class="flex-1">
+<h3 class="font-headline text-2xl text-[#2B2B2B] mb-4">Estetică</h3>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed mb-6">Tratamentul celulitei prin tehnologie acustică avansată, îmbunătățind elasticitatea pielii și stimulând producția de colagen.</p>
+<ul class="font-body text-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">spa</span> Tratamentul celulitei (toate stadiile)</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[18px]">spa</span> Remodelare corporală</li>
+</ul>
+</div>
+<div class="w-full md:w-1/3 aspect-square organic-mask-1 bg-surface-container">
+<img alt="Spa and wellness aesthetic" class="w-full h-full object-cover" data-alt="soft minimalist abstract composition of smooth stones and water ripples in neutral warm tones spa aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBek6-vT97C8WShng9aw4WKyvxEQMEeol-BClTTt_8r3mES83W0DEqxAhtIFaJYOIoozOTsgUm5PyjePJBQ_DWe63cWydO9eS2N0bDHUUnDJ7HUc-Z71j7crAuvR7uok6IQGTQpbyrW4ol7wfDYTgLJ-hQSXle_d8G0KnXKCFNp541qgeczffRFc-BPf2r5Jw1BSHityk6srCwYRUn1eisTHbGooueBcUI6fSNA-oZAEdkrUQWysN99rxdcNi98BjoQsFnLw4soTQE"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full mt-20 border-t border-outline-variant/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 gap-8 max-w-screen-2xl mx-auto">
+<div class="font-headline text-xl italic text-[#2B2B2B]">
+                © 2024 Dr. Camelia Ștefănescu. Arta Recuperării Medicale.
+            </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="text-stone-500 font-body text-sm tracking-normal hover:text-stone-900 transition-all" href="#">Politică Confidențialitate</a>
+<a class="text-stone-500 font-body text-sm tracking-normal hover:text-stone-900 transition-all" href="#">Termeni și Condiții</a>
+<a class="text-stone-500 font-body text-sm tracking-normal hover:text-stone-900 transition-all" href="#">ANPC</a>
+<a class="text-stone-500 font-body text-sm tracking-normal hover:text-stone-900 transition-all" href="#">Contact</a>
+</nav>
+</div>
+</footer>
+</body></html>

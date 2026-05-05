@@ -1,0 +1,162 @@
+.stack {
+  display: grid;
+  gap: 28px;
+}
+
+.panel {
+  border-radius: 34px;
+  border: 1px solid rgba(20, 20, 20, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 242, 0.96), rgba(255, 255, 255, 1));
+  box-shadow: 0 24px 64px rgba(92, 58, 38, 0.08);
+  padding: 42px 38px;
+}
+
+.panelAccent {
+  background: linear-gradient(180deg, rgba(247, 252, 251, 1), rgba(239, 248, 246, 1));
+}
+
+.panelTitle {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.panelBody {
+  color: #2b2b2b;
+  font-size: 17px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+.panelBody p {
+  margin-bottom: 0;
+}
+
+.panelBody p + p {
+  margin-top: 18px;
+}
+
+.illustrationWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.illustration {
+  width: min(100%, 540px);
+  height: auto;
+}
+
+.splitPanel {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.splitPanelReverse {
+  grid-template-columns: minmax(0, 1fr) 250px;
+}
+
+.splitPanelReverse .imageWrap {
+  order: 2;
+}
+
+.splitPanelReverse .textWrap {
+  order: 1;
+}
+
+.textWrap {
+  width: 100%;
+}
+
+.imageWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.sectionImage {
+  width: 250px;
+  height: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.gridCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  border-radius: 24px;
+  border: 1px solid rgba(116, 75, 54, 0.12);
+  background: linear-gradient(180deg, rgba(247, 252, 251, 1), rgba(239, 248, 246, 1));
+  padding: 24px 22px;
+  text-align: center;
+}
+
+.gridCardText {
+  margin-bottom: 0;
+  color: #2b2b2b;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.gridCard:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - 18px) / 2);
+}
+
+@media (max-width: 1199px) {
+  .panel {
+    padding: 36px 30px;
+  }
+
+  .splitPanel,
+  .splitPanelReverse {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .splitPanelReverse .imageWrap,
+  .splitPanelReverse .textWrap {
+    order: initial;
+  }
+}
+
+@media (max-width: 767px) {
+  .stack {
+    gap: 20px;
+  }
+
+  .panel {
+    border-radius: 24px;
+    padding: 28px 22px;
+  }
+
+  .panelBody {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .gridCard {
+    min-height: 0;
+    border-radius: 18px;
+    padding: 20px 18px;
+  }
+
+  .gridCard:last-child:nth-child(odd) {
+    width: 100%;
+  }
+}

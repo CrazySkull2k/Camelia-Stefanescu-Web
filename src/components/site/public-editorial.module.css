@@ -1,0 +1,570 @@
+.page {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(232, 210, 184, 0.26), transparent 26%),
+    radial-gradient(circle at top right, rgba(208, 219, 212, 0.22), transparent 24%),
+    linear-gradient(180deg, #fffaf4 0%, #fbf8f1 46%, #f7f2e9 100%);
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 999px;
+  filter: blur(120px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.page::before {
+  top: 8rem;
+  left: -10rem;
+  width: 22rem;
+  height: 22rem;
+  background: rgba(219, 191, 164, 0.34);
+}
+
+.page::after {
+  right: -8rem;
+  bottom: 8rem;
+  width: 24rem;
+  height: 24rem;
+  background: rgba(190, 208, 200, 0.24);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(84rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 7.5rem 0 5rem;
+}
+
+.heroGrid {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.heroEyebrow {
+  margin: 0;
+  color: #7f705d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 1rem 0 0;
+  color: #262a25;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3rem, 6.5vw, 5.35rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.94;
+}
+
+.heroDescription {
+  margin: 1.1rem 0 0;
+  max-width: 42rem;
+  color: #64665f;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+
+.heroMetaCard {
+  display: grid;
+  gap: 1rem;
+  border: 1px solid rgba(149, 123, 102, 0.14);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 1.45rem 1.4rem;
+  box-shadow: 0 22px 50px rgba(79, 58, 39, 0.06);
+}
+
+.heroImageFrame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.4rem;
+  border: 1px solid rgba(149, 123, 102, 0.12);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 28px 70px rgba(79, 58, 39, 0.08);
+}
+
+.heroImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.section {
+  margin-top: 3rem;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: 0.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.sectionKicker {
+  margin: 0;
+  color: #7f705d;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 0;
+  color: #262a25;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.sectionDescription {
+  margin: 0;
+  max-width: 50rem;
+  color: #64665f;
+  font-size: 0.98rem;
+  line-height: 1.85;
+}
+
+.metricGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2.25rem;
+}
+
+.metricCard {
+  border: 1px solid rgba(149, 123, 102, 0.12);
+  border-radius: 1.75rem;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 1.35rem 1.25rem;
+  box-shadow: 0 18px 40px rgba(79, 58, 39, 0.05);
+}
+
+.metricValue {
+  margin: 0;
+  color: #262a25;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.metricLabel {
+  margin: 0.7rem 0 0;
+  color: #6a655e;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.cardGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cardGridTwo {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  height: 100%;
+  border: 1px solid rgba(149, 123, 102, 0.14);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 1.5rem;
+  box-shadow: 0 22px 50px rgba(79, 58, 39, 0.06);
+}
+
+.cardSoft {
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.cardPeach {
+  background: rgba(255, 220, 189, 0.42);
+  border-color: rgba(166, 121, 88, 0.18);
+}
+
+.cardSage {
+  background: rgba(234, 242, 238, 0.84);
+  border-color: rgba(144, 164, 156, 0.18);
+}
+
+.cardDark {
+  background: #2a2f2c;
+  border-color: rgba(255, 255, 255, 0.06);
+  color: #faf7f1;
+}
+
+.cardMeta {
+  margin: 0;
+  color: #7f705d;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  margin: 0.9rem 0 0;
+  color: #262a25;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.cardDark .cardMeta {
+  color: rgba(255, 236, 216, 0.74);
+}
+
+.cardDark .cardTitle,
+.cardDark .cardText,
+.cardDark .bulletItem,
+.cardDark .quoteText {
+  color: #faf7f1;
+}
+
+.cardText {
+  margin: 1rem 0 0;
+  color: #5f615a;
+  font-size: 0.95rem;
+  line-height: 1.85;
+}
+
+.bulletList {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bulletItem {
+  position: relative;
+  padding-left: 1rem;
+  color: #5f615a;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.bulletItem::before {
+  content: "";
+  position: absolute;
+  top: 0.72rem;
+  left: 0;
+  width: 0.38rem;
+  height: 0.38rem;
+  border-radius: 999px;
+  background: rgba(166, 121, 88, 0.72);
+}
+
+.cardDark .bulletItem::before {
+  background: rgba(255, 220, 189, 0.9);
+}
+
+.quoteCard {
+  border-radius: 2.2rem;
+  background: linear-gradient(145deg, rgba(255, 220, 189, 0.46), rgba(255, 255, 255, 0.78));
+  border: 1px solid rgba(149, 123, 102, 0.12);
+  padding: 1.8rem;
+  box-shadow: 0 22px 50px rgba(79, 58, 39, 0.06);
+}
+
+.quoteText {
+  margin: 0;
+  color: #43382d;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.quoteAuthor {
+  margin: 1rem 0 0;
+  color: #7f705d;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.splitGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  align-items: stretch;
+}
+
+.imageCard {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  border-radius: 2rem;
+  border: 1px solid rgba(149, 123, 102, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 22px 50px rgba(79, 58, 39, 0.06);
+}
+
+.imageCardImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.subtleRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.2rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 102, 81, 0.15);
+  background: rgba(255, 255, 255, 0.74);
+  color: #5a4a3b;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ctaBand {
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto;
+  margin-top: 3rem;
+  border: 1px solid rgba(149, 123, 102, 0.14);
+  border-radius: 2.25rem;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 1.6rem 1.5rem;
+  box-shadow: 0 22px 50px rgba(79, 58, 39, 0.06);
+}
+
+.ctaTitle {
+  margin: 0;
+  color: #262a25;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.ctaText {
+  margin: 0.55rem 0 0;
+  color: #64665f;
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.1rem;
+  padding: 0 1.25rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease;
+}
+
+.primaryButton {
+  border: 1px solid transparent;
+  background: #262b28;
+  color: #fff7f1;
+}
+
+.primaryButton:hover {
+  background: #111311;
+  color: #fff7f1;
+  box-shadow: 0 14px 28px rgba(18, 20, 23, 0.18);
+  transform: translateY(-1px);
+}
+
+.secondaryButton {
+  border: 1px solid rgba(124, 102, 81, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+  color: #5a4a3b;
+}
+
+.secondaryButton:hover {
+  border-color: rgba(124, 102, 81, 0.28);
+  background: rgba(255, 255, 255, 0.92);
+  color: #4d3b2c;
+  box-shadow: 0 16px 28px rgba(98, 80, 63, 0.08);
+  transform: translateY(-1px);
+}
+
+.testimonialGrid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.testimonialCard {
+  display: grid;
+  gap: 1rem;
+  height: 100%;
+  border: 1px solid rgba(149, 123, 102, 0.14);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 1.5rem;
+  box-shadow: 0 22px 50px rgba(79, 58, 39, 0.06);
+}
+
+.testimonialAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.testimonialAvatar {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid rgba(255, 220, 189, 0.7);
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.testimonialAvatarImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonialName {
+  margin: 0;
+  color: #262a25;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.testimonialRole {
+  margin: 0.2rem 0 0;
+  color: #7f705d;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.testimonialQuote {
+  margin: 0;
+  color: #5f615a;
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.numberBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  background: rgba(255, 220, 189, 0.65);
+  color: #6e533d;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+@media (max-width: 1199px) {
+  .heroGrid,
+  .splitGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cardGrid,
+  .testimonialGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: min(100% - 1.25rem, 84rem);
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .section {
+    margin-top: 2.4rem;
+  }
+
+  .metricGrid,
+  .cardGrid,
+  .cardGridTwo,
+  .testimonialGrid,
+  .ctaBand {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .heroImageFrame,
+  .heroMetaCard,
+  .card,
+  .quoteCard,
+  .imageCard,
+  .ctaBand,
+  .testimonialCard {
+    border-radius: 1.6rem;
+  }
+}

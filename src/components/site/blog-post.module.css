@@ -1,0 +1,140 @@
+.article {
+  background:
+    radial-gradient(circle at 15% 6%, rgba(255, 220, 189, 0.24), transparent 32rem),
+    radial-gradient(circle at 90% 18%, rgba(226, 227, 217, 0.42), transparent 28rem),
+    #fbf9f4;
+  color: #31332c;
+}
+
+.label {
+  font-family: var(--font-sans), Manrope, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.body {
+  color: #5e6058;
+  font-family: var(--font-sans), Manrope, sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.body > :global(p:first-child) {
+  color: #31332c;
+  font-size: clamp(1.15rem, 2vw, 1.28rem);
+  line-height: 1.85;
+}
+
+.body > :global(p:first-child::first-letter) {
+  color: #735a42;
+  float: left;
+  font-family: var(--font-serif), Cormorant Garamond, serif;
+  font-size: 5rem;
+  line-height: 0.78;
+  margin: 0.16rem 0.75rem 0 0;
+}
+
+.body :global(p) {
+  margin: 0 0 1.65rem;
+}
+
+.body :global(h2),
+.body :global(h3),
+.body :global(h4) {
+  color: #31332c;
+  font-family: var(--font-serif), Cormorant Garamond, serif;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 3.25rem 0 1.15rem;
+}
+
+.body :global(h2) {
+  font-size: clamp(2.1rem, 5vw, 3.25rem);
+}
+
+.body :global(h3) {
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+
+.body :global(h4) {
+  font-size: clamp(1.4rem, 3vw, 1.85rem);
+}
+
+.body :global(a) {
+  color: #664f37;
+  font-weight: 800;
+  text-decoration-color: rgba(255, 220, 189, 0.95);
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.18em;
+}
+
+.body :global(blockquote) {
+  margin: 5rem auto;
+  max-width: 44rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.body :global(blockquote p) {
+  color: #735a42;
+  font-family: var(--font-serif), Cormorant Garamond, serif;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-style: italic;
+  line-height: 1.02;
+  margin-bottom: 1rem;
+}
+
+.body :global(ul),
+.body :global(ol) {
+  margin: 1.5rem 0 2rem 1.3rem;
+  padding-left: 1.2rem;
+}
+
+.body :global(li) {
+  margin: 0.55rem 0;
+  padding-left: 0.3rem;
+}
+
+.body :global(img) {
+  border-radius: 2rem;
+  box-shadow: 0 24px 60px rgba(49, 51, 44, 0.12);
+  display: block;
+  height: auto;
+  margin: 3rem auto;
+  max-width: 100%;
+}
+
+.body :global(pre) {
+  background: #31332c;
+  border-radius: 1.5rem;
+  color: #fbf9f4;
+  font-size: 0.94rem;
+  line-height: 1.7;
+  margin: 2rem 0;
+  overflow-x: auto;
+  padding: 1.35rem;
+}
+
+.body :global(code) {
+  background: rgba(95, 94, 94, 0.11);
+  border-radius: 0.45rem;
+  color: #513b25;
+  font-size: 0.92em;
+  padding: 0.08rem 0.35rem;
+}
+
+.body :global(pre code) {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.body :global(hr) {
+  border: 0;
+  border-top: 1px solid rgba(177, 179, 169, 0.36);
+  margin: 4rem 0;
+}

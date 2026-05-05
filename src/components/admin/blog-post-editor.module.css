@@ -1,0 +1,157 @@
+.editorShell {
+  --blog-editor-ink: #31332c;
+  --blog-editor-muted: #5e6058;
+  --blog-editor-panel: #ffffff;
+  --blog-editor-surface: #fbf9f4;
+  --blog-editor-surface-low: #f5f4ed;
+  --blog-editor-container: #efeee6;
+  --blog-editor-border: rgba(177, 179, 169, 0.22);
+  --blog-editor-primary: #5f5e5e;
+  --blog-editor-peach: #ffdcbd;
+}
+
+.editor :global(.ProseMirror) {
+  min-height: 28rem;
+  border-radius: 1.5rem;
+  color: var(--blog-editor-ink);
+  font-family: var(--font-sans), Manrope, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  outline: none;
+  padding: 1.75rem;
+}
+
+.editor :global(.ProseMirror-focused) {
+  box-shadow: inset 0 0 0 1px rgba(95, 94, 94, 0.18);
+}
+
+.editor :global(.ProseMirror p.is-editor-empty:first-child::before) {
+  color: rgba(94, 96, 88, 0.58);
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.editor :global(.ProseMirror h2),
+.editor :global(.ProseMirror h3),
+.editor :global(.ProseMirror h4) {
+  color: var(--blog-editor-ink);
+  font-family: var(--font-serif), Cormorant Garamond, serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: 2.25rem 0 1rem;
+}
+
+.editor :global(.ProseMirror h2) {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.editor :global(.ProseMirror h3) {
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+}
+
+.editor :global(.ProseMirror h4) {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+}
+
+.editor :global(.ProseMirror p) {
+  margin: 1rem 0;
+}
+
+.editor :global(.ProseMirror ul),
+.editor :global(.ProseMirror ol) {
+  margin: 1.15rem 0 1.15rem 1.4rem;
+  padding-left: 1.2rem;
+}
+
+.editor :global(.ProseMirror li) {
+  margin: 0.45rem 0;
+  padding-left: 0.25rem;
+}
+
+.editor :global(.ProseMirror blockquote) {
+  border-left: 4px solid var(--blog-editor-peach);
+  color: var(--blog-editor-muted);
+  font-family: var(--font-serif), Cormorant Garamond, serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1.55;
+  margin: 2rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.editor :global(.ProseMirror pre) {
+  background: #31332c;
+  border-radius: 1.25rem;
+  color: #fbf9f4;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  padding: 1.25rem;
+}
+
+.editor :global(.ProseMirror code) {
+  background: rgba(95, 94, 94, 0.1);
+  border-radius: 0.45rem;
+  color: #513b25;
+  font-size: 0.92em;
+  padding: 0.1rem 0.35rem;
+}
+
+.editor :global(.ProseMirror pre code) {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.editor :global(.ProseMirror a) {
+  color: #664f37;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 220, 189, 0.9);
+  text-decoration-thickness: 0.18em;
+  text-underline-offset: 0.18em;
+}
+
+.editor :global(.ProseMirror img) {
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 42px rgba(49, 51, 44, 0.1);
+  display: block;
+  height: auto;
+  margin: 2rem auto;
+  max-width: 100%;
+}
+
+.editor :global(.ProseMirror-selectednode) {
+  outline: 3px solid rgba(255, 220, 189, 0.9);
+}
+
+.articlePreview :global(.article_body h2),
+.articlePreview :global(.article_body h3),
+.articlePreview :global(.article_body h4) {
+  font-family: var(--font-serif), Cormorant Garamond, serif;
+}
+
+.articlePreview :global(.article_body pre) {
+  background: #31332c;
+  border-radius: 1.25rem;
+  color: #fbf9f4;
+  overflow-x: auto;
+  padding: 1.25rem;
+}
+
+.articlePreview :global(.article_body code) {
+  background: rgba(95, 94, 94, 0.1);
+  border-radius: 0.45rem;
+  color: #513b25;
+  padding: 0.1rem 0.35rem;
+}
+
+.articlePreview :global(.article_body pre code) {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}

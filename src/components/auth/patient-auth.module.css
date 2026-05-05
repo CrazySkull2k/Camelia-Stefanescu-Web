@@ -1,0 +1,315 @@
+.shell {
+  position: relative;
+  isolation: isolate;
+  margin: 0 auto;
+  max-width: 78rem;
+  overflow: hidden;
+  padding: clamp(4rem, 8vw, 6.5rem) 1.5rem;
+}
+
+.accentOne,
+.accentTwo {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  border-radius: 999px;
+  filter: blur(90px);
+  opacity: 0.72;
+}
+
+.accentOne {
+  top: 5rem;
+  left: -5rem;
+  height: 17rem;
+  width: 17rem;
+  background: rgba(232, 209, 181, 0.34);
+}
+
+.accentTwo {
+  right: -6rem;
+  bottom: 4rem;
+  height: 21rem;
+  width: 21rem;
+  background: rgba(204, 219, 213, 0.26);
+}
+
+.hero {
+  margin: 0 auto;
+  max-width: 44rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #7a6b58;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 1rem 0 0;
+  color: #262a25;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3.2rem, 7vw, 5.15rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
+.heroDescription {
+  margin: 1.25rem auto 0;
+  max-width: 38rem;
+  color: #5f6158;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.notes {
+  margin: 2rem auto 0;
+  max-width: 64rem;
+}
+
+.notesBelow {
+  margin-top: 1.5rem;
+}
+
+.noteGrid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.noteCard {
+  margin: 0;
+  border: 1px solid rgba(198, 183, 164, 0.55);
+  background: rgba(255, 250, 244, 0.86);
+  border-radius: 1.15rem;
+  color: #55574f;
+  line-height: 1.7;
+  padding: 1rem 1.15rem;
+  text-align: center;
+  backdrop-filter: blur(14px);
+}
+
+.card {
+  margin: 2rem auto 0;
+  width: min(100%, 35rem);
+  border: 1px solid rgba(215, 205, 190, 0.9);
+  background: rgba(255, 253, 248, 0.96);
+  border-radius: 2rem;
+  box-shadow: 0 18px 55px rgba(64, 54, 37, 0.08);
+  padding: clamp(2rem, 5vw, 2.9rem);
+}
+
+.cardHeader {
+  text-align: center;
+}
+
+.cardTitle {
+  margin: 0;
+  color: #2d302b;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.cardDescription {
+  margin: 0.85rem auto 0;
+  max-width: 27rem;
+  color: #64665f;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+
+.status {
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+  padding: 0.95rem 1rem;
+  text-align: center;
+}
+
+.statusError {
+  border: 1px solid #f2c7c7;
+  background: #fff3f2;
+  color: #924447;
+}
+
+.statusSuccess {
+  border: 1px solid #cbe2d6;
+  background: #f2faf5;
+  color: #2f6a4a;
+}
+
+.formArea {
+  margin-top: 1.75rem;
+}
+
+.oauthStack {
+  display: grid;
+  gap: 1rem;
+}
+
+.googleButton {
+  border: 1px solid #ddd3c6;
+  background: #f8f2e9;
+  border-radius: 999px;
+  color: #353833;
+  font-size: 0.96rem;
+  font-weight: 700;
+  min-height: 3.5rem;
+  padding: 0.95rem 1.5rem;
+  transition: background-color 160ms ease, border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.googleButton:hover {
+  background: #fffdfa;
+  border-color: #cfc0ad;
+  transform: translateY(-1px);
+}
+
+.divider {
+  align-items: center;
+  display: flex;
+  gap: 0.95rem;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(126, 114, 97, 0.18);
+}
+
+.dividerText {
+  color: #8c867d;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.fieldGroup {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.fieldLabelRow {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fieldLabel,
+.fieldLink {
+  color: #746d63;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.fieldLink {
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.fieldLink:hover {
+  color: #4f4f48;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid #e3dbcf;
+  background: #f5efe6;
+  border-radius: 1rem;
+  color: #2f312d;
+  font-size: 1rem;
+  outline: none;
+  padding: 0.95rem 1rem;
+  transition: border-color 160ms ease, box-shadow 160ms ease,
+    background-color 160ms ease;
+}
+
+.input::placeholder {
+  color: #9b968d;
+}
+
+.input:focus {
+  border-color: #c6ab91;
+  background: #fffdfa;
+  box-shadow: 0 0 0 4px rgba(198, 171, 145, 0.18);
+}
+
+.submitButton {
+  width: 100%;
+  border: 0;
+  background: #272c29;
+  border-radius: 999px;
+  color: #fffdf7;
+  cursor: pointer;
+  font-size: 0.97rem;
+  font-weight: 700;
+  min-height: 3.55rem;
+  padding: 1rem 1.5rem;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.submitButton:hover {
+  background: #353b37;
+  transform: translateY(-1px);
+}
+
+.cardFooter {
+  margin-top: 1.65rem;
+  text-align: center;
+}
+
+.footerText {
+  margin: 0;
+  color: #5f6158;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+.footerLink {
+  color: #2d302b;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(125, 117, 104, 0.35);
+  text-underline-offset: 0.28rem;
+  transition: text-decoration-color 160ms ease, color 160ms ease;
+}
+
+.footerLink:hover {
+  color: #111410;
+  text-decoration-color: rgba(61, 61, 57, 0.6);
+}
+
+@media (max-width: 640px) {
+  .shell {
+    padding-inline: 1rem;
+    padding-top: 3.25rem;
+    padding-bottom: 4rem;
+  }
+
+  .heroTitle {
+    font-size: 2.7rem;
+  }
+
+  .card {
+    border-radius: 1.6rem;
+    padding: 1.5rem;
+  }
+}

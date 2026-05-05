@@ -1,0 +1,124 @@
+.page {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(232, 210, 184, 0.3), transparent 28%),
+    radial-gradient(circle at top right, rgba(208, 219, 212, 0.26), transparent 24%),
+    linear-gradient(180deg, #fffaf4 0%, #fbf8f1 45%, #f7f2e9 100%);
+}
+
+.page::before,
+.page::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 999px;
+  filter: blur(110px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.page::before {
+  top: 7rem;
+  left: -8rem;
+  width: 20rem;
+  height: 20rem;
+  background: rgba(219, 191, 164, 0.34);
+}
+
+.page::after {
+  right: -6rem;
+  bottom: 10rem;
+  width: 22rem;
+  height: 22rem;
+  background: rgba(190, 208, 200, 0.24);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: 76rem;
+  padding: 7.5rem 1rem 5rem;
+}
+
+.hero {
+  max-width: 44rem;
+  margin-bottom: 2.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #7f705d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 1rem 0 0;
+  color: #262a25;
+  font-family: var(--font-serif), serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.description {
+  margin: 1rem 0 0;
+  max-width: 40rem;
+  color: #64665f;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.heroActions {
+  margin-top: 1.5rem;
+}
+
+.statusLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.1rem;
+  padding: 0 1.25rem;
+  border: 1px solid rgba(124, 102, 81, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #5a4a3b;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.statusLink:hover {
+  border-color: rgba(124, 102, 81, 0.28);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 28px rgba(98, 80, 63, 0.08);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero {
+    margin-bottom: 1.75rem;
+  }
+
+  .title {
+    font-size: 2.75rem;
+  }
+}

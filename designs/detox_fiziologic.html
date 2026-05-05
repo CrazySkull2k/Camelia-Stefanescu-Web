@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html lang="ro"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detox Fiziologic - Dr. Camelia Ștefănescu</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#e4e2e1",
+                      "tertiary": "#386666",
+                      "tertiary-fixed-dim": "#eae5dc",
+                      "inverse-surface": "#0e0e0c",
+                      "surface-container-low": "#f1edea",
+                      "surface-container": "#efeee6",
+                      "error-dim": "#4e0309",
+                      "secondary-fixed": "#ffdcbd",
+                      "surface-tint": "#5f5e5e",
+                      "tertiary-dim": "#56534c",
+                      "tertiary-container": "#f9f3ea",
+                      "on-background": "#1c1b1a",
+                      "primary-fixed": "#e4e2e1",
+                      "secondary-dim": "#664f37",
+                      "outline-variant": "#b1b3a9",
+                      "tertiary-fixed": "#f9f3ea",
+                      "surface-variant": "#e2e3d9",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#6f573e",
+                      "secondary": "#9a4028",
+                      "on-secondary": "#fff7f3",
+                      "surface-dim": "#d9dbcf",
+                      "background": "#fdf9f6",
+                      "on-tertiary-fixed": "#4c4943",
+                      "on-primary-fixed": "#3f3f3f",
+                      "on-surface-variant": "#4a4846",
+                      "on-secondary-container": "#654d35",
+                      "on-tertiary": "#fef8ef",
+                      "inverse-primary": "#ffffff",
+                      "inverse-on-surface": "#9e9d99",
+                      "on-tertiary-container": "#5f5b55",
+                      "on-primary": "#faf7f6",
+                      "on-error": "#fff7f6",
+                      "surface-bright": "#fbf9f4",
+                      "primary-fixed-dim": "#d6d4d3",
+                      "surface-container-high": "#e8e9e0",
+                      "primary": "#1c1b1a",
+                      "on-primary-container": "#525151",
+                      "error-container": "#fe8983",
+                      "on-secondary-fixed": "#513b25",
+                      "on-surface": "#1c1b1a",
+                      "on-primary-fixed-variant": "#5c5b5b",
+                      "primary-dim": "#535252",
+                      "on-error-container": "#752121",
+                      "error": "#9f403d",
+                      "surface": "#fdf9f6",
+                      "surface-container-highest": "#e2e3d9",
+                      "outline": "#797c73",
+                      "secondary-fixed-dim": "#f0cfb0",
+                      "secondary-container": "#ffdcbd",
+                      "on-tertiary-fixed-variant": "#69665f"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": [
+                              "Newsreader", "serif"
+                      ],
+                      "body": [
+                              "Manrope", "sans-serif"
+                      ],
+                      "label": [
+                              "Manrope", "sans-serif"
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body { background-color: #fdf9f6; color: #1c1b1a; }
+      </style>
+</head>
+<body class="font-body bg-surface text-on-surface antialiased selection:bg-secondary selection:text-white">
+<!-- TopNavBar Component -->
+<header class="fixed top-0 w-full z-50 bg-[#fdf9f6]/80 backdrop-blur-md dark:bg-stone-900/80 shadow-[0px_20px_40px_rgba(28,27,26,0.04)] transition-all">
+<div class="flex justify-between items-center px-6 md:px-10 py-6 max-w-[1920px] mx-auto">
+<div class="text-2xl font-serif italic tracking-tighter text-[#1c1b1a] dark:text-[#fdf9f6]">
+                Dr. Camelia Ștefănescu
+            </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#9a4028] dark:text-[#b9573e] font-serif italic text-lg hover:text-[#9a4028] dark:hover:text-[#b9573e] transition-colors duration-500" href="#">Philosophy</a>
+<a class="text-[#1c1b1a] dark:text-stone-400 font-sans tracking-widest uppercase text-[11px] hover:text-[#9a4028] dark:hover:text-[#b9573e] transition-colors duration-500" href="#">Services</a>
+<a class="text-[#1c1b1a] dark:text-stone-400 font-sans tracking-widest uppercase text-[11px] hover:text-[#9a4028] dark:hover:text-[#b9573e] transition-colors duration-500" href="#">Editorial</a>
+<a class="text-[#1c1b1a] dark:text-stone-400 font-sans tracking-widest uppercase text-[11px] hover:text-[#9a4028] dark:hover:text-[#b9573e] transition-colors duration-500" href="#">The Journal</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hidden md:block font-sans uppercase tracking-widest text-[11px] font-bold text-[#1c1b1a] hover:text-[#9a4028] transition-colors duration-500">Book Consultation</button>
+<button class="md:hidden text-[#1c1b1a]">
+<span class="material-symbols-outlined text-3xl" data-icon="menu">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-32">
+<!-- Hero Section (Editorial Style) -->
+<section class="relative pt-12 pb-32 px-6 md:px-12 max-w-[1440px] mx-auto overflow-hidden min-h-[90vh] flex items-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+<div class="lg:col-span-5 relative z-20 md:pr-12">
+<span class="font-body text-[10px] uppercase tracking-[0.2em] text-secondary font-bold mb-6 block">Editorial Perspective</span>
+<h1 class="font-headline text-6xl md:text-8xl font-bold leading-[0.9] text-on-surface mb-8 tracking-tighter">
+                        Detox <br/><span class="italic text-secondary font-light">Fiziologic</span>
+</h1>
+<p class="font-body text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-md font-light">
+                        Nu este neobișnuit să auzi oamenii că dau vina pe un metabolism lent pentru creșterea lor în greutate. Cantitatea minimă de energie de care organismul are nevoie în repaus pentru a efectua procesele chimice descrise mai sus se numește rată metabolică bazală (RMB) și poate reprezenta până la 80% din necesarul zilnic de energie al organismului, în funcție de vârsta și stilul de viață al fiecăruia. Un „metabolism lent” este mai precis descris ca un metabolism cu RMB scăzută.
+                    </p>
+</div>
+<div class="lg:col-span-7 relative h-[600px] md:h-[800px] w-full z-10 flex justify-end">
+<div class="relative w-[90%] md:w-[80%] h-full ml-auto">
+<img alt="Ethereal wellness imagery showing soft natural light falling on minimal organic shapes and textures" class="absolute inset-0 w-full h-full object-cover rounded-t-[20rem] shadow-xl" data-alt="Soft, diffused natural sunlight highlighting minimal, organic, curved architectural forms in warm ivory tones, evoking a sense of calm wellness" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkYabxZBGMS_qBjkRU2pQ9Szw2hSif77zGfXaKj0TBjaftg5D_Pfp3sZa-ZMxNnmdn9XzZEVLXvkBEKBt1tKuBJd9hJHwhIPdYsoo6eo4XHOlQQ66pHYG7LFOVCi74s5_X6jyja03q0vgMkawpSUEykWQ2I_F0-SZYhSoz1Id_rA7Xfzq1Oq_IcYclA42Q15mMI5GcsRx73yg6V_SzhQzlCnH85Hzes-2cC_AIWN9a7HnCGlyw6rX6x8UTDjPgsPOSPkQDYedhNWY"/>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-secondary/10 rounded-full blur-3xl -z-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Vitalfeld Section (Overlapping Magazine Style) -->
+<section class="py-32 px-6 md:px-12 relative overflow-hidden">
+<div class="absolute inset-0 bg-surface-container-low/50 -z-20 skew-y-3 origin-top-left transform scale-110"></div>
+<div class="max-w-[1200px] mx-auto relative">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1 relative h-[500px] w-full">
+<img alt="Abstract wellness texture" class="absolute inset-0 w-full h-full object-cover rounded-tr-[12rem] rounded-bl-[12rem] shadow-xl sepia-[0.2] contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjfm6oq5KTZ7zBA-uky4Gx1a-2jrVSTDVzue_IYnqJjEnNhCyUaCVy-rAgAFFKnw6Qbon5uTBtIIH1XDDMF1_wr0B-DNv1GEFDZhFc4Ozo5vuasbBsQ_bmCKegh3T3bMF3d4-MU6pZLmkymhiGvdHkZeMi5du4uXhRCFbVuxP-Ubiud8407_oiGKPyGHVUmfpv5FW2GJnBpAUtwXaskTgtaW1RZ7q7S64lazqpfXpMsn1s5rGWobnMOr7VB6EZnkJZFV7Rj5HCoO0"/>
+</div>
+<div class="order-1 md:order-2 text-left md:-ml-24 relative z-10 bg-background/80 backdrop-blur-sm p-12 shadow-2xl rounded-tr-[4rem] rounded-bl-[4rem]">
+<span class="font-body text-[11px] uppercase tracking-[0.15em] text-tertiary font-bold mb-4 block">Abordare Integrativă</span>
+<h2 class="font-headline text-5xl md:text-6xl text-on-surface mb-8 font-bold leading-none tracking-tight">Tehnologia <br/><span class="italic font-light text-secondary">Vitalfeld</span></h2>
+<p class="font-body text-xl text-on-surface-variant font-light leading-relaxed">
+                        Este o procedură non-invazivă prin care putem face o „curățenie” internă eficientă, cu rezultate vizibile pe termen lung.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Global Diagnostics Section -->
+<section class="py-40 px-6 md:px-12 max-w-[1440px] mx-auto relative">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
+<div class="lg:col-span-6 relative z-10">
+<div class="sticky top-40">
+<h3 class="font-headline text-5xl md:text-7xl font-bold leading-[0.9] text-on-surface mb-10 tracking-tighter">
+                            Aparatura <br/><span class="italic text-secondary font-light">medicală</span><br/>
+<span class="text-3xl md:text-4xl font-body uppercase tracking-widest text-primary/80 mt-4 block">GLOBAL DIAGNOSTICS</span>
+</h3>
+<p class="font-body text-lg text-on-surface-variant mb-16 leading-relaxed max-w-lg font-light">
+                            vine deci ȋn sprijinul programului de slăbire ,,Recalibrarea Raspunsului Hormonal’’ avȃnd un efect de <strong class="text-secondary font-bold tracking-wide uppercase text-sm">STIMULARE METABOLICA</strong> prin:
+                        </p>
+<ul class="space-y-10 max-w-lg">
+<li class="flex items-start gap-6 group">
+<div class="mt-1 flex-shrink-0 w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+<span class="font-headline italic text-xl">1</span>
+</div>
+<span class="font-body text-lg text-on-surface font-light leading-relaxed group-hover:text-secondary transition-colors duration-500">Stimularea eliminării deșeurilor stocate sau a reziduurilor obișnuite rezultate din reacțiile biochimice ale organismului</span>
+</li>
+<li class="flex items-start gap-6 group">
+<div class="mt-1 flex-shrink-0 w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+<span class="font-headline italic text-xl">2</span>
+</div>
+<span class="font-body text-lg text-on-surface font-light leading-relaxed group-hover:text-secondary transition-colors duration-500">Menținerea echilibrului acido-bazic, modificat de obicei ȋn condiții de stres cronic</span>
+</li>
+<li class="flex items-start gap-6 group">
+<div class="mt-1 flex-shrink-0 w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+<span class="font-headline italic text-xl">3</span>
+</div>
+<span class="font-body text-lg text-on-surface font-light leading-relaxed group-hover:text-secondary transition-colors duration-500">Refacerea sănătății intestinului, implicit a absorbției nutrienților</span>
+</li>
+<li class="flex items-start gap-6 group">
+<div class="mt-1 flex-shrink-0 w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+<span class="font-headline italic text-xl">4</span>
+</div>
+<span class="font-body text-lg text-on-surface font-light leading-relaxed group-hover:text-secondary transition-colors duration-500">Echilibrarea endocrină la nivel de axă HPA (hipotalamus-hipofiză-suprarenale), respectiv a hormonilor ce intervin ȋn menținerea corectă a balanței apetit-sațietate</span>
+</li>
+<li class="flex items-start gap-6 group">
+<div class="mt-1 flex-shrink-0 w-12 h-12 rounded-full border border-secondary text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-colors duration-500">
+<span class="font-headline italic text-xl">5</span>
+</div>
+<span class="font-body text-lg text-on-surface font-light leading-relaxed group-hover:text-secondary transition-colors duration-500">Ameliorarea tulburărilor de somn și recăpătarea unei stări energetice sănătoase</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="lg:col-span-6 relative mt-16 lg:mt-0">
+<div class="w-full h-[600px] lg:h-[900px] relative">
+<!-- Abstract layout of images -->
+<div class="absolute top-0 right-0 w-3/4 h-2/3 z-20">
+<img alt="Diagnostic visualization" class="w-full h-full object-cover rounded-tl-[12rem] rounded-br-[4rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" data-alt="Abstract macro photography of soft rippling water or fabric in warm neutral earth tones, representing gentle physiological healing and balance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeokn4JJWrHiHzer3sd1WmtsAdIKRJ0G3JMNmdqInsRhAcRuGOSrVwXioYSCYVdrFH7E3-cFWJ21sHlMoXgXGy12husHFaAA7TqS99-1bDeH-Q9rkrxkDfzsFbX-6UR8JIFKHlZ43vmiOXiJcJ0CO_BGs-gnjvyfw96Pl1YiTsRjaYxd_oFGPUKlHNdypSuo9QxUhsMDFx2iu76cGOzkJakBNvhkFSKtVXnn2HthE9eTVJpPZaJ0w77Ytq6iQRdwnCvVff5U8S3Ck"/>
+</div>
+<div class="absolute bottom-0 left-0 w-2/3 h-1/2 z-10 bg-secondary/10 overflow-hidden rounded-tr-[4rem] rounded-bl-[12rem]">
+<img alt="Texture" class="w-full h-full object-cover mix-blend-multiply opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Va0OXY8ZyrGZKUzBdcE_guMV8-J_DJGv4vumwPojkWdAj_HgfNqDtBiQFxfCQMQOv2P9QzlV_28VxDdGidcMNeo7iFkd8Gf13ZBF3KQeEufJktnlfgSRi6eJh1_X3r_VrBVKCqMbWLVpEiOCEZ7ubg28iLW_gVZVdWAqG1txqwcMwN18wPdj_JucXhirgVA_-xSBs4yX56Llxl4oHRYTKJThqVo_ZTl6SWIRE7y_tAMU8mmuk9-pPh8uf-NWahyYZRnjNnaY1LE"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full rounded-t-[4rem] mt-24 bg-[#f1edea] dark:bg-stone-800">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-24 max-w-[1440px] mx-auto">
+<div class="md:col-span-4 lg:col-span-1">
+<div class="text-4xl font-serif italic text-[#1c1b1a] dark:text-[#fdf9f6] mb-8">
+                Dr. Camelia Ștefănescu
+            </div>
+<p class="font-['Manrope'] tracking-tight text-[#1c1b1a]/60 dark:text-stone-400 text-sm">
+                © 2024 Dr. Camelia Ștefănescu. Editorial Wellness Practice.
+            </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-serif italic text-lg text-[#386666] dark:text-[#4a8a8a] mb-2">Social</h4>
+<a class="font-['Manrope'] tracking-tight text-[#1c1b1a]/60 dark:text-stone-400 hover:translate-x-1 transition-transform duration-300 hover:text-[#9a4028]" href="#">Instagram</a>
+<a class="font-['Manrope'] tracking-tight text-[#1c1b1a]/60 dark:text-stone-400 hover:translate-x-1 transition-transform duration-300 hover:text-[#9a4028]" href="#">LinkedIn</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-serif italic text-lg text-[#386666] dark:text-[#4a8a8a] mb-2">Resources</h4>
+<a class="font-['Manrope'] tracking-tight text-[#1c1b1a]/60 dark:text-stone-400 hover:translate-x-1 transition-transform duration-300 hover:text-[#9a4028]" href="#">Research Archive</a>
+<a class="font-['Manrope'] tracking-tight text-[#1c1b1a]/60 dark:text-stone-400 hover:translate-x-1 transition-transform duration-300 hover:text-[#9a4028]" href="#">Wellness Guide</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-serif italic text-lg text-[#386666] dark:text-[#4a8a8a] mb-2">Legal</h4>
+<a class="font-['Manrope'] tracking-tight text-[#1c1b1a]/60 dark:text-stone-400 hover:translate-x-1 transition-transform duration-300 hover:text-[#9a4028]" href="#">Privacy</a>
+<a class="font-['Manrope'] tracking-tight text-[#1c1b1a]/60 dark:text-stone-400 hover:translate-x-1 transition-transform duration-300 hover:text-[#9a4028]" href="#">Terms</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html lang="ro"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Camelia Ștefănescu - Sanctuarul tău de bine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#d9dbcf",
+                    "tertiary-dim": "#56534c",
+                    "surface-bright": "#fbf9f4",
+                    "outline-variant": "#b1b3a9",
+                    "on-secondary-fixed": "#513b25",
+                    "error-container": "#fe8983",
+                    "surface-container": "#efeee6",
+                    "surface": "#fbf9f4",
+                    "surface-container-low": "#f5f4ed",
+                    "surface-container-high": "#e8e9e0",
+                    "on-tertiary": "#fef8ef",
+                    "on-primary-fixed-variant": "#5c5b5b",
+                    "primary": "#5f5e5e",
+                    "surface-variant": "#e2e3d9",
+                    "inverse-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#69665f",
+                    "on-primary-fixed": "#3f3f3f",
+                    "surface-container-highest": "#e2e3d9",
+                    "secondary": "#735a42",
+                    "primary-fixed-dim": "#d6d4d3",
+                    "primary-fixed": "#e4e2e1",
+                    "on-error": "#fff7f6",
+                    "inverse-surface": "#0e0e0c",
+                    "on-surface": "#31332c",
+                    "on-secondary-fixed-variant": "#6f573e",
+                    "inverse-on-surface": "#9e9d99",
+                    "on-tertiary-container": "#5f5b55",
+                    "secondary-fixed-dim": "#f0cfb0",
+                    "on-background": "#31332c",
+                    "tertiary-container": "#f9f3ea",
+                    "secondary-container": "#ffdcbd",
+                    "on-error-container": "#752121",
+                    "on-secondary": "#fff7f3",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#9f403d",
+                    "tertiary": "#625f58",
+                    "on-secondary-container": "#654d35",
+                    "surface-tint": "#5f5e5e",
+                    "tertiary-fixed": "#f9f3ea",
+                    "secondary-fixed": "#ffdcbd",
+                    "outline": "#797c73",
+                    "tertiary-fixed-dim": "#eae5dc",
+                    "on-surface-variant": "#5e6058",
+                    "primary-dim": "#535252",
+                    "on-tertiary-fixed": "#4c4943",
+                    "on-primary": "#faf7f6",
+                    "on-primary-container": "#525151",
+                    "background": "#fbf9f4",
+                    "error-dim": "#4e0309",
+                    "primary-container": "#e4e2e1",
+                    "secondary-dim": "#664f37"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": [
+                            "Newsreader"
+                    ],
+                    "body": [
+                            "Manrope"
+                    ],
+                    "label": [
+                            "Manrope"
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbf9f4;
+            color: #31332c;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Newsreader', serif;
+        }
+        .text-shadow-ambient {
+            text-shadow: 0px 4px 12px rgba(49, 51, 44, 0.05);
+        }
+        .box-shadow-ambient {
+            box-shadow: 0px 12px 32px rgba(49, 51, 44, 0.05);
+        }
+        .ghost-border {
+            border: 1px solid rgba(177, 179, 169, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f4] dark:bg-[#1a1a1a] sticky top-0 z-50 transition-all duration-300 w-full font-['Newsreader'] italic text-2xl tracking-tight">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="font-['Newsreader'] text-2xl font-light text-[#2B2B2B] dark:text-[#fbf9f4]">
+                Dr. Camelia Ștefănescu
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-['Manrope'] font-medium uppercase tracking-widest text-[11px]">
+<a class="text-[#5f5e5e] dark:text-white hover:text-[#2B2B2B] dark:hover:text-white transition-colors duration-300 active:opacity-80 active:scale-[0.99]" href="#">Nutriție</a>
+<a class="text-[#5f5e5e] dark:text-white hover:text-[#2B2B2B] dark:hover:text-white transition-colors duration-300 active:opacity-80 active:scale-[0.99]" href="#">Diagnostic Celular</a>
+<a class="text-[#5f5e5e] dark:text-white hover:text-[#2B2B2B] dark:hover:text-white transition-colors duration-300 active:opacity-80 active:scale-[0.99]" href="#">Shockwave</a>
+<a class="text-[#5f5e5e] dark:text-white hover:text-[#2B2B2B] dark:hover:text-white transition-colors duration-300 active:opacity-80 active:scale-[0.99]" href="#">Despre</a>
+<a class="text-[#5f5e5e] dark:text-white hover:text-[#2B2B2B] dark:hover:text-white transition-colors duration-300 active:opacity-80 active:scale-[0.99]" href="#">Contact</a>
+</nav>
+<button class="hidden md:inline-flex bg-primary hover:bg-primary-dim text-on-primary font-['Manrope'] text-sm tracking-wide px-8 py-3 rounded-full transition-colors duration-300 items-center gap-2 relative overflow-hidden group">
+<span class="relative z-10">Programare</span>
+<div class="absolute inset-0 bg-gradient-to-r from-secondary-container to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+</button>
+<!-- Mobile Menu Icon (Placeholder) -->
+<button class="md:hidden text-[#5f5e5e] dark:text-[#d1d1d1]">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<!-- Separation Logic -->
+<div class="bg-[#f5f4ed] dark:bg-[#252525] h-[1px] w-full opacity-10"></div>
+</header>
+<main>
+<!-- Hero Section (Asymmetrical Editorial) -->
+<section class="relative pt-12 pb-24 md:pt-24 md:pb-32 px-6 md:px-12 max-w-screen-2xl mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Text Content -->
+<div class="lg:col-span-7 z-10 flex flex-col justify-center order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-full w-max mb-8 ghost-border">
+<span class="material-symbols-outlined text-sm">spa</span>
+<span class="font-label text-[0.6875rem] uppercase tracking-[0.05em] font-semibold">Sanctuarul tău de bine</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-[5rem] leading-[1.1] text-on-surface mb-8 tracking-tight font-light">
+                        Dr. Camelia Stefanescu
+                        <div class="mt-6 flex flex-col gap-2">
+<div class="flex items-start gap-3">
+<div class="h-[1px] w-4 bg-secondary mt-3 opacity-40"></div>
+<p class="font-body text-base md:text-lg text-secondary leading-relaxed tracking-wide italic">
+                                    Medic, medicina generala - licenta UMF Bucuresti
+                                </p>
+</div>
+<div class="flex items-start gap-3">
+<div class="h-[1px] w-4 bg-secondary mt-3 opacity-40"></div>
+<p class="font-body text-base md:text-lg text-secondary leading-relaxed tracking-wide italic">
+                                    Nutritionist-dietetician - licenta UMF Tg. Mures
+                                </p>
+</div>
+<div class="flex items-start gap-3">
+<div class="h-[1px] w-4 bg-secondary mt-3 opacity-40"></div>
+<p class="font-body text-base md:text-lg text-secondary leading-relaxed tracking-wide italic">
+                                    Master Stiintele Nutritiei - UBB Cluj-Napoca
+                                </p>
+</div>
+<div class="flex items-start gap-3">
+<div class="h-[1px] w-4 bg-secondary mt-3 opacity-40"></div>
+<p class="font-body text-base md:text-lg text-secondary leading-relaxed tracking-wide italic">
+                                    Specialist Diagnoza Celulara - Global Diagnostics Austria
+                                </p>
+</div>
+<div class="flex items-start gap-3">
+<div class="h-[1px] w-4 bg-secondary mt-3 opacity-40"></div>
+<p class="font-body text-base md:text-lg text-secondary leading-relaxed tracking-wide italic">
+                                    Specialist terapii shockwave - AUVA Meidling Center Viena
+                                </p>
+</div>
+</div>
+</h1>
+<p class="font-body text-body-md text-on-surface-variant max-w-xl mb-12 leading-relaxed text-lg">
+                        O abordare integrativă pentru sănătatea ta, combinând expertiza medicală cu soluții personalizate pentru un echilibru durabil.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-primary hover:bg-primary-dim text-on-primary font-body text-sm font-medium tracking-wide px-8 py-4 rounded-full transition-colors duration-300 w-full sm:w-auto text-center relative overflow-hidden group">
+<span class="relative z-10">Programează o consultație</span>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary-container/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</button>
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface font-body text-sm font-medium tracking-wide px-8 py-4 rounded-full transition-colors duration-300 w-full sm:w-auto text-center">
+                            Află mai multe
+                        </button>
+</div>
+</div>
+<!-- Image Portrait -->
+<div class="lg:col-span-5 relative order-1 lg:order-2">
+<div class="aspect-[3/4] rounded-t-[12rem] rounded-b-xl overflow-hidden box-shadow-ambient relative group">
+<img alt="Dr. Camelia Stefanescu" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Professional, warm portrait of a blonde female doctor in an orange jacket with arms crossed, against a deep teal background." src="https://lh3.googleusercontent.com/aida/ADBb0uhjVkFykNE8SMP60EtGK7c-aoNL9ks7WP2YHxu18uNclNEFUPLvFxR1ewxghxK8U1kThBlZvvA2m1kUOmb3UqUzq-q-GC6YS0s80dFX9RFFrsMcglbs6eHeUWGCad3z8anJlCbs18TozeLvgxlkZBQWiJm0jxEmmb2GoqCO65d0-i7nT6kmvQyWgHeOjcy_SJarMnyTdNC8IBfjAWSPkpHYkWP79WoDxuAp8fGkuqTbmuGlFTdwwXVyIrKPUXqK7Pafi6P-jbF82A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface/40 to-transparent mix-blend-overlay"></div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-8 -left-8 bg-surface-container-lowest p-6 rounded-2xl box-shadow-ambient hidden md:block ghost-border z-20">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<div>
+<p class="font-body text-label-sm uppercase tracking-[0.05em] text-on-surface-variant">Certificare</p>
+<p class="font-headline text-title-lg text-on-surface">Medicală</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Statistics (Bento Minimal) -->
+<section class="py-16 px-6 md:px-12 max-w-screen-2xl mx-auto">
+<div class="bg-surface-container-low rounded-[2rem] p-8 md:p-12 box-shadow-ambient ghost-border">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 relative">
+<!-- Divider lines for desktop -->
+<div class="hidden md:block absolute top-1/2 left-1/3 w-[1px] h-2/3 -translate-y-1/2 bg-outline-variant/20"></div>
+<div class="hidden md:block absolute top-1/2 right-1/3 w-[1px] h-2/3 -translate-y-1/2 bg-outline-variant/20"></div>
+<!-- Stat 1 -->
+<div class="flex flex-col items-center text-center group px-8">
+<div class="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight">20<span class="text-[3rem] align-top text-secondary/60">+</span></div>
+<p class="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">ani de experienta</p>
+</div>
+<!-- Stat 2 -->
+<div class="flex flex-col items-center text-center group px-8 border-t border-outline-variant/20 pt-8 md:border-none md:pt-0">
+<div class="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight">840<span class="text-[3rem] align-top text-secondary/60">+</span></div>
+<p class="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">pacienti ajutati</p>
+</div>
+<!-- Stat 3 -->
+<div class="flex flex-col items-center text-center group px-8 border-t border-outline-variant/20 pt-8 md:border-none md:pt-0">
+<div class="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight">98<span class="text-[3rem] align-top text-secondary/60">%</span></div>
+<p class="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">clienti multumiti</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Overview (Editorial Grid) -->
+<section class="py-24 px-6 md:px-12 max-w-screen-2xl mx-auto bg-surface-container-low rounded-[3rem] my-12">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-body text-label-sm uppercase tracking-[0.05em] text-on-surface-variant block mb-4">Expertiză</span>
+<h2 class="font-headline text-headline-md md:text-5xl text-on-surface mb-6">Servicii Personalizate</h2>
+<p class="font-body text-body-md text-on-surface-variant text-lg">Abordăm sănătatea din mai multe unghiuri pentru a oferi soluții complete și eficiente, adaptate nevoilor tale unice.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full">
+<div class="w-16 h-16 rounded-2xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">biotech</span>
+</div>
+<h3 class="font-headline text-title-lg text-on-surface mb-4">Diagnostic Celular</h3>
+<p class="font-body text-body-md text-on-surface-variant flex-grow mb-8">Analiză profundă la nivel celular pentru a înțelege cauzele fundamentale ale dezechilibrelor din organismul tău.</p>
+<a class="font-body text-sm font-medium text-secondary hover:text-secondary-dim flex items-center gap-2 transition-colors" href="#">
+                        Descoperă
+                        <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Service 2 -->
+<div class="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full transform md:-translate-y-8">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">nutrition</span>
+</div>
+<h3 class="font-headline text-title-lg text-on-surface mb-4">Nutriție</h3>
+<p class="font-body text-body-md text-on-surface-variant flex-grow mb-8">Planuri alimentare personalizate create de un medic nutriționist-dietetician pentru a susține vindecarea și vitalitatea.</p>
+<a class="font-body text-sm font-medium text-secondary hover:text-secondary-dim flex items-center gap-2 transition-colors" href="#">
+                        Descoperă
+                        <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Service 3 -->
+<div class="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full">
+<div class="w-16 h-16 rounded-2xl bg-surface-container text-on-surface flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 0;">waves</span>
+</div>
+<h3 class="font-headline text-title-lg text-on-surface mb-4">Shockwave</h3>
+<p class="font-body text-body-md text-on-surface-variant flex-grow mb-8">Terapie modernă non-invazivă pentru reducerea durerii și stimularea procesului natural de vindecare a țesuturilor.</p>
+<a class="font-body text-sm font-medium text-secondary hover:text-secondary-dim flex items-center gap-2 transition-colors" href="#">
+                        Descoperă
+                        <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Testimonials (Glassmorphism Cards) -->
+<section class="py-24 px-6 md:px-12 max-w-screen-2xl mx-auto relative">
+<!-- Decorative background element -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-96 bg-secondary-container/20 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+<div class="text-center max-w-4xl mx-auto mb-20">
+<h2 class="font-headline text-headline-md md:text-5xl text-on-surface mb-6">Afla parerea celor care au facut o schimbare</h2>
+<div class="h-[1px] w-24 bg-outline-variant/30 mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-surface-bright/80 backdrop-blur-[24px] rounded-3xl p-8 box-shadow-ambient ghost-border flex flex-col relative">
+<div class="flex items-center gap-4 mb-6 z-10">
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Iulian" class="w-full h-full object-cover" data-alt="Portrait of a smiling man in casual attire against a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMcktXAMhAYpIIU81h4rAfG3lPPt2GAgBm_NKaO0bMl1BQMyZN1F7MRJo9OczJDDLpS87WsqwADdbIoSvtQ881iafA3o4uSBtIY_v6ltGyHvdb3heB4VhOJTZiDBL4BzTAM8uR6K3IKTCio50WLiNVDcFAUPpJ0WY-UwEzY4KPU5TgqAkM79YhP-l8nwPP3BiHE4QLlz0VONmm8j7lV2KkymmF_hLjWbdHT2zM_AEmDRWMYWmch8rRN0cyp8peM3qZtZ2Y2ZzbW6w"/>
+</div>
+<div>
+<h4 class="font-headline text-lg text-on-surface">Iulian</h4>
+<p class="font-body text-label-sm uppercase tracking-wider text-on-surface-variant">Pacient Nutriție</p>
+</div>
+</div>
+<p class="font-body text-body-md text-on-surface italic flex-grow z-10 leading-relaxed text-lg">
+                        "O abordare complet diferită față de ce am experimentat până acum. Planul a fost simplu de urmat și rezultatele au apărut mult mai repede decât mă așteptam."
+                    </p>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-bright/80 backdrop-blur-[24px] rounded-3xl p-8 box-shadow-ambient ghost-border flex flex-col relative transform md:translate-y-6">
+<div class="flex items-center gap-4 mb-6 z-10">
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Delia" class="w-full h-full object-cover" data-alt="Portrait of a smiling woman with medium hair in a warm setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD94UbuwKT5Iqmelv6hhUvmMLjjc7crEWu_z1XrVHNq_MrfONL8mD3vj6JH-wyuTJp7c9Ymwmz5qOWbZcBaRBTxef3E-GnX-s9hJoHveEQtG9KFZ1hR_iLVHFDp4bmkpQ5tT8lxQ6_KfKCCnZxBfgS21K53ln0s2uAh1vkHVMV_5vaDGYLyfvO3F47W3BbLos4f4avrThbxxY0YhHEBnGWiAJd3CQovj_n0SA9Sg2ZlUPGztOugaihYYfUAitq_cp2LubwqznTZ33s"/>
+</div>
+<div>
+<h4 class="font-headline text-lg text-on-surface">Delia</h4>
+<p class="font-body text-label-sm uppercase tracking-wider text-on-surface-variant">Pacient Diagnostic Celular</p>
+</div>
+</div>
+<p class="font-body text-body-md text-on-surface italic flex-grow z-10 leading-relaxed text-lg">
+                        "Mă simt ascultată și înțeleasă. Investigațiile au fost detaliate, iar acum am claritate asupra a ceea ce are nevoie corpul meu pentru a se vindeca."
+                    </p>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-bright/80 backdrop-blur-[24px] rounded-3xl p-8 box-shadow-ambient ghost-border flex flex-col relative">
+<div class="flex items-center gap-4 mb-6 z-10">
+<div class="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Magda" class="w-full h-full object-cover" data-alt="Portrait of an older woman smiling gently in soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUn6WXtegVESxWjR953OicyRy24WZzrzoSVD5_VRpAVbzD2L39rZNZoSXE-xFuDIr2SxPwYc3okFUoI7XQwnloXJs9Kkci03aJI4pMTASymxoMVJ2AhnDv0EF7xUFbOu6lPNB-ANtLmWOppJ8JQWtRODkLWOPAwcayc3ys12SfPRT2S43Z-gef1jA7TSZPq_IGT8Gbk_f8brAUU5kHW8zEo0bv7o8KNjfSnGC0cRnQjQi3AXTXxxuoacjFTMr6A8eTLAKG4FC2JY"/>
+</div>
+<div>
+<h4 class="font-headline text-lg text-on-surface">Magda</h4>
+<p class="font-body text-label-sm uppercase tracking-wider text-on-surface-variant">Pacient Shockwave</p>
+</div>
+</div>
+<p class="font-body text-body-md text-on-surface italic flex-grow z-10 leading-relaxed text-lg">
+                        "Durerile care mă limitau de ani de zile s-au redus semnificativ după doar câteva ședințe. Recomand cu toată încrederea profesionalismul doamnei doctor."
+                    </p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f5f4ed] dark:bg-[#121212] text-[#5f5e5e] dark:text-[#a0a0a0] font-['Manrope'] text-sm tracking-wide w-full mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-12 py-16 gap-8 max-w-screen-2xl mx-auto">
+<div class="font-['Newsreader'] text-xl italic text-[#2B2B2B] dark:text-[#fbf9f4]">
+                Dr. Camelia Ștefănescu
+            </div>
+<div class="text-center md:text-left text-[#5f5e5e] dark:text-[#a0a0a0]">
+                © 2024 Dr. Camelia Ștefănescu. Sanctuarul tău de bine.
+            </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="text-[#5f5e5e] dark:text-[#a0a0a0] hover:text-[#2B2B2B] dark:hover:text-white transition-all active:opacity-70" href="#">Politică Confidențialitate</a>
+<a class="text-[#5f5e5e] dark:text-[#a0a0a0] hover:text-[#2B2B2B] dark:hover:text-white transition-all active:opacity-70" href="#">Termeni și Condiții</a>
+<a class="text-[#5f5e5e] dark:text-[#a0a0a0] hover:text-[#2B2B2B] dark:hover:text-white transition-all active:opacity-70" href="#">ANPC</a>
+<a class="text-[#5f5e5e] dark:text-[#a0a0a0] hover:text-[#2B2B2B] dark:hover:text-white transition-all active:opacity-70" href="#">Contact</a>
+</nav>
+</div>
+</footer>
+</body></html>

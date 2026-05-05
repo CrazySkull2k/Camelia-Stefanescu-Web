@@ -1,0 +1,735 @@
+.viewer {
+  --background: #fbf9f4;
+  --surface: #ffffff;
+  --surface-low: #f5f4ed;
+  --surface-container: #efeee6;
+  --surface-container-high: #e8e9e0;
+  --surface-container-highest: #e2e3d9;
+  --outline: #797c73;
+  --outline-variant: #b1b3a9;
+  --on-surface: #31332c;
+  --on-surface-variant: #5e6058;
+  --primary: #5f5e5e;
+  --primary-dim: #535252;
+  --primary-container: #e4e2e1;
+  --secondary: #735a42;
+  --secondary-dim: #664f37;
+  --secondary-container: #ffdcbd;
+  --tertiary-container: #f9f3ea;
+  --page-shadow: 0 18px 40px rgba(49, 51, 44, 0.08);
+  color: var(--on-surface);
+}
+
+.viewer :global(.viewer-stack) {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.viewer :global(.sheet) {
+  width: 100%;
+}
+
+.viewer :global(.page-card) {
+  background: var(--surface);
+  border: 1px solid rgba(177, 179, 169, 0.25);
+  border-radius: 1.75rem;
+  box-shadow: var(--page-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.viewer :global(.page-header) {
+  align-items: flex-end;
+  border-bottom: 1px solid var(--surface-container-highest);
+  display: flex;
+  gap: 1.25rem;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.viewer :global(.page-header-main) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.viewer :global(.page-header-title) {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.viewer :global(.header-badge) {
+  align-items: center;
+  background: var(--secondary-container);
+  border-radius: 999px;
+  color: var(--secondary-dim);
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 2.5rem;
+  justify-content: center;
+  width: 2.5rem;
+}
+
+.viewer :global(.page-header h1),
+.viewer :global(.section-heading h2) {
+  color: var(--on-surface);
+  font-family: var(--font-newsreader, "Newsreader", serif);
+  margin: 0;
+}
+
+.viewer :global(.page-header h1) {
+  font-size: clamp(2rem, 3vw, 2.625rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.viewer :global(.page-header-meta),
+.viewer :global(.meta-label),
+.viewer :global(.page-footer) {
+  font-family: var(--font-manrope, "Manrope", sans-serif);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.viewer :global(.page-header-meta) {
+  color: var(--outline);
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.viewer :global(.page-header-side) {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.viewer :global(.page-header-side h2) {
+  color: var(--primary-dim);
+  font-family: var(--font-newsreader, "Newsreader", serif);
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-style: italic;
+  font-weight: 500;
+  margin: 0 0 0.125rem;
+}
+
+.viewer :global(.page-header-side p) {
+  color: var(--outline);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.viewer :global(.page-content) {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.viewer :global(.pdf-section) {
+  break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  page-break-inside: avoid;
+}
+
+.viewer :global(.pdf-section-body) {
+  display: flex;
+  flex-direction: column;
+  gap: 1.625rem;
+}
+
+.viewer :global(.content-block) {
+  break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+  gap: 1.625rem;
+  page-break-inside: avoid;
+}
+
+.viewer :global(.section-heading) {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+}
+
+.viewer :global(.section-heading h2) {
+  color: var(--secondary-dim);
+  flex-shrink: 0;
+  font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.viewer :global(.section-heading-side) {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  padding-top: 0.25rem;
+}
+
+.viewer :global(.section-heading-context) {
+  align-self: flex-end;
+  color: var(--outline);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin: 0;
+  max-width: 100%;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.viewer :global(.section-heading-line) {
+  background: var(--surface-container-highest);
+  flex: 1;
+  height: 1px;
+  width: 100%;
+}
+
+.viewer :global(.field-grid),
+.viewer :global(.detail-grid),
+.viewer :global(.checklist-grid),
+.viewer :global(.info-card-grid),
+.viewer :global(.status-card-grid) {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.viewer :global(.field-grid-3) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.viewer :global(.field-grid-2),
+.viewer :global(.detail-grid-2),
+.viewer :global(.checklist-grid-2) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.viewer :global(.detail-grid-1),
+.viewer :global(.checklist-grid-1),
+.viewer :global(.status-card-grid-1),
+.viewer :global(.info-card-grid-1) {
+  grid-template-columns: 1fr;
+}
+
+.viewer :global(.status-card-grid-2) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.viewer :global(.status-card-grid-3),
+.viewer :global(.field-grid-3),
+.viewer :global(.info-card-grid-3) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.viewer :global(.info-card-grid-2) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.viewer :global(.field-item),
+.viewer :global(.detail-card) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.viewer :global(.meta-label) {
+  color: var(--outline);
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.viewer :global(.field-value) {
+  color: var(--on-surface);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.viewer :global(.field-value-accent),
+.viewer :global(.detail-value-accent) {
+  color: var(--secondary);
+}
+
+.viewer :global(.detail-card) {
+  background: var(--surface-low);
+  border: 1px solid rgba(177, 179, 169, 0.18);
+  border-radius: 1rem;
+  min-height: 7rem;
+  padding: 1.375rem 1.25rem;
+}
+
+.viewer :global(.detail-value) {
+  color: var(--on-surface);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.viewer :global(.checklist-card) {
+  background: var(--surface-low);
+  border: 1px solid rgba(177, 179, 169, 0.2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.viewer :global(.checklist-card h3),
+.viewer :global(.table-block-header h3) {
+  color: var(--outline);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+.viewer :global(.checklist) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.viewer :global(.checklist li) {
+  align-items: flex-start;
+  color: var(--on-surface);
+  display: flex;
+  font-size: 0.95rem;
+  gap: 0.75rem;
+  line-height: 1.6;
+}
+
+.viewer :global(.checklist li span) {
+  white-space: pre-wrap;
+}
+
+.viewer :global(.gauge-grid) {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.viewer :global(.gauge-card) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.viewer :global(.gauge-header) {
+  align-items: flex-end;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+}
+
+.viewer :global(.gauge-header p) {
+  color: var(--on-surface);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.viewer :global(.gauge-header span) {
+  color: var(--primary);
+  font-family: var(--font-newsreader, "Newsreader", serif);
+  font-size: 1.75rem;
+  font-style: italic;
+  line-height: 1;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.viewer :global(.gauge-track) {
+  background: var(--surface-container-high);
+  border-radius: 999px;
+  height: 0.5rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.viewer :global(.gauge-fill) {
+  background: var(--secondary-dim);
+  border-radius: 999px;
+  height: 100%;
+}
+
+.viewer :global(.gauge-description) {
+  color: var(--outline);
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 1.25rem;
+  white-space: pre-wrap;
+}
+
+.viewer :global(.info-card) {
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  min-height: 9rem;
+  padding: 1.5rem;
+}
+
+.viewer :global(.status-card) {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(245, 244, 237, 0.92) 100%);
+  border: 1px solid rgba(177, 179, 169, 0.22);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  min-height: 4.875rem;
+  padding: 0.875rem 1rem;
+}
+
+.viewer :global(.status-card-compact) {
+  gap: 0;
+  min-height: 3.875rem;
+  padding: 0.75rem 0.875rem;
+}
+
+.viewer :global(.status-card-header) {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.viewer :global(.status-card-compact .status-card-header) {
+  gap: 0.625rem;
+}
+
+.viewer :global(.status-card-badge) {
+  align-items: center;
+  border-radius: 0.75rem;
+  color: white;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  width: 2.5rem;
+}
+
+.viewer :global(.status-card-compact .status-card-badge) {
+  border-radius: 0.6875rem;
+  height: 2.25rem;
+  width: 2.25rem;
+}
+
+.viewer :global(.status-card-badge-success) {
+  background: linear-gradient(135deg, #8fa26d 0%, #61764b 100%);
+}
+
+.viewer :global(.status-card-badge-warning) {
+  background: linear-gradient(135deg, #c79d61 0%, #8d6734 100%);
+}
+
+.viewer :global(.status-card-badge-danger) {
+  background: linear-gradient(135deg, #b76e5b 0%, #8a4332 100%);
+}
+
+.viewer :global(.status-card-badge-neutral) {
+  background: linear-gradient(135deg, #8d8b86 0%, #5f5e5e 100%);
+}
+
+.viewer :global(.status-card-copy) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.viewer :global(.status-card-title) {
+  color: var(--outline);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.viewer :global(.status-card-value) {
+  color: var(--on-surface);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.viewer :global(.status-card-detail) {
+  color: var(--on-surface-variant);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.viewer :global(.info-card-heading) {
+  align-items: center;
+  display: flex;
+  font-size: 0.68rem;
+  font-weight: 700;
+  gap: 0.5rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.viewer :global(.info-card p) {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.viewer :global(.info-card-list) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.viewer :global(.info-card-list li) {
+  align-items: flex-start;
+  color: currentColor;
+  display: flex;
+  font-size: 0.95rem;
+  gap: 0.625rem;
+  line-height: 1.55;
+}
+
+.viewer :global(.info-card-list li span) {
+  white-space: pre-wrap;
+}
+
+.viewer :global(.info-card-note) {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.viewer :global(.info-card-tertiary) {
+  background: var(--tertiary-container);
+  color: #5f5b55;
+}
+
+.viewer :global(.info-card-secondary) {
+  background: var(--secondary-container);
+  color: #654d35;
+}
+
+.viewer :global(.info-card-primary) {
+  background: var(--primary-container);
+  color: #525151;
+}
+
+.viewer :global(.table-block) {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.viewer :global(.table-block-header p) {
+  color: var(--outline);
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.viewer :global(.table-scroll) {
+  overflow-x: auto;
+}
+
+.viewer :global(.data-table) {
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 100%;
+  overflow: hidden;
+  text-align: left;
+  width: 100%;
+}
+
+.viewer :global(.data-table th) {
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 0.95rem 1rem;
+  text-transform: uppercase;
+}
+
+.viewer :global(.data-table th:first-child) {
+  border-top-left-radius: 0.875rem;
+}
+
+.viewer :global(.data-table th:last-child) {
+  border-top-right-radius: 0.875rem;
+}
+
+.viewer :global(.data-table td) {
+  border-bottom: 1px solid var(--surface-container-high);
+  color: var(--on-surface);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  padding: 1rem;
+  vertical-align: top;
+}
+
+.viewer :global(.data-table tbody tr:last-child td) {
+  border-bottom: 0;
+}
+
+.viewer :global(.data-table td:first-child) {
+  font-weight: 700;
+}
+
+.viewer :global(.data-table-compact td:first-child) {
+  font-weight: 600;
+}
+
+.viewer :global(.page-footer) {
+  align-items: center;
+  border-top: 1px solid var(--surface-container-highest);
+  color: var(--outline);
+  display: flex;
+  font-size: 0.7rem;
+  font-weight: 600;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 0.625rem;
+  padding-top: 0.75rem;
+}
+
+.viewer :global(.page-footer p) {
+  margin: 0;
+}
+
+.viewer :global(.page-footer span) {
+  white-space: nowrap;
+}
+
+.viewer :global(.page-footer-meta) {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.viewer :global(.icon) {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.viewer :global(.icon-spa) {
+  height: 1.375rem;
+  width: 1.375rem;
+}
+
+.viewer :global(.icon-check-circle) {
+  color: var(--primary);
+  height: 1.125rem;
+  margin-top: 0.125rem;
+  width: 1.125rem;
+}
+
+.viewer :global(.icon-card) {
+  height: 1rem;
+  width: 1rem;
+}
+
+.viewer :global(.icon-status) {
+  height: 1.375rem;
+  width: 1.375rem;
+}
+
+@media (max-width: 1200px) {
+  .viewer :global(.page-card) {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .viewer :global(.page-header) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .viewer :global(.page-header-side) {
+    text-align: left;
+  }
+
+  .viewer :global(.field-grid-3),
+  .viewer :global(.field-grid-2),
+  .viewer :global(.detail-grid-2),
+  .viewer :global(.checklist-grid-2),
+  .viewer :global(.status-card-grid-2),
+  .viewer :global(.status-card-grid-3),
+  .viewer :global(.info-card-grid-2),
+  .viewer :global(.info-card-grid-3),
+  .viewer :global(.gauge-grid) {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer :global(.section-heading) {
+    flex-direction: column;
+  }
+
+  .viewer :global(.section-heading-side) {
+    width: 100%;
+  }
+
+  .viewer :global(.section-heading-context) {
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  .viewer :global(.page-footer) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .viewer :global(.page-footer-meta) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .viewer :global(.page-card) {
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .viewer :global(.page-header h1) {
+    font-size: 1.8rem;
+  }
+
+  .viewer :global(.section-heading h2) {
+    font-size: 1.55rem;
+  }
+
+  .viewer :global(.data-table) {
+    min-width: 720px;
+  }
+}
