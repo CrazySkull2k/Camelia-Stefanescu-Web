@@ -7,6 +7,7 @@ import {
   writeSecurityAuditEvent,
 } from "@/modules/audit/security";
 import {
+  getAdminAuthAssurance,
   getCurrentSessionUser,
   getOptionalAdminUser,
 } from "@/modules/auth/guards";
@@ -71,12 +72,18 @@ export async function GET(request: Request) {
       entityType: "auth",
       ip: auditContext.ip,
       metadata: {
+        assuranceLevel: "pending",
         redirectTo,
       },
       result: "allowed",
       surface: "admin",
       userAgent: auditContext.userAgent,
     });
+
+    const assurance = await getAdminAuthAssurance();
+    if (!assurance.isAal2) {
+      return NextResponse.redirect(new URL("/admin/mfa", request.url));
+    }
   } else {
     const currentUser = await getCurrentSessionUser();
 

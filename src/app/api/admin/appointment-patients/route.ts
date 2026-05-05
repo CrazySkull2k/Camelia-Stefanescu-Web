@@ -10,7 +10,7 @@ import {
 } from "@/modules/appointments/admin-wizard";
 import {
   getCurrentSessionUser,
-  getOptionalOwnerAdminUser,
+  getOptionalOwnerAdminAal2User,
 } from "@/modules/auth/guards";
 
 function getRequestIdentifier(request: Request, adminUserId: string) {
@@ -28,7 +28,7 @@ export async function GET(request: Request) {
       );
     }
 
-    const adminUser = await getOptionalOwnerAdminUser();
+    const adminUser = await getOptionalOwnerAdminAal2User();
 
     if (!adminUser) {
       return NextResponse.json(
@@ -73,7 +73,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const adminUser = await getOptionalOwnerAdminUser();
+    const adminUser = await getOptionalOwnerAdminAal2User();
 
     if (!adminUser) {
       return NextResponse.json(

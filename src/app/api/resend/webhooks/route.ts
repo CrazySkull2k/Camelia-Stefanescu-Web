@@ -3,8 +3,14 @@ import { Resend } from "resend";
 
 import { getResendEnv, hasResendEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import {
+  getRequestAuditContext,
+  writeSecurityAuditEvent,
+} from "@/modules/audit/security";
 
 export async function POST(request: Request) {
+  const auditContext = getRequestAuditContext(request);
+
   if (!hasResendEnv()) {
     return NextResponse.json({ ok: true });
   }
@@ -52,8 +58,33 @@ export async function POST(request: Request) {
         .eq("provider_message_id", relatedMessageId);
     }
 
+    await writeSecurityAuditEvent({
+      action: "webhook.resend",
+      entityId: relatedMessageId || null,
+      entityType: "email_message",
+      ip: auditContext.ip,
+      metadata: {
+        eventType: event.type,
+      },
+      result: "allowed",
+      surface: "system",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.json({ ok: true });
   } catch (error) {
+    await writeSecurityAuditEvent({
+      action: "webhook.resend",
+      entityType: "email_message",
+      ip: auditContext.ip,
+      metadata: {
+        reason: error instanceof Error ? error.message : "Invalid webhook",
+      },
+      result: "blocked",
+      surface: "system",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.json(
       {
         ok: false,

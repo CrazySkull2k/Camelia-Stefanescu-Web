@@ -10,6 +10,11 @@ import {
   writeSecurityAuditEvent,
 } from "@/modules/audit/security";
 
+const LOGIN_FAILED_MESSAGE =
+  "Datele de autentificare sunt invalide sau contul nu este disponibil.";
+const AUTH_UNAVAILABLE_MESSAGE =
+  "Serviciul de autentificare nu este disponibil momentan.";
+
 function buildLoginRedirect(request: Request, input?: {
   email?: string | null;
   error?: string | null;
@@ -68,7 +73,7 @@ export async function POST(request: Request) {
     return NextResponse.redirect(
       buildLoginRedirect(request, {
         email,
-        error: "Supabase nu este configurat.",
+        error: AUTH_UNAVAILABLE_MESSAGE,
         redirectTo,
       }),
       { status: 303 },
@@ -102,7 +107,7 @@ export async function POST(request: Request) {
       return NextResponse.redirect(
         buildLoginRedirect(request, {
           email,
-          error: error.message,
+          error: LOGIN_FAILED_MESSAGE,
           redirectTo,
         }),
         { status: 303 },
@@ -132,9 +137,9 @@ export async function POST(request: Request) {
       buildLoginRedirect(request, {
         email,
         error:
-          error instanceof Error
+          error instanceof Error && error.name === "RateLimitExceededError"
             ? error.message
-            : "Nu am putut autentifica sesiunea.",
+            : LOGIN_FAILED_MESSAGE,
         redirectTo,
       }),
       { status: 303 },

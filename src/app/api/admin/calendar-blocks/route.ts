@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { log } from "@/lib/utils/logger";
-import { getOptionalAdminUser } from "@/modules/auth/guards";
+import { getOptionalAdminAal2User } from "@/modules/auth/guards";
 import {
   getCalendarBlockMutationErrorResponse,
   saveAdminCalendarBlock,
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   try {
     assertAllowedOrigin(request.headers.get("origin"), "admin");
 
-    const adminUser = await getOptionalAdminUser();
+  const adminUser = await getOptionalAdminAal2User();
 
     if (!adminUser) {
       return NextResponse.json(

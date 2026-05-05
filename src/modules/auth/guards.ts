@@ -14,6 +14,21 @@ type AdminMembershipRow = {
   role: string;
 };
 
+type AssuranceLevel = "aal1" | "aal2" | null;
+
+type AuthenticationMethod = {
+  method?: string;
+  timestamp?: number;
+};
+
+export type AdminAuthAssurance = {
+  canElevateToAal2: boolean;
+  currentAuthenticationMethods: AuthenticationMethod[];
+  currentLevel: AssuranceLevel;
+  isAal2: boolean;
+  nextLevel: AssuranceLevel;
+};
+
 function isGoogleIdentityUser(user: NonNullable<Awaited<ReturnType<typeof getCurrentSessionUser>>>) {
   const providers = Array.isArray(user.app_metadata.providers)
     ? user.app_metadata.providers
@@ -73,6 +88,10 @@ async function getResolvedAdminAccess() {
   };
 }
 
+function normalizeAssuranceLevel(value: unknown): AssuranceLevel {
+  return value === "aal1" || value === "aal2" ? value : null;
+}
+
 export async function getCurrentSessionUser() {
   if (!hasServerEnv()) {
     return null;
@@ -84,6 +103,44 @@ export async function getCurrentSessionUser() {
   } = await supabase.auth.getUser();
 
   return user;
+}
+
+export async function getAdminAuthAssurance(): Promise<AdminAuthAssurance> {
+  if (!hasServerEnv()) {
+    return {
+      canElevateToAal2: false,
+      currentAuthenticationMethods: [],
+      currentLevel: null,
+      isAal2: false,
+      nextLevel: null,
+    };
+  }
+
+  const supabase = await createSupabaseServerClient();
+  const { data, error } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
+
+  if (error || !data) {
+    return {
+      canElevateToAal2: false,
+      currentAuthenticationMethods: [],
+      currentLevel: null,
+      isAal2: false,
+      nextLevel: null,
+    };
+  }
+
+  const currentLevel = normalizeAssuranceLevel(data.currentLevel);
+  const nextLevel = normalizeAssuranceLevel(data.nextLevel);
+
+  return {
+    canElevateToAal2: nextLevel === "aal2",
+    currentAuthenticationMethods: Array.isArray(data.currentAuthenticationMethods)
+      ? (data.currentAuthenticationMethods as AuthenticationMethod[])
+      : [],
+    currentLevel,
+    isAal2: currentLevel === "aal2",
+    nextLevel,
+  };
 }
 
 export async function getCurrentAdminUser() {
@@ -117,11 +174,36 @@ export async function getOptionalAdminUser() {
   return user;
 }
 
+export async function getOptionalAdminAal2User() {
+  const user = await getOptionalAdminUser();
+  if (!user) {
+    return null;
+  }
+
+  const assurance = await getAdminAuthAssurance();
+  if (!assurance.isAal2) {
+    return null;
+  }
+
+  return user;
+}
+
 export async function requireAdminUser() {
   const user = await getCurrentAdminUser();
 
   if (!user) {
     redirect("/admin/login?error=Contul%20autentificat%20nu%20are%20acces%20admin.");
+  }
+
+  return user;
+}
+
+export async function requireAdminAal2User() {
+  const user = await requireAdminUser();
+  const assurance = await getAdminAuthAssurance();
+
+  if (!assurance.isAal2) {
+    redirect("/admin/mfa");
   }
 
   return user;
@@ -140,11 +222,40 @@ export async function getOptionalOwnerAdminUser() {
   return user;
 }
 
+export async function getOptionalOwnerAdminAal2User() {
+  const user = await getOptionalOwnerAdminUser();
+  if (!user) {
+    return null;
+  }
+
+  const assurance = await getAdminAuthAssurance();
+  if (!assurance.isAal2) {
+    return null;
+  }
+
+  return user;
+}
+
 export async function requireOwnerAdminUser() {
   const user = await getOptionalOwnerAdminUser();
 
   if (!user) {
     notFound();
+  }
+
+  return user;
+}
+
+export async function requireOwnerAdminAal2User() {
+  const user = await getOptionalOwnerAdminUser();
+
+  if (!user) {
+    notFound();
+  }
+
+  const assurance = await getAdminAuthAssurance();
+  if (!assurance.isAal2) {
+    redirect("/admin/mfa");
   }
 
   return user;

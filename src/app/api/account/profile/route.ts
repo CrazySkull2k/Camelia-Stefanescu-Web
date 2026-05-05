@@ -4,6 +4,10 @@ import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { log } from "@/lib/utils/logger";
 import {
+  getRequestAuditContext,
+  writeSecurityAuditEvent,
+} from "@/modules/audit/security";
+import {
   getCurrentPatientAccount,
   updateCurrentPatientProfile,
 } from "@/modules/patients/account";
@@ -26,9 +30,23 @@ function buildProfileRedirect(request: Request, input?: {
 }
 
 export async function POST(request: Request) {
+  const auditContext = getRequestAuditContext(request);
+
   try {
     assertAllowedOrigin(request.headers.get("origin"), "account");
   } catch (error) {
+    await writeSecurityAuditEvent({
+      action: "patient.profile.update",
+      entityType: "patient_profile",
+      ip: auditContext.ip,
+      metadata: {
+        reason: error instanceof Error ? error.message : "origin-mismatch",
+      },
+      result: "blocked",
+      surface: "account",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.redirect(
       buildProfileRedirect(request, {
         error: error instanceof Error ? error.message : "Cerere invalida.",
@@ -63,6 +81,17 @@ export async function POST(request: Request) {
       sex: String(formData.get("sex") ?? ""),
     });
 
+    await writeSecurityAuditEvent({
+      action: "patient.profile.update",
+      actorUserId: user.id,
+      entityId: patient.id,
+      entityType: "patient_profile",
+      ip: auditContext.ip,
+      result: "allowed",
+      surface: "account",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.redirect(
       buildProfileRedirect(request, {
         success: "Profilul a fost actualizat.",
@@ -74,6 +103,20 @@ export async function POST(request: Request) {
       error: error instanceof Error ? error.message : String(error),
       patientId: patient.id,
       userId: user.id,
+    });
+
+    await writeSecurityAuditEvent({
+      action: "patient.profile.update",
+      actorUserId: user.id,
+      entityId: patient.id,
+      entityType: "patient_profile",
+      ip: auditContext.ip,
+      metadata: {
+        reason: error instanceof Error ? error.message : String(error),
+      },
+      result: "failed",
+      surface: "account",
+      userAgent: auditContext.userAgent,
     });
 
     return NextResponse.redirect(

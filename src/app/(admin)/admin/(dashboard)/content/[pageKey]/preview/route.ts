@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { requireAdminUser } from "@/modules/auth/guards";
+import { requireAdminAal2User } from "@/modules/auth/guards";
 import { CMS_PREVIEW_COOKIE_NAME } from "@/modules/cms/service";
 import { getCmsPageDefinition } from "@/modules/cms/registry";
 
@@ -8,7 +8,7 @@ export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ pageKey: string }> },
 ) {
-  await requireAdminUser();
+  await requireAdminAal2User();
 
   const { pageKey } = await params;
   const definition = getCmsPageDefinition(pageKey);
@@ -27,6 +27,7 @@ export async function GET(
     httpOnly: true,
     maxAge: 60 * 15,
     path: "/",
+    secure: process.env.NODE_ENV === "production",
     sameSite: "lax",
   });
 

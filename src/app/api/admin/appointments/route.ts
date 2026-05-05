@@ -7,7 +7,7 @@ import { log } from "@/lib/utils/logger";
 import { createAdminAppointmentFromWizardMutation } from "@/modules/appointments/admin-wizard";
 import {
   getCurrentSessionUser,
-  getOptionalOwnerAdminUser,
+  getOptionalOwnerAdminAal2User,
 } from "@/modules/auth/guards";
 
 function getRequestIdentifier(request: Request, adminUserId: string) {
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const adminUser = await getOptionalOwnerAdminUser();
+    const adminUser = await getOptionalOwnerAdminAal2User();
 
     if (!adminUser) {
       return NextResponse.json(

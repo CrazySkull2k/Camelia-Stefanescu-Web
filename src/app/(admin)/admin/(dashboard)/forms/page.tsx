@@ -4,7 +4,7 @@ import { SetupNotice } from "@/components/admin/setup-notice";
 import { hasServerEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { formatDateTime } from "@/lib/utils/dates";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 
 function formatFormStatusLabel(value: string) {
   if (value === "submitted") return "Trimis";
@@ -18,7 +18,7 @@ export default async function FormsPage() {
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const supabase = createSupabaseAdminClient();
   const { data: forms } = await supabase

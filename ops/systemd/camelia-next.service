@@ -1,0 +1,24 @@
+[Unit]
+Description=Camelia Next.js application
+After=network.target
+
+[Service]
+Type=simple
+User=camelia
+Group=camelia
+WorkingDirectory=/srv/camelia/new-app
+EnvironmentFile=/etc/camelia/new-app.env
+ExecStart=/usr/bin/npm run start -- --hostname 127.0.0.1 --port 3000
+Restart=always
+RestartSec=5
+TimeoutStartSec=30
+TimeoutStopSec=20
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=multi-user.target

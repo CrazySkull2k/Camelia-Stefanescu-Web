@@ -11,7 +11,7 @@ import {
 } from "@/modules/audit/security";
 import {
   getCurrentSessionUser,
-  getOptionalOwnerAdminUser,
+  getOptionalOwnerAdminAal2User,
 } from "@/modules/auth/guards";
 
 type AppointmentDocumentRouteProps = {
@@ -52,7 +52,7 @@ export async function GET(
     });
   }
 
-  const adminUser = await getOptionalOwnerAdminUser();
+  const adminUser = await getOptionalOwnerAdminAal2User();
   if (!adminUser) {
     return notFoundResponse();
   }

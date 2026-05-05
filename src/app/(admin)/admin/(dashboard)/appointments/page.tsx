@@ -25,7 +25,7 @@ import { SetupNotice } from "@/components/admin/setup-notice";
 import { hasServerEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { getBucharestDayBounds } from "@/lib/utils/dates";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 import type {
   AppointmentIntakeStatus,
   AppointmentStatus,
@@ -341,7 +341,7 @@ export default async function AdminAppointmentsPage({
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const resolvedSearchParams = await searchParams;
   const filters = getFilters(resolvedSearchParams);

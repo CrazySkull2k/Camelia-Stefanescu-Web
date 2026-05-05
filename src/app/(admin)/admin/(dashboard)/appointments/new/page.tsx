@@ -3,7 +3,7 @@ import { AdminNewAppointmentWizard } from "./wizard";
 import { SetupNotice } from "@/components/admin/setup-notice";
 import { hasServerEnv } from "@/lib/env/server";
 import { searchAdminAppointmentPatientsForWizard } from "@/modules/appointments/admin-wizard";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 import { getPricingCatalog } from "@/modules/pricing/service";
 
 type AdminNewAppointmentPageProps = {
@@ -24,7 +24,7 @@ export default async function AdminNewAppointmentPage({
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const [catalog, query, initialPatientsResult] = await Promise.all([
     getPricingCatalog(),

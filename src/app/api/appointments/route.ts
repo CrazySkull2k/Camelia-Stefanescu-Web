@@ -11,6 +11,10 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { log } from "@/lib/utils/logger";
 import { publicAppointmentSchema } from "@/modules/appointments/schemas";
 import { createPublicAppointment, listAvailableSlots } from "@/modules/appointments/service";
+import {
+  getRequestAuditContext,
+  writeSecurityAuditEvent,
+} from "@/modules/audit/security";
 import { ensurePatientAccountForUser } from "@/modules/patients/account";
 
 export async function GET(request: Request) {
@@ -43,6 +47,8 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const auditContext = getRequestAuditContext(request);
+
   try {
     assertAllowedOrigin(request.headers.get("origin"), "public");
 
@@ -118,8 +124,40 @@ export async function POST(request: Request) {
       value: sessionToken.value,
     });
 
+    await writeSecurityAuditEvent({
+      action: "booking.appointment.create",
+      entityId: result.appointmentId,
+      entityType: "appointment",
+      ip: auditContext.ip,
+      metadata: {
+        firstVisit: parsed.prima_vizita === "Da",
+        serviceSlug: parsed.service,
+        source: patientAccount ? "patient_account" : "public_site",
+      },
+      result: "allowed",
+      surface: "public",
+      userAgent: auditContext.userAgent,
+    });
+
     return response;
   } catch (error) {
+    await writeSecurityAuditEvent({
+      action: "booking.appointment.create",
+      entityType: "appointment",
+      ip: auditContext.ip,
+      metadata: {
+        reason: error instanceof Error ? error.message : String(error),
+      },
+      result:
+        error instanceof Error && error.name === "InvalidOriginError"
+          ? "blocked"
+          : error instanceof Error && error.name === "RateLimitExceededError"
+            ? "blocked"
+            : "failed",
+      surface: "public",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.json(
       {
         ok: false,

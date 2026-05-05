@@ -12,7 +12,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
       <div className="admin-card w-full max-w-md p-8">
         <h1 className="text-3xl font-semibold text-[var(--admin-text)]">Autentificare admin</h1>
         <p className="mt-2 text-sm text-[var(--admin-muted)]">
-          Accesul in panoul de administrare este permis exclusiv prin Google pentru conturile care au rol admin activ.
+          Accesul in panoul de administrare este permis exclusiv prin Google pentru conturile care au rol admin activ. Dupa autentificare, sesiunea admin este confirmata prin TOTP MFA.
         </p>
         {params.error ? (
           <div className="mt-4 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
@@ -31,7 +31,7 @@ export default async function AdminLoginPage({ searchParams }: LoginPageProps) {
           <code className="mx-1 rounded bg-[var(--admin-bg-muted)] px-1.5 py-0.5 text-[11px]">
             role_memberships
           </code>
-          pentru a intra in panou.
+          pentru a intra in panou. Dupa login, este obligatoriu si un factor TOTP verificat.
         </p>
       </div>
     </div>

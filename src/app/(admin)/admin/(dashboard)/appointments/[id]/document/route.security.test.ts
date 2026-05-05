@@ -7,7 +7,7 @@ const mockSelect = vi.fn();
 const mockFrom = vi.fn();
 const mockStreamPrivateStorageFile = vi.fn();
 const mockGetCurrentSessionUser = vi.fn();
-const mockGetOptionalOwnerAdminUser = vi.fn();
+const mockGetOptionalOwnerAdminAal2User = vi.fn();
 const mockEq = vi.fn();
 const mockQueryBuilder = {
   eq: mockEq,
@@ -42,7 +42,7 @@ vi.mock("@/modules/audit/security", () => ({
 
 vi.mock("@/modules/auth/guards", () => ({
   getCurrentSessionUser: mockGetCurrentSessionUser,
-  getOptionalOwnerAdminUser: mockGetOptionalOwnerAdminUser,
+  getOptionalOwnerAdminAal2User: mockGetOptionalOwnerAdminAal2User,
 }));
 
 describe("admin appointment document route hardening", () => {
@@ -56,7 +56,7 @@ describe("admin appointment document route hardening", () => {
 
   it("redirects unauthenticated admins to login", async () => {
     mockGetCurrentSessionUser.mockResolvedValue(null);
-    mockGetOptionalOwnerAdminUser.mockResolvedValue(null);
+    mockGetOptionalOwnerAdminAal2User.mockResolvedValue(null);
 
     const { GET } = await import(
       "@/app/(admin)/admin/(dashboard)/appointments/[id]/document/route"
@@ -76,7 +76,7 @@ describe("admin appointment document route hardening", () => {
 
   it("returns 404 for authenticated non-owner admins", async () => {
     mockGetCurrentSessionUser.mockResolvedValue({ id: "staff-1" });
-    mockGetOptionalOwnerAdminUser.mockResolvedValue(null);
+    mockGetOptionalOwnerAdminAal2User.mockResolvedValue(null);
 
     const { GET } = await import(
       "@/app/(admin)/admin/(dashboard)/appointments/[id]/document/route"
@@ -95,7 +95,7 @@ describe("admin appointment document route hardening", () => {
 
   it("streams inline for owner admins without redirecting to storage", async () => {
     mockGetCurrentSessionUser.mockResolvedValue({ id: "owner-1" });
-    mockGetOptionalOwnerAdminUser.mockResolvedValue({ id: "owner-1" });
+    mockGetOptionalOwnerAdminAal2User.mockResolvedValue({ id: "owner-1" });
     mockMaybeSingle.mockResolvedValue({
       data: {
         generated_documents: {

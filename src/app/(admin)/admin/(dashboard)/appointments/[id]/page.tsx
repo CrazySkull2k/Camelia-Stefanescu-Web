@@ -30,7 +30,7 @@ import {
   formatDateTime,
   formatTimeInputValue,
 } from "@/lib/utils/dates";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 import type {
   AppointmentIntakeStatus,
   AppointmentStatus,
@@ -213,7 +213,7 @@ export default async function AppointmentDetailPage({
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const [{ id }, query] = await Promise.all([params, searchParams]);
   const supabase = createSupabaseAdminClient();

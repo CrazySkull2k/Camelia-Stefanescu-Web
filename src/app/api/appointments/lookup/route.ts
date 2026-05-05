@@ -7,6 +7,10 @@ import {
 } from "@/lib/security/appointment-session";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
+import {
+  getRequestAuditContext,
+  writeSecurityAuditEvent,
+} from "@/modules/audit/security";
 import { lookupAppointmentByReference } from "@/modules/appointments/service";
 
 const appointmentLookupSchema = z.object({
@@ -15,6 +19,8 @@ const appointmentLookupSchema = z.object({
 });
 
 export async function POST(request: Request) {
+  const auditContext = getRequestAuditContext(request);
+
   try {
     assertAllowedOrigin(request.headers.get("origin"), "public");
 
@@ -37,6 +43,19 @@ export async function POST(request: Request) {
     });
 
     if (!appointment) {
+      await writeSecurityAuditEvent({
+        action: "lookup.appointment",
+        entityType: "appointment",
+        ip: auditContext.ip,
+        metadata: {
+          email: parsed.email,
+          reason: "not-found",
+        },
+        result: "failed",
+        surface: "public",
+        userAgent: auditContext.userAgent,
+      });
+
       return NextResponse.json(
         {
           ok: false,
@@ -61,15 +80,42 @@ export async function POST(request: Request) {
       value: sessionToken.value,
     });
 
+    await writeSecurityAuditEvent({
+      action: "lookup.appointment",
+      entityId: appointment.id,
+      entityType: "appointment",
+      ip: auditContext.ip,
+      metadata: {
+        email: parsed.email,
+      },
+      result: "allowed",
+      surface: "public",
+      userAgent: auditContext.userAgent,
+    });
+
     return response;
   } catch (error) {
+    await writeSecurityAuditEvent({
+      action: "lookup.appointment",
+      entityType: "appointment",
+      ip: auditContext.ip,
+      metadata: {
+        reason: error instanceof Error ? error.message : String(error),
+      },
+      result:
+        error instanceof Error && error.name === "InvalidOriginError"
+          ? "blocked"
+          : error instanceof Error && error.name === "RateLimitExceededError"
+            ? "blocked"
+            : "failed",
+      surface: "public",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.json(
       {
         ok: false,
-        error:
-          error instanceof Error
-            ? error.message
-            : "Nu am putut verifica programarea.",
+        error: "Nu am putut verifica programarea.",
       },
       { status: 400 },
     );

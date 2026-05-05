@@ -20,7 +20,7 @@ import { SetupNotice } from "@/components/admin/setup-notice";
 import { hasServerEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { formatDateTime } from "@/lib/utils/dates";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 import {
   getPatientQuestionnaireStatus,
   type PatientQuestionnaireState,
@@ -229,7 +229,7 @@ export default async function PatientDetailPage({ params }: PatientPageProps) {
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const { id } = await params;
   const supabase = createSupabaseAdminClient();

@@ -3,11 +3,11 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const mockApplyRateLimit = vi.fn();
 const mockSearchAdminPatients = vi.fn();
 const mockGetCurrentSessionUser = vi.fn();
-const mockGetOptionalOwnerAdminUser = vi.fn();
+const mockGetOptionalOwnerAdminAal2User = vi.fn();
 
 vi.mock("@/modules/auth/guards", () => ({
   getCurrentSessionUser: mockGetCurrentSessionUser,
-  getOptionalOwnerAdminUser: mockGetOptionalOwnerAdminUser,
+  getOptionalOwnerAdminAal2User: mockGetOptionalOwnerAdminAal2User,
 }));
 
 vi.mock("@/lib/security/rate-limit", () => ({
@@ -40,7 +40,7 @@ describe("admin appointment patient search hardening", () => {
 
   it("returns 401 when there is no admin session", async () => {
     mockGetCurrentSessionUser.mockResolvedValue(null);
-    mockGetOptionalOwnerAdminUser.mockResolvedValue(null);
+    mockGetOptionalOwnerAdminAal2User.mockResolvedValue(null);
 
     const { GET } = await import("@/app/api/admin/appointment-patients/route");
     const response = await GET(
@@ -52,7 +52,7 @@ describe("admin appointment patient search hardening", () => {
 
   it("returns 404 when admin is authenticated but not owner", async () => {
     mockGetCurrentSessionUser.mockResolvedValue({ id: "staff-1" });
-    mockGetOptionalOwnerAdminUser.mockResolvedValue(null);
+    mockGetOptionalOwnerAdminAal2User.mockResolvedValue(null);
 
     const { GET } = await import("@/app/api/admin/appointment-patients/route");
     const response = await GET(

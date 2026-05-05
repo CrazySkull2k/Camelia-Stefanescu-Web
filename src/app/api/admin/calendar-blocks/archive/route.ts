@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { log } from "@/lib/utils/logger";
-import { getOptionalAdminUser } from "@/modules/auth/guards";
+import { getOptionalAdminAal2User } from "@/modules/auth/guards";
 import { archiveCalendarBlockMutation } from "@/modules/calendar-blocks/admin-mutations";
 
 function getRequestIdentifier(request: Request, adminUserId: string) {
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const adminUser = await getOptionalAdminUser();
+  const adminUser = await getOptionalAdminAal2User();
   if (!adminUser) {
     return NextResponse.redirect(
       buildLoginRedirect(request, "Contul autentificat nu are acces admin."),

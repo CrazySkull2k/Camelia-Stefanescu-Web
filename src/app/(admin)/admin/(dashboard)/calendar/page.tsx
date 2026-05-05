@@ -4,7 +4,7 @@ import { hasServerEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { listCalendarBlocks } from "@/modules/calendar-blocks/service";
 import { listExternalCalendarEvents } from "@/modules/external-calendar-events/service";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 import { getClinicSettings } from "@/modules/settings/service";
 import type {
   AppointmentIntakeStatus,
@@ -75,7 +75,7 @@ export default async function AdminCalendarPage() {
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const { from, to } = getCalendarWindow();
   const supabase = createSupabaseAdminClient();

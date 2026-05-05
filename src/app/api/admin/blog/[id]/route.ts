@@ -5,7 +5,7 @@ import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { log } from "@/lib/utils/logger";
 import { deleteBlogPostMutation, updateBlogPostMutation } from "@/modules/blog/admin-mutations";
-import { getOptionalAdminUser } from "@/modules/auth/guards";
+import { getOptionalAdminAal2User } from "@/modules/auth/guards";
 
 function getRequestIdentifier(request: Request, adminUserId: string) {
   return `${adminUserId}:${request.headers.get("x-forwarded-for") ?? "local"}`;
@@ -68,7 +68,7 @@ export async function POST(
     );
   }
 
-  const adminUser = await getOptionalAdminUser();
+  const adminUser = await getOptionalAdminAal2User();
   if (!adminUser) {
     return NextResponse.redirect(
       buildLoginRedirect(request, "Contul autentificat nu are acces admin."),

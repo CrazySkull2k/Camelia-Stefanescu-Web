@@ -6,7 +6,7 @@ import { hasServerEnv } from "@/lib/env/server";
 import { resolveStoredQuestionnairePayload } from "@/lib/security/encrypted-payload";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { formatDateTime } from "@/lib/utils/dates";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 
 type FormDetailPageProps = {
   params: Promise<{ id: string }>;
@@ -17,7 +17,7 @@ export default async function FormDetailPage({ params }: FormDetailPageProps) {
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const { id } = await params;
   const supabase = createSupabaseAdminClient();

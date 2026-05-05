@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { hasServerEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { getOptionalAdminUser } from "@/modules/auth/guards";
+import { getOptionalAdminAal2User } from "@/modules/auth/guards";
 import {
   cloneCmsContent,
   cmsPageDefinitions,
@@ -14,7 +14,7 @@ import {
 } from "@/modules/cms/registry";
 import { validateCmsContent } from "@/modules/cms/validation";
 
-export const CMS_PREVIEW_COOKIE_NAME = "camelia_cms_preview_page";
+export const CMS_PREVIEW_COOKIE_NAME = "__Host-camelia_cms_preview_page";
 
 type SectionRow = {
   content?: unknown;
@@ -44,7 +44,7 @@ async function getPreviewDraftContent(pageKey: string) {
     return null;
   }
 
-  const user = await getOptionalAdminUser();
+  const user = await getOptionalAdminAal2User();
 
   if (!user) {
     return null;

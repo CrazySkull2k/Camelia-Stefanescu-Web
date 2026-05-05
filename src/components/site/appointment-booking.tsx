@@ -48,7 +48,8 @@ declare global {
 }
 
 function persistBookingModePreference(mode: "guest" | "account") {
-  document.cookie = `booking_mode=${mode}; Max-Age=${60 * 60 * 24 * 30}; Path=/; SameSite=Lax`;
+  const secureFlag = window.location.protocol === "https:" ? "; Secure" : "";
+  document.cookie = `booking_mode=${mode}; Max-Age=${60 * 60 * 24 * 30}; Path=/; SameSite=Lax${secureFlag}`;
 }
 
 function resolveServiceSlug(

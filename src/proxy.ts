@@ -139,10 +139,21 @@ function buildContentSecurityPolicy(surface: AppSurface, pathname: string) {
 function applySurfaceSecurityHeaders(response: NextResponse, surface: AppSurface, pathname: string) {
   const sameOriginFrameAllowed = isSameOriginFrameAllowed(surface, pathname);
   response.headers.set("Content-Security-Policy", buildContentSecurityPolicy(surface, pathname));
+  response.headers.set("Cross-Origin-Opener-Policy", "same-origin");
+  response.headers.set("Cross-Origin-Resource-Policy", "same-site");
+  response.headers.set("Origin-Agent-Cluster", "?1");
   response.headers.set("Permissions-Policy", "camera=(), geolocation=(), microphone=()");
   response.headers.set("Referrer-Policy", surface === "public" ? "strict-origin-when-cross-origin" : "no-referrer");
+  response.headers.set("X-DNS-Prefetch-Control", "off");
   response.headers.set("X-Content-Type-Options", "nosniff");
   response.headers.set("X-Frame-Options", sameOriginFrameAllowed ? "SAMEORIGIN" : "DENY");
+
+  if (process.env.NODE_ENV === "production") {
+    response.headers.set(
+      "Strict-Transport-Security",
+      "max-age=31536000; includeSubDomains; preload",
+    );
+  }
 
   if (surface === "admin" || surface === "account") {
     response.headers.set("Cache-Control", "private, no-store, max-age=0");

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { retryAppointmentCalendarSync } from "@/modules/appointments/service";
 import {
   getCurrentSessionUser,
-  getOptionalOwnerAdminUser,
+  getOptionalOwnerAdminAal2User,
 } from "@/modules/auth/guards";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
@@ -72,7 +72,7 @@ export async function POST(
     );
   }
 
-  const adminUser = await getOptionalOwnerAdminUser();
+  const adminUser = await getOptionalOwnerAdminAal2User();
   if (!adminUser) {
     return NextResponse.redirect(
       buildDetailRedirect(request, id, {

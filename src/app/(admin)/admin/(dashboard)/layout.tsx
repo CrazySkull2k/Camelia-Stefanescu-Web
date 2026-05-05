@@ -1,8 +1,8 @@
 import { AdminShell } from "@/components/admin/admin-shell";
 import { hasServerEnv } from "@/lib/env/server";
-import { requireAdminUser } from "@/modules/auth/guards";
+import { requireAdminAal2User } from "@/modules/auth/guards";
 
-function getDisplayName(user: Awaited<ReturnType<typeof requireAdminUser>>) {
+function getDisplayName(user: Awaited<ReturnType<typeof requireAdminAal2User>>) {
   const metadataName = String(
     user?.user_metadata.full_name ?? user?.user_metadata.name ?? "",
   ).trim();
@@ -32,7 +32,7 @@ export default async function AdminDashboardLayout({
     | null = null;
 
   if (hasServerEnv()) {
-    const user = await requireAdminUser();
+    const user = await requireAdminAal2User();
     adminUserPreview = {
       avatarUrl:
         typeof user.user_metadata.avatar_url === "string"

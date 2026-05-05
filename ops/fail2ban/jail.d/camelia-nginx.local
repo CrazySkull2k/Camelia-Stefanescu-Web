@@ -1,0 +1,9 @@
+[camelia-nginx-auth]
+enabled = true
+port = http,https
+filter = camelia-nginx-auth
+logpath = /var/log/nginx/access.log
+backend = auto
+findtime = 600
+maxretry = 12
+bantime = 3600

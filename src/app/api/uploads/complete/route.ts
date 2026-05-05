@@ -6,8 +6,12 @@ import { applyRateLimit } from "@/lib/security/rate-limit";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { sanitizePlainText } from "@/lib/validation/sanitize";
 import {
+  getRequestAuditContext,
+  writeSecurityAuditEvent,
+} from "@/modules/audit/security";
+import {
   getCurrentSessionUser,
-  getOptionalAdminUser,
+  getOptionalAdminAal2User,
 } from "@/modules/auth/guards";
 
 const allowedBuckets = new Set(["site-media", "blog-covers"]);
@@ -20,6 +24,8 @@ function sanitizeStoragePath(value: string) {
 }
 
 export async function POST(request: Request) {
+  const auditContext = getRequestAuditContext(request);
+
   if (!hasServerEnv()) {
     return NextResponse.json(
       { ok: false, error: "Supabase nu este configurat." },
@@ -30,6 +36,18 @@ export async function POST(request: Request) {
   try {
     assertAllowedOrigin(request.headers.get("origin"), "admin");
   } catch (error) {
+    await writeSecurityAuditEvent({
+      action: "admin.media.upload.complete",
+      entityType: "media_asset",
+      ip: auditContext.ip,
+      metadata: {
+        reason: error instanceof Error ? error.message : "origin-mismatch",
+      },
+      result: "blocked",
+      surface: "admin",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.json(
       {
         ok: false,
@@ -44,8 +62,21 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Acces neautorizat." }, { status: 401 });
   }
 
-  const user = await getOptionalAdminUser();
+  const user = await getOptionalAdminAal2User();
   if (!user) {
+    await writeSecurityAuditEvent({
+      action: "admin.media.upload.complete",
+      actorUserId: sessionUser.id,
+      entityType: "media_asset",
+      ip: auditContext.ip,
+      metadata: {
+        reason: "aal2-required",
+      },
+      result: "blocked",
+      surface: "admin",
+      userAgent: auditContext.userAgent,
+    });
+
     return NextResponse.json({ ok: false, error: "Acces neautorizat." }, { status: 403 });
   }
 
@@ -94,6 +125,20 @@ export async function POST(request: Request) {
   if (error) {
     return NextResponse.json({ ok: false, error: error.message }, { status: 400 });
   }
+
+  await writeSecurityAuditEvent({
+    action: "admin.media.upload.complete",
+    actorUserId: user.id,
+    entityType: "media_asset",
+    ip: auditContext.ip,
+    metadata: {
+      bucket,
+      publicPath,
+    },
+    result: "allowed",
+    surface: "admin",
+    userAgent: auditContext.userAgent,
+  });
 
   return NextResponse.json({ ok: true, publicPath });
 }

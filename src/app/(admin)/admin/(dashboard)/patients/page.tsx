@@ -11,7 +11,7 @@ import {
 import { SetupNotice } from "@/components/admin/setup-notice";
 import { hasServerEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 import { NUTRITION_QUESTIONNAIRE_DEFINITION_ID } from "@/modules/forms/questionnaire";
 
 type PatientsPageProps = {
@@ -342,7 +342,7 @@ export default async function PatientsPage({ searchParams }: PatientsPageProps) 
     return <SetupNotice />;
   }
 
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const resolvedSearchParams = await searchParams;
   const filters = getFilters(resolvedSearchParams);

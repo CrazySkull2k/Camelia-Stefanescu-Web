@@ -5,7 +5,7 @@ import { SetupNotice } from "@/components/admin/setup-notice";
 import { hasServerEnv } from "@/lib/env/server";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { getBucharestDayBounds } from "@/lib/utils/dates";
-import { requireOwnerAdminUser } from "@/modules/auth/guards";
+import { requireOwnerAdminAal2User } from "@/modules/auth/guards";
 
 type AppointmentRow = {
   contact_email: string | null;
@@ -395,7 +395,7 @@ async function getOverview() {
 }
 
 export default async function AdminDashboardPage() {
-  await requireOwnerAdminUser();
+  await requireOwnerAdminAal2User();
 
   const overview = await getOverview();
 

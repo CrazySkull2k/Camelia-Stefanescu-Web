@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 
 import { getServerEnv } from "@/lib/env/server";
 
-export const APPOINTMENT_RESUME_COOKIE = "appointment_resume";
+export const APPOINTMENT_RESUME_COOKIE = "__Host-appointment_resume";
 export const BOOKING_MODE_COOKIE = "booking_mode";
 
 const APPOINTMENT_RESUME_TTL_SECONDS = 60 * 60 * 24;

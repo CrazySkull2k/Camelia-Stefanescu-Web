@@ -11,6 +11,11 @@ import {
   writeSecurityAuditEvent,
 } from "@/modules/audit/security";
 
+const REGISTER_FAILED_MESSAGE =
+  "Nu am putut finaliza crearea contului cu datele primite.";
+const REGISTER_UNAVAILABLE_MESSAGE =
+  "Serviciul de creare cont nu este disponibil momentan.";
+
 function buildRegisterRedirect(request: Request, input?: {
   email?: string | null;
   error?: string | null;
@@ -70,7 +75,7 @@ export async function POST(request: Request) {
     return NextResponse.redirect(
       buildRegisterRedirect(request, {
         email,
-        error: "Supabase nu este configurat.",
+        error: REGISTER_UNAVAILABLE_MESSAGE,
         redirectTo,
       }),
       { status: 303 },
@@ -113,7 +118,7 @@ export async function POST(request: Request) {
       return NextResponse.redirect(
         buildRegisterRedirect(request, {
           email,
-          error: error.message,
+          error: REGISTER_FAILED_MESSAGE,
           redirectTo,
         }),
         { status: 303 },
@@ -146,9 +151,9 @@ export async function POST(request: Request) {
       buildRegisterRedirect(request, {
         email,
         error:
-          error instanceof Error
+          error instanceof Error && error.name === "RateLimitExceededError"
             ? error.message
-            : "Nu am putut crea contul.",
+            : REGISTER_FAILED_MESSAGE,
         redirectTo,
       }),
       { status: 303 },

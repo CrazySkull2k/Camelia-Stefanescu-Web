@@ -40,31 +40,19 @@ export async function applyRateLimit({
   }
 
   const supabase = createSupabaseAdminClient();
-  const { count, error: countError } = await supabase
-    .from("rate_limit_events")
-    .select("id", { count: "exact", head: true })
-    .eq("endpoint_key", key)
-    .eq("hashed_identifier", hashedIdentifier)
-    .gte("created_at", new Date(windowStart).toISOString());
+  const { data, error } = await supabase.rpc("enforce_rate_limit", {
+    p_endpoint_key: key,
+    p_hashed_identifier: hashedIdentifier,
+    p_max: max,
+    p_window_seconds: Math.max(Math.ceil(windowMs / 1000), 1),
+  });
 
-  if (countError) {
-    throw new Error(countError.message);
+  if (error) {
+    throw new Error(error.message);
   }
 
-  if ((count ?? 0) >= max) {
+  if (!data) {
     throw new RateLimitExceededError();
-  }
-
-  const { error: insertError } = await supabase
-    .from("rate_limit_events")
-    .insert({
-      endpoint_key: key,
-      hashed_identifier: hashedIdentifier,
-      created_at: new Date(now).toISOString(),
-    });
-
-  if (insertError) {
-    throw new Error(insertError.message);
   }
 
   recentHits.push(now);
