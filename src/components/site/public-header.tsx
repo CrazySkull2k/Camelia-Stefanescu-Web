@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -116,11 +115,11 @@ function PublicHeaderInner({ pathname }: PublicHeaderInnerProps) {
     >
       <div className={styles.inner}>
         <Link aria-label="Dr. Camelia Stefanescu" className={styles.logoLink} href="/">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             alt="Dr. Camelia Stefanescu"
             className={styles.logo}
             height={54}
-            priority
             src="/site/brand/logo.png"
             width={248}
           />

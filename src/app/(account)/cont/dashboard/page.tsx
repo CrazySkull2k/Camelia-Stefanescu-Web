@@ -10,6 +10,7 @@ import {
   UserRound,
 } from "lucide-react";
 
+import { HorizontalProgressBar } from "@/components/shared/horizontal-progress-bar";
 import { PatientAppointmentsCalendar } from "@/components/site/patient-appointments-calendar";
 import { siteContact } from "@/content/site-content";
 import { getPatientQuestionnaireStatus } from "@/modules/forms/questionnaire";
@@ -324,12 +325,7 @@ export default async function PatientDashboardPage() {
                     {profileCompleteness}%
                   </span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-[#e2e3d9]">
-                  <div
-                    className="h-full rounded-full bg-[#735a42]"
-                    style={{ width: `${profileCompleteness}%` }}
-                  />
-                </div>
+                <HorizontalProgressBar color="#735a42" value={profileCompleteness} />
               </div>
 
               <div>
@@ -341,12 +337,7 @@ export default async function PatientDashboardPage() {
                     {consultationReadiness}%
                   </span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-[#e2e3d9]">
-                  <div
-                    className="h-full rounded-full bg-[#5f5e5e]"
-                    style={{ width: `${consultationReadiness}%` }}
-                  />
-                </div>
+                <HorizontalProgressBar color="#5f5e5e" value={consultationReadiness} />
               </div>
 
               <div className="space-y-2">

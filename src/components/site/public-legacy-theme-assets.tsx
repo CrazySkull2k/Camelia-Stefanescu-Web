@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-css-tags */
+/* eslint-disable @next/next/no-css-tags, @next/next/no-page-custom-font */
 "use client";
 
 import { usePathname } from "next/navigation";
@@ -16,10 +16,23 @@ const exactDesignRoutes = new Set([
 
 export function PublicLegacyThemeAssets() {
   const pathname = usePathname();
-  const shouldLoadLegacyTheme = !exactDesignRoutes.has(pathname);
+  const isExactDesignRoute = exactDesignRoutes.has(pathname);
 
-  if (!shouldLoadLegacyTheme) {
-    return null;
+  if (isExactDesignRoute) {
+    return (
+      <>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
+      </>
+    );
   }
 
   return (

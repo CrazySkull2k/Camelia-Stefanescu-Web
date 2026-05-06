@@ -1,0 +1,131 @@
+/* eslint-disable @next/next/no-img-element, jsx-a11y/alt-text, react/no-unescaped-entities */
+import clsx from "clsx";
+
+import styles from "./nutrition-services-exact-design-page.module.css";
+
+export function NutritionServicesExactDesignPage() {
+  return (
+    <div
+      className={clsx(styles.root, "bg-background text-on-surface selection:bg-secondary-fixed selection:text-on-secondary-container")}
+      data-design-page="servicii-nutritie"
+      data-cms-override-version="servicii-nutritie-2026-design-v2"
+    >
+      <div className="pt-32 pb-24 px-8 max-w-[1440px] mx-auto">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40 items-start">
+          <div className="lg:col-span-5 relative">
+            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Close-up of fresh organic salad in a ceramic bowl on a rustic linen cloth with soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHSi3eKUYf54KPXBHLx05M-3kd1f8PlvRPlVTQD-p_kG3hO3CctmX6KOPzr21SeujE5VLR56u9C08RMYEmh0BrLlVNOE476Yo2edmHaPYQ3B-wyxsTEhS-JvDtgNT03KtgJkFZcPaQ_C82vPToxNGNa7AjsXIisV3nko5_8FfhwVJ2Sji6TPJf3cpb9x90bJFrY6MEoLm4JY30sXTN3AQydvSQWh3vQButNCSTON97OTXrC2bpkP72GFwd6a7k0VqN-vk31J5b9-E" /></div>
+            <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-fixed rounded-full flex items-center justify-center p-6 text-center editorial-shadow"><span className="font-headline italic text-on-secondary-container text-lg">Echilibru prin știință și empatie</span></div>
+          </div>
+          <div className="lg:col-span-7 lg:pl-20 pt-16">
+            <div className="space-y-10">
+              <h2 className="font-headline text-5xl text-on-surface italic">Primul pas către sănătate</h2>
+              <p className="font-body text-base leading-loose text-on-surface-variant max-w-2xl">Indiferent de varianta de consultație de nutriție, la prima noastră întâlnire voi avea nevoie de chestionarul de evaluare nutrițională completat și un set de analize recente. Formularele le găsești la rubrica Programări.</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10">
+                <div className="p-10 bg-surface-container-low rounded-3xl space-y-5">
+                  <span className="material-symbols-outlined text-primary text-3xl">assignment_turned_in</span>
+                  <h3 className="font-label text-[11px] uppercase tracking-[0.2em] font-bold">Chestionar Nutrițional</h3>
+                  <p className="font-body text-sm leading-relaxed text-on-surface-variant">O analiză exhaustivă a obiceiurilor alimentare actuale și a sensibilităților.</p>
+                </div>
+                <div className="p-10 bg-surface-container-low rounded-3xl space-y-5">
+                  <span className="material-symbols-outlined text-primary text-3xl">clinical_notes</span>
+                  <h3 className="font-label text-[11px] uppercase tracking-[0.2em] font-bold">Evaluare Inițială</h3>
+                  <p className="font-body text-sm leading-relaxed text-on-surface-variant">Discuție aprofundată despre starea de sănătate și stabilirea indicatorilor de succes.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="space-y-40">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="order-2 lg:order-1 space-y-10">
+              <div className="flex items-center gap-4 text-outline font-label text-[10px] uppercase tracking-[0.2em]">
+                <span className="w-12 h-[1px] bg-outline/30"></span>
+                 SĂNĂTATE SISTEMICĂ
+              </div>
+              <h2 className="font-headline text-6xl text-on-surface italic text-7xl md:text-8xl">Nutriție pentru slăbit</h2>
+              <p className="font-body text-base text-on-surface-variant leading-loose">Modificările comportamentului alimentar timp de ani de zile generează tulburări hormonale majore ce determină organismul să depoziteze țesut gras la nivel somatic și visceral. Prin urmare, revenirea organismului la un metabolism corect, care să asigure menținerea unei greutăți optime, va necesita o perioadă de cel puțin 3 luni de aplicare a principiilor programului de Recalibrare a Răspunsului Hormonal. Urmărirea și consilierea în această perioadă se fac la un interval de 2–3 săptămâni.</p>
+              <div className="space-y-6 pt-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-6 h-6 rounded-full bg-[#735a42] flex items-center justify-center"><span className="material-symbols-outlined text-white text-[14px]">check</span></div>
+                  <span className="font-body text-[#5e6058]">Optimizarea metabolismului bazal</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-6 h-6 rounded-full bg-[#735a42] flex items-center justify-center"><span className="material-symbols-outlined text-white text-[14px]">check</span></div>
+                  <span className="font-body text-[#5e6058]">Gestionarea sațietății și a poftelor</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-6 h-6 rounded-full bg-[#735a42] flex items-center justify-center"><span className="material-symbols-outlined text-white text-[14px]">check</span></div>
+                  <span className="font-body text-[#5e6058]">Educație pentru menținere pe viață</span>
+                </div>
+              </div>
+              <button className="flex items-center gap-4 group font-label text-[12px] uppercase tracking-[0.2em] font-bold text-primary pt-4">
+                 Detalii Program 
+                <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+              </button>
+            </div>
+            <div className="order-1 lg:order-2"><div className="aspect-[16/10] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Elegant flat lay of vibrant healthy vegetables including kale, sweet potatoes, and avocado on a minimalist light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCePsnuFhxZZLN01Kf0qkV2Ae2fS7hbNRwjvx83shZ_E5QYAh7-bGZ8v664yZ-LVxGIaevhnv3kbhPjpPA7VHlciXiJATIiWLbKU1bA1CCiHQVl65Lf3jciF8Ca57Z-pBZaISWMQ-BpG1uUsr94knZc1H5eilDiT-R1MiDkJFzHljkJNonwrIJK5Xkdx_sHJ4p-u7tynjdyoRXxEey3VKjCJRwj6pl0Jk36dLcJI3yTX2bqS2TiKtOA7C_liqrMqRPrwhRM2sOcOgo" /></div></div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center bg-surface-container-low rounded-[4rem] p-12 lg:p-24">
+            <div className="lg:col-span-5"><div className="aspect-square rounded-[3rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Zen-like composition with clear glass of water, essential oils, and a sprig of lavender on a soft linen surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC5tuO3TE4R5vh8lmDuG_PoSGQeXawI0R6c5sNjhg-QuTQqkCbkeWFcHgwS-Fwe0N9mH-HBttlgDN9ZiGbSao_8GdCks9XVycOM327maGx-qOUB62o0HbYB80BbJZ2FnDStXcw6l3l8mJpd9cOZWyUv03EwCrkIY5FQcZRnwrX3eWyvRp608-L01gp9YGNbAVUPli1J9EW94gkWlRE9SE3KQoqwk73aOYnEy23vQrZ-b6d_KOAizfbbwVnZ_bOPhz_5pRYcXdNJew" /></div></div>
+            <div className="lg:col-span-7 space-y-10 lg:pl-12">
+              <div className="flex items-center gap-4 text-outline font-label text-[10px] uppercase tracking-[0.2em]">
+                <span className="w-8 h-[1px] bg-outline/40"></span>
+                 SĂNĂTATE SISTEMICĂ 
+              </div>
+              <h2 className="font-headline text-6xl text-on-surface italic text-7xl md:text-8xl">Nutriție clinică</h2>
+              <p className="font-body text-base text-on-surface-variant leading-loose">Condițiile vieții moderne provoacă, într-un număr din ce în ce mai mare, diverse afecțiuni. Ai probleme de digestie, imunitatea ți-a scăzut considerabil, ficatul îți creează disconfort, ai frecvent infecții urinare, stresul ți-a dereglat funcția tiroidiană sau simptomele menopauzei ți-au schimbat drastic viața? Toate se pot optimiza, astfel încât să îți recapeți energia și pofta de viață.</p>
+              <div className="grid grid-cols-2 gap-6 pt-4">
+                <div className="flex items-center gap-4 p-5 bg-surface-container-lowest rounded-2xl">
+                  <span className="material-symbols-outlined text-primary">feed</span>
+                  <span className="font-label text-[10px] uppercase tracking-[0.15em]">Digestie</span>
+                </div>
+                <div className="flex items-center gap-4 p-5 bg-surface-container-lowest rounded-2xl">
+                  <span className="material-symbols-outlined text-primary">self_care</span>
+                  <span className="font-label text-[10px] uppercase tracking-[0.15em]">Anti-Stres</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="space-y-10">
+              <div className="flex items-center gap-4 text-outline font-label text-[10px] uppercase tracking-[0.2em]">
+                <span className="w-8 h-[1px] bg-outline/40"></span>
+                 PERFORMANȚĂ & ENERGIE 
+              </div>
+              <h2 className="font-headline text-6xl text-on-surface italic text-7xl md:text-8xl">Nutriție sportivă</h2>
+              <p className="font-body text-base text-on-surface-variant leading-loose">Pentru cei care practică sport de plăcere sau de performanță, nutriția trebuie gândită în funcție de necesitățile fiecăruia. Sunt atleți care, prin natura sportului, trebuie să se concentreze pe forță, viteză de reacție și/sau anduranță. Alimentația, hidratarea și administrarea de suplimente trebuie atent planificate pentru a acoperi nevoile energetice din timpul antrenamentului sau competiției sportive, dar și pentru a permite o recuperare optimă. Totul este personalizat în funcție de vârstă, constituția sportivului, compoziția corporală (masă musculară, grăsime somatică, grăsime viscerală, nivel de hidratare).</p>
+              <div className="flex items-center gap-16 pt-4">
+                <div className="text-center">
+                  <div className="font-headline text-5xl text-primary mb-2">94%</div>
+                  <div className="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Recuperare Rapidă</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-headline text-5xl text-primary mb-2">2.5x</div>
+                  <div className="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Rezistență Sporită</div>
+                </div>
+              </div>
+              <div className="pt-6"><button className="bg-primary text-on-primary px-12 py-5 rounded-full font-label text-[11px] uppercase tracking-[0.2em] hover:bg-primary-dim transition-all">Solicită Evaluarea</button></div>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Dynamic shot of a focused athlete in a minimalist gym with high ceilings and soft dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX0qHYOnG63_dsXqhiNiJoXUimPYgfwFiSE6pAKrF9CtL5MrhreHJFTfrBd3ZPHe8lIlTfFcOz9GXh80MEwWq1svmD0odsadSsAy53VA-jcO82bgGuV-kcmMfmN95W2MCSAw7psYx3kK5Paz4gPDKMtsBYzGkD-R31EsNzXtqyC373k29C-9x-elkB_-wr9j46J1IJXLx_t5pXY0jupAtBrKfcdawEEPKxwN4TNCOWdXRAeAvZ9HxJaFzEXMRjxnD3_XHkUXw6Mn4" /></div>
+              <div className="absolute top-16 -left-12 bg-surface-bright/90 backdrop-blur-md p-10 rounded-3xl editorial-shadow max-w-[280px]">
+                <span className="material-symbols-outlined text-secondary text-4xl mb-5">bolt</span>
+                <p className="font-headline text-lg italic text-on-surface">"Combustibilul corect transformă efortul în excelență."</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="mt-48 text-center py-40 bg-secondary-fixed/20 rounded-[4rem]">
+          <div className="max-w-3xl mx-auto space-y-12">
+            <h2 className="font-headline text-6xl text-on-surface italic leading-tight text-7xl md:text-8xl">Începe călătoria ta către o viață echilibrată</h2>
+            <p className="font-body text-lg text-on-surface-variant leading-relaxed">Suntem aici să te ghidăm cu expertiză clinică și o abordare profund umană. Programează astăzi prima ta discuție.</p>
+            <div className="flex flex-wrap justify-center gap-8 pt-8">
+              <button className="bg-primary text-on-primary px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] hover:shadow-xl transition-all">Programare Online</button>
+              <button className="bg-surface-container-lowest text-on-surface px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] border border-outline-variant/30 hover:bg-surface-container transition-all">Contactează-ne</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}

@@ -99,6 +99,54 @@
   transform: translateX(var(--shift-x)) scale(0.82);
 }
 
+.calendarDayShiftLeft1 {
+  --shift-x: -125%;
+}
+
+.calendarDayShiftLeft2 {
+  --shift-x: -250%;
+}
+
+.calendarDayShiftLeft3 {
+  --shift-x: -375%;
+}
+
+.calendarDayShiftLeft4 {
+  --shift-x: -500%;
+}
+
+.calendarDayShiftLeft5 {
+  --shift-x: -625%;
+}
+
+.calendarDayShiftLeft6 {
+  --shift-x: -750%;
+}
+
+.calendarDayShiftRight1 {
+  --shift-x: 125%;
+}
+
+.calendarDayShiftRight2 {
+  --shift-x: 250%;
+}
+
+.calendarDayShiftRight3 {
+  --shift-x: 375%;
+}
+
+.calendarDayShiftRight4 {
+  --shift-x: 500%;
+}
+
+.calendarDayShiftRight5 {
+  --shift-x: 625%;
+}
+
+.calendarDayShiftRight6 {
+  --shift-x: 750%;
+}
+
 .calendarDayReturning {
   opacity: 1;
   pointer-events: none;
@@ -132,6 +180,10 @@
     box-shadow,
     border-radius;
   z-index: 4;
+}
+
+.morphCardFrame {
+  inset: 0 auto auto 0;
 }
 
 .morphCardCollapsed {

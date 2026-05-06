@@ -29,6 +29,7 @@ type AppointmentBookingProps = {
   services: BookableService[];
   patient?: PatientSnapshot | null;
   userEmail?: string | null;
+  nonce?: string | null;
   initialBookingMode?: "guest" | "account";
   initialServiceSlug?: string | null;
   title?: string;
@@ -77,6 +78,7 @@ export function AppointmentBooking({
   services,
   patient,
   userEmail,
+  nonce,
   initialBookingMode = "guest",
   initialServiceSlug,
   title = "Rezerva o programare",
@@ -289,7 +291,7 @@ export function AppointmentBooking({
 
         <form onSubmit={handleSubmit} className="row justify-content-center">
           <div className="col-lg-7">
-            <div className="row" style={{ marginTop: "-4rem" }}>
+            <div className="row mt-[-4rem]">
               <div className="col-md-6">
                 <div className="form-group">
                   <label htmlFor="booking-name-legacy">Nume</label>
@@ -374,8 +376,7 @@ export function AppointmentBooking({
                 <label className="form-label d-block mb-2">Este prima vizita?</label>
                 <div className="form-check form-check-inline">
                   <input
-                    className="form-check-input"
-                    style={{ marginLeft: 0 }}
+                    className="form-check-input ms-0"
                     type="radio"
                     id="prima_vizita_da"
                     checked={firstVisit === "Da"}
@@ -387,8 +388,7 @@ export function AppointmentBooking({
                 </div>
                 <div className="form-check form-check-inline">
                   <input
-                    className="form-check-input"
-                    style={{ marginLeft: 0 }}
+                    className="form-check-input ms-0"
                     type="radio"
                     id="prima_vizita_nu"
                     checked={firstVisit === "Nu"}
@@ -487,6 +487,7 @@ export function AppointmentBooking({
       <div className="space-y-6">
         {turnstileSiteKey ? (
           <Script
+            nonce={nonce ?? undefined}
             src="https://challenges.cloudflare.com/turnstile/v0/api.js"
             strategy="afterInteractive"
           />
@@ -525,6 +526,7 @@ export function AppointmentBooking({
     <div className="space-y-6">
       {turnstileSiteKey ? (
         <Script
+          nonce={nonce ?? undefined}
           src="https://challenges.cloudflare.com/turnstile/v0/api.js"
           strategy="afterInteractive"
         />

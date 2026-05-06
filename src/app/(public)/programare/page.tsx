@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 
 import { AppointmentBooking } from "@/components/site/appointment-booking";
 import { BOOKING_MODE_COOKIE } from "@/lib/security/appointment-session";
@@ -14,11 +14,12 @@ type BookingPageProps = {
 };
 
 export default async function BookingPage(props: BookingPageProps) {
-  const [{ user, patient }, services, searchParams, cookieStore] = await Promise.all([
+  const [{ user, patient }, services, searchParams, cookieStore, requestHeaders] = await Promise.all([
     getCurrentPatientAccount(),
     getServiceOfferings(),
     props.searchParams,
     cookies(),
+    headers(),
   ]);
   const requestedService = Array.isArray(searchParams.service)
     ? searchParams.service[0]
@@ -70,6 +71,7 @@ export default async function BookingPage(props: BookingPageProps) {
         <AppointmentBooking
           key={bookingKey}
           services={services}
+          nonce={requestHeaders.get("x-nonce")}
           patient={patientSnapshot}
           initialBookingMode={initialBookingMode}
           userEmail={user?.email ?? null}

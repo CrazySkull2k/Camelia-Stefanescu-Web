@@ -1,7 +1,9 @@
-import { ExactDesignPage } from "@/components/site/exact-design-page";
+import { connection } from "next/server";
 
-export default function StopDietaPage() {
-  return (
-    <ExactDesignPage fileName="stop_dieta_online.html" version="stop-dieta-2026-design-v2" />
-  );
+import { StopDietaExactDesignPage } from "@/components/site/exact-design-pages/stop-dieta-exact-design-page";
+
+export default async function StopDietaPage() {
+  await connection();
+
+  return <StopDietaExactDesignPage />;
 }

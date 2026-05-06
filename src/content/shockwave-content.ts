@@ -21,26 +21,26 @@ export const shockwavePageContent = {
     title: "Ce este Terapia Shockwave",
     sections: [
       {
+        title: "Ce este terapia cu unde de șoc (Shockwave Therapy)?",
         paragraphs: [
-          "Cercetările din întreagă lume au arătat că terapia cu unde de şoc creează în zona tratată, o reacţie biologică de răspuns a organismului. Sub influenţa undelor de şoc organismul răspunde prin producerea unor proteine specifice – factori de creştere – stimulându-se formarea de către organism în zona tratată de noi vase sangvine. Drept urmare, începe astfel procesul de vindecare a ţesuturilor tratate continuând mai apoi într-un mod accelerat.",
-          "Aceasta metoda de tratament este o premiera deoarece protocoalele folosesc unde de soc focusate. Prin această metodă de tratament nu există nici un efect advers, răspunsul organismului fiind unul absolut natural. În loc de a folosi diverse substanţe produse în mod artificial în laborator, ce pot avea efecte secundare, terapia prin unde de şoc stimulează organismul să folosească propriile mecanisme de refacere. Ca urmare a tratamentului, se iniţiază producerea proteinelor specifice, care atrag celulele stem din cel mai apropiat os, stimulându-se astfel diferenţierea lor. În acest fel, organismul va „repara” prin regenerarea celulară ţesuturile afectate.",
+          "Cercetările din întreaga lume au arătat că terapia cu unde de șoc creează, în zona tratată, o reacție biologică de răspuns a organismului. Sub influența undelor de șoc, organismul răspunde prin producerea unor proteine specifice, factori de creștere, stimulându-se formarea de noi vase sangvine în zona tratată. Drept urmare, începe procesul de vindecare a țesuturilor, continuând apoi într-un mod accelerat.",
+          "Această metodă de tratament este o premieră deoarece protocoalele folosesc unde de șoc focusate. Prin această metodă nu există efecte adverse, răspunsul organismului fiind unul absolut natural. În locul unor substanțe produse artificial în laborator, care pot avea efecte secundare, terapia prin unde de șoc stimulează organismul să folosească propriile mecanisme de refacere. Ca urmare a tratamentului, se inițiază producerea proteinelor specifice care atrag celulele stem din cel mai apropiat os, stimulând diferențierea lor. În acest fel, organismul va repara prin regenerare celulară țesuturile afectate.",
         ],
-        title: "Ce este terapia cu unde de şoc (Shockwave Therapy)?",
       },
       {
+        title: "Tehnologia de generare a undelor de șoc",
         paragraphs: [
-          "Undele de şoc sonice folosite în această terapie sunt generate cu viteză foarte mare prin intermediul tehnologiei electro-hidraulice de ultimă generaţie existentă şi în cabinetul nostru. Undele de şoc sunt create prin generarea unei scântei electrice de către un electrod aflat într-un mediu lichid. Descărcarea electrică provoacă o bulă de vaporizare care se extinde şi apoi imediat se contractă. Se formează astfel o undă de şoc cu energie foarte mare care este direcţionată precis către zona tratată.",
-          "În funcţie de afecţiunea pacientului, se foloseşte de asemenea şi tehnologie de generare a undei de şoc prin aer comprimat. Acest tip de undă se folosește pentru structurile superficiale ale tegumentului deoarece prin reducerea tensiunii musculare, influențează pozitiv tratamentul diverselor afecţiuni, așa cum sunt tendinopatiile – dureri, inflamări cronice ale tendoanelor.",
-          "Prin protocoalele care trebuie urmate şi care sunt rezultatul experienţei de peste 20 de ani a profesorului Wolfgang Schaden, membru al consiliului de conducere al ISMST – International Society for Medical Shockwave Treatment – putem prescrise astfel cele mai bune metode de utilizare a tratamentelor prin unde de şoc.",
+          "Undele de șoc sonice folosite în această terapie sunt generate cu viteză foarte mare prin intermediul tehnologiei electro-hidraulice de ultimă generație existentă și în cabinetul nostru. Undele de șoc sunt create prin generarea unei scântei electrice de către un electrod aflat într-un mediu lichid. Descărcarea electrică provoacă o bulă de vaporizare care se extinde și apoi imediat se contractă. Se formează astfel o undă de șoc cu energie foarte mare, direcționată precis către zona tratată.",
+          "În funcție de afecțiunea pacientului, se folosește și tehnologia de generare a undei de șoc prin aer comprimat. Acest tip de undă este folosit pentru structurile superficiale ale tegumentului deoarece, prin reducerea tensiunii musculare, influențează pozitiv tratamentul diverselor afecțiuni, cum sunt tendinopatiile, durerile și inflamațiile cronice ale tendoanelor.",
+          "Prin protocoalele care trebuie urmate și care sunt rezultatul experienței de peste 20 de ani a profesorului Wolfgang Schaden, membru al consiliului de conducere al ISMST - International Society for Medical Shockwave Treatment -, pot fi prescrise cele mai bune metode de utilizare a tratamentelor prin unde de șoc.",
         ],
-        title: "Tehnologia de generare a undelor de şoc",
       },
     ],
   },
   treatmentMode: {
     title: "Mod Tratament",
     topParagraph:
-      "După aplicarea pe piele a unui gel conductor pentru ultrasunete în zona afectată, sonda de tratament este poziţionată şi în funcţie de tratamentul necesar, sunt aplicate între 500 şi 3000 de impulsuri cu unde de şoc, în funcţie de protocoalele ce trebuiesc urmate pentru fiecare afecţiune.",
+      "După aplicarea pe piele a unui gel conductor pentru ultrasunete în zona afectată, sonda de tratament este poziționată și, în funcție de tratamentul necesar, sunt aplicate între 500 și 3000 de impulsuri cu unde de șoc, conform protocoalelor care trebuie urmate pentru fiecare afecțiune.",
     sections: [
       {
         image: {
@@ -51,14 +51,14 @@ export const shockwavePageContent = {
         },
         imageSide: "left" as const,
         paragraphs: [
-          "Terapia este nedureroasă, durează puţin (aproximativ 8-15 minute), iar şedinţele se fac la interval de 7 – 10 zile.",
-          "În general sunt necesare 3 şedinţe de tratament, dar în anumite patologii se pot recomanda 5 – 6 şedinţe de tratament. Între aplicaţii se recomandă repausul zonei afectate.",
-          "Efectele secundare tratamentului sunt foarte rare, se remit rapid şi constau în apariţia de peteşii, edeme şi eriteme.",
+          "Terapia este nedureroasă, durează puțin, aproximativ 8-15 minute, iar ședințele se fac la interval de 7-10 zile.",
+          "În general sunt necesare 3 ședințe de tratament, dar în anumite patologii se pot recomanda 5-6 ședințe. Între aplicații se recomandă repausul zonei afectate.",
+          "Efectele secundare ale tratamentului sunt foarte rare, se remit rapid și constau în apariția de peteșii, edeme și eriteme.",
         ],
       },
       {
         paragraphs: [
-          "Cabinetul nostru dispune de tehnologie de ultimă generaţie produsă de compania MTS din Germania care furnizează echipamente şi pentru clinica de traumatologie AUVA Meidling din Viena.",
+          "Cabinetul nostru dispune de tehnologie de ultimă generație produsă de compania MTS din Germania, care furnizează echipamente și pentru clinica de traumatologie AUVA Meidling din Viena.",
         ],
       },
       {
@@ -70,7 +70,7 @@ export const shockwavePageContent = {
         },
         imageSide: "right" as const,
         paragraphs: [
-          "Contraindicaţiile terapiei cu unde de şoc se referă la pacienţii cu afecţiuni maligne, boli ale sângelui şi tratamente anticoagulante, tratament cu corticosteroizi în ultimele 6 săptămâni, tromboze, sarcină (aplicaţii lombare şi abdominale) şi aplicarea pe anumite ţesuturi (ochi şi zona periorbitala, miocard, măduva spinării, ficat şi rinichi).",
+          "Contraindicațiile terapiei cu unde de șoc se referă la pacienții cu afecțiuni maligne, boli ale sângelui și tratamente anticoagulante, tratament cu corticosteroizi în ultimele 6 săptămâni, tromboze, sarcină pentru aplicații lombare și abdominale și aplicarea pe anumite țesuturi, precum ochii și zona periorbitală, miocardul, măduva spinării, ficatul și rinichii.",
         ],
       },
     ],
@@ -83,15 +83,15 @@ export const shockwavePageContent = {
       width: 637,
     },
     intro:
-      "Dacă aţi fost diagnosticat cu una din afecţiunile de mai sus, nu vă obişnuiţi să trăiţi cu durerea. Toate aceste afecţiuni pot fi vindecate sau ameliorate. În anumite situaţii, chiar după prima şedinţă, durerea scade până la dispariţie.",
+      "Dacă ați fost diagnosticat cu una dintre afecțiunile de mai sus, nu vă obișnuiți să trăiți cu durerea. Toate aceste afecțiuni pot fi vindecate sau ameliorate. În anumite situații, chiar după prima ședință, durerea scade până la dispariție.",
     title: "Ce putem trata",
     treatments: [
-      "Dermatologie – tratamentul arsurilor, cicatricilor cheloide, răni cronice sau acute ale ţesuturilor moi, acnee",
-      "Diabet – tratamentul piciorului diabetic, ulcerelor venoase.",
-      "Disfuncţii erectile",
+      "Dermatologie - tratamentul arsurilor, cicatricilor cheloide, rănilor cronice sau acute ale țesuturilor moi și acneei",
+      "Diabet - tratamentul piciorului diabetic și al ulcerelor venoase",
+      "Disfuncții erectile",
       "Boală Peyronie",
       "Parodontoză",
-      "Tratamentul celulitei prin spargerea adipocitelor fără a leza pielea.",
+      "Tratamentul celulitei prin spargerea adipocitelor fără a leza pielea",
     ],
   },
 } as const;

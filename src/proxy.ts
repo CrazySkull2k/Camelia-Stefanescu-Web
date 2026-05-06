@@ -81,18 +81,48 @@ function joinDirectiveSources(sources: Array<string | null | undefined>) {
   return Array.from(new Set(sources.filter(Boolean))).join(" ");
 }
 
-function buildContentSecurityPolicy(surface: AppSurface, pathname: string) {
+function createNonce() {
+  return Buffer.from(crypto.randomUUID()).toString("base64");
+}
+
+function requiresRequestNonce(surface: AppSurface) {
+  if (surface === "admin" || surface === "account") {
+    return true;
+  }
+
+  return surface === "public";
+}
+
+function buildContentSecurityPolicy(
+  surface: AppSurface,
+  pathname: string,
+  options: { nonce?: string | null } = {},
+) {
   const isDevelopment = process.env.NODE_ENV !== "production";
+  const nonce = options.nonce ?? null;
   const supabaseOrigin = normalizeOrigin(process.env.NEXT_PUBLIC_SUPABASE_URL);
   const sameOriginFrameAllowed = isSameOriginFrameAllowed(surface, pathname);
   const scriptSrc = joinDirectiveSources([
     "'self'",
-    "'unsafe-inline'",
+    nonce ? `'nonce-${nonce}'` : null,
+    nonce ? "'strict-dynamic'" : null,
     isDevelopment ? "'unsafe-eval'" : null,
     surface === "public" ? "https://challenges.cloudflare.com" : null,
   ]);
+  const styleSrc = joinDirectiveSources([
+    "'self'",
+    nonce ? `'nonce-${nonce}'` : null,
+    surface === "public" ? "https://fonts.googleapis.com" : null,
+    isDevelopment ? "'unsafe-inline'" : null,
+  ]);
+  const fontSrc = joinDirectiveSources([
+    "'self'",
+    "data:",
+    surface === "public" ? "https://fonts.gstatic.com" : null,
+  ]);
   const connectSrc = joinDirectiveSources([
     "'self'",
+    supabaseOrigin,
     surface === "public" ? "https://challenges.cloudflare.com" : null,
     isDevelopment ? "http:" : null,
     isDevelopment ? "https:" : null,
@@ -115,16 +145,19 @@ function buildContentSecurityPolicy(surface: AppSurface, pathname: string) {
   const frameSrc = joinDirectiveSources([
     "'self'",
     surface === "public" ? "https://challenges.cloudflare.com" : null,
+    surface === "public" ? "https://www.google.com" : null,
     surface === "public" ? "https://www.youtube-nocookie.com" : null,
   ]);
   const basePolicy = [
     "default-src 'self'",
     `script-src ${scriptSrc}`,
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-    "font-src 'self' https://fonts.gstatic.com data:",
+    `style-src ${styleSrc}`,
+    ...(isDevelopment ? [] : ["style-src-attr 'none'"]),
+    `font-src ${fontSrc}`,
     `img-src ${imgSrc}`,
     `connect-src ${connectSrc}`,
     `frame-src ${frameSrc}`,
+    "worker-src 'self' blob:",
     "object-src 'none'",
     "base-uri 'self'",
     `frame-ancestors ${sameOriginFrameAllowed ? "'self'" : "'none'"}`,
@@ -133,12 +166,24 @@ function buildContentSecurityPolicy(surface: AppSurface, pathname: string) {
 
   basePolicy.push(`media-src ${mediaSrc}`);
 
+  if (!isDevelopment) {
+    basePolicy.push("upgrade-insecure-requests");
+  }
+
   return basePolicy.join("; ");
 }
 
-function applySurfaceSecurityHeaders(response: NextResponse, surface: AppSurface, pathname: string) {
+function applySurfaceSecurityHeaders(
+  response: NextResponse,
+  surface: AppSurface,
+  pathname: string,
+  options: { nonce?: string | null } = {},
+) {
   const sameOriginFrameAllowed = isSameOriginFrameAllowed(surface, pathname);
-  response.headers.set("Content-Security-Policy", buildContentSecurityPolicy(surface, pathname));
+  response.headers.set(
+    "Content-Security-Policy",
+    buildContentSecurityPolicy(surface, pathname, { nonce: options.nonce ?? null }),
+  );
   response.headers.set("Cross-Origin-Opener-Policy", "same-origin");
   response.headers.set("Cross-Origin-Resource-Policy", "same-site");
   response.headers.set("Origin-Agent-Cluster", "?1");
@@ -164,20 +209,39 @@ export async function proxy(request: NextRequest) {
   const surface = resolveSurface(request.nextUrl.pathname);
   const expectedHost = getExpectedHostForSurface(surface);
   const requestedHost = getRequestedHost(request);
+  const requestHeaders = new Headers(request.headers);
+  const nonce =
+    process.env.NODE_ENV === "production" && requiresRequestNonce(surface)
+      ? createNonce()
+      : null;
 
   if (expectedHost && !matchesHost(requestedHost, expectedHost)) {
     return NextResponse.redirect(buildSurfaceRedirect(request, expectedHost));
   }
 
-  const response = await updateSupabaseSession(request);
+  if (nonce) {
+    requestHeaders.set("x-nonce", nonce);
+  }
+
+  const response = await updateSupabaseSession(request, requestHeaders);
   const finalResponse =
-    response instanceof NextResponse ? response : NextResponse.next({ request });
+    response instanceof NextResponse
+      ? response
+      : NextResponse.next({ request: { headers: requestHeaders } });
 
   finalResponse.headers.set("x-camelia-surface", surface);
-  applySurfaceSecurityHeaders(finalResponse, surface, request.nextUrl.pathname);
+  applySurfaceSecurityHeaders(finalResponse, surface, request.nextUrl.pathname, { nonce });
   return finalResponse;
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|legacy/).*)"],
+  matcher: [
+    {
+      source: "/((?!_next/static|_next/image|favicon.ico|legacy/).*)",
+      missing: [
+        { type: "header", key: "next-router-prefetch" },
+        { type: "header", key: "purpose", value: "prefetch" },
+      ],
+    },
+  ],
 };

@@ -4,14 +4,24 @@ import { createServerClient } from "@supabase/ssr";
 import { getSupabaseEnv, hasSupabaseEnv } from "@/lib/env/server";
 import { getSupabaseServerAuthKey } from "@/lib/supabase/server-auth-key";
 
-export async function updateSupabaseSession(request: NextRequest) {
+export async function updateSupabaseSession(
+  request: NextRequest,
+  requestHeaders?: Headers,
+) {
+  const buildResponse = () =>
+    NextResponse.next({
+      request: {
+        headers: requestHeaders ?? request.headers,
+      },
+    });
+
   if (!hasSupabaseEnv()) {
-    return NextResponse.next({ request });
+    return buildResponse();
   }
 
   const env = getSupabaseEnv();
   const { key: authKey } = await getSupabaseServerAuthKey();
-  let response = NextResponse.next({ request });
+  let response = buildResponse();
 
   const supabase = createServerClient(
     env.NEXT_PUBLIC_SUPABASE_URL,
@@ -23,7 +33,7 @@ export async function updateSupabaseSession(request: NextRequest) {
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
-          response = NextResponse.next({ request });
+          response = buildResponse();
           cookiesToSet.forEach(({ name, value, options }) =>
             response.cookies.set(name, value, options),
           );

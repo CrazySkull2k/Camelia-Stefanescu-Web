@@ -27,8 +27,23 @@ remotePatterns.push({
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  experimental: {
+    sri: {
+      algorithm: "sha256",
+    },
+  },
   images: {
     remotePatterns,
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          destination: "/servicii-nutritie",
+          source: "/serviciunutritie",
+        },
+      ],
+    };
   },
   async redirects() {
     return [

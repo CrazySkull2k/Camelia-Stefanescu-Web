@@ -1,5 +1,9 @@
-import { ExactDesignPage } from "@/components/site/exact-design-page";
+import { connection } from "next/server";
 
-export default function HomePage() {
-  return <ExactDesignPage fileName="acasa.html" version="home-2026-design-v2" />;
+import { HomeExactDesignPage } from "@/components/site/exact-design-pages/home-exact-design-page";
+
+export default async function HomePage() {
+  await connection();
+
+  return <HomeExactDesignPage />;
 }

@@ -358,18 +358,30 @@
   white-space: nowrap;
 }
 
-.viewer :global(.gauge-track) {
+.viewer :global(.gauge-meter) {
+  appearance: none;
   background: var(--surface-container-high);
+  border: 0;
   border-radius: 999px;
+  display: block;
   height: 0.5rem;
   overflow: hidden;
   width: 100%;
 }
 
-.viewer :global(.gauge-fill) {
+.viewer :global(.gauge-meter::-webkit-progress-bar) {
+  background: var(--surface-container-high);
+  border-radius: 999px;
+}
+
+.viewer :global(.gauge-meter::-webkit-progress-value) {
   background: var(--secondary-dim);
   border-radius: 999px;
-  height: 100%;
+}
+
+.viewer :global(.gauge-meter::-moz-progress-bar) {
+  background: var(--secondary-dim);
+  border-radius: 999px;
 }
 
 .viewer :global(.gauge-description) {

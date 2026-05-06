@@ -1025,7 +1025,7 @@ export function IntakeQuestionnaire({
               programarea curenta.
             </p>
             <div className={styles.progressTrack}>
-              <div className={styles.progressBar} style={{ width: `${progress}%` }} />
+              <progress className={styles.progressMeter} max={100} value={progress} />
             </div>
           </div>
 
@@ -1132,7 +1132,7 @@ export function IntakeQuestionnaire({
                   ))}
                 </div>
                 {antecedenteOther ? (
-                  <div className={styles.fieldFull} style={{ marginTop: "1rem" }}>
+                  <div className={`${styles.fieldFull} mt-4`}>
                     <label className={styles.label} htmlFor="antecedente_altele_descriere">
                       Specifica alte boli
                     </label>
@@ -1169,10 +1169,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {interventiiBoli === "Da" ? (
                       <LimitedTextarea
-                        className={styles.textarea}
                         name="interventii_boli_descriere"
                         placeholder="Descrieti interventiile sau bolile..."
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.textarea} mt-4`}
                       />
                     ) : null}
                   </div>
@@ -1202,10 +1201,9 @@ export function IntakeQuestionnaire({
                       </div>
                       {femeiOther ? (
                         <LimitedTextarea
-                          className={styles.textarea}
                           name="femeie_menstruatie_descriere"
                           placeholder="Detalii..."
-                          style={{ marginTop: "1rem" }}
+                          className={`${styles.textarea} mt-4`}
                         />
                       ) : null}
                     </div>
@@ -1242,10 +1240,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {fumati === "Da" ? (
                       <LimitedTextInput
-                        className={styles.input}
                         name="fumati_cantitate"
                         placeholder="Cate tigari pe zi?"
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.input} mt-4`}
                       />
                     ) : null}
                   </div>
@@ -1268,10 +1265,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {alcool === "Da" ? (
                       <LimitedTextInput
-                        className={styles.input}
                         name="alcool_cantitate"
                         placeholder="Cate pahare pe zi?"
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.input} mt-4`}
                       />
                     ) : null}
                   </div>
@@ -1375,7 +1371,7 @@ export function IntakeQuestionnaire({
                       ))}
                     </div>
                     {medicamenteEnabled ? (
-                      <div style={{ marginTop: "1rem" }}>
+                      <div className="mt-4">
                         <RepeatableTable
                           addLabel="Adauga rand"
                           columns={[
@@ -1423,7 +1419,7 @@ export function IntakeQuestionnaire({
                       ))}
                     </div>
                     {suplimenteEnabled ? (
-                      <div style={{ marginTop: "1rem" }}>
+                      <div className="mt-4">
                         <RepeatableTable
                           addLabel="Adauga rand"
                           columns={[
@@ -1543,10 +1539,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {poftaMancare === "Da" ? (
                       <LimitedTextarea
-                        className={styles.textarea}
                         name="pofta_mancare_explicatii"
                         placeholder="Descrieti schimbarile..."
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.textarea} mt-4`}
                       />
                     ) : null}
                   </div>
@@ -1574,7 +1569,7 @@ export function IntakeQuestionnaire({
                       ))}
                     </div>
                     {alergiiEnabled ? (
-                      <div style={{ marginTop: "1rem" }}>
+                      <div className="mt-4">
                         <RepeatableTable
                           addLabel="Adauga rand"
                           columns={[
@@ -1620,7 +1615,7 @@ export function IntakeQuestionnaire({
                       ))}
                     </div>
                     {dieteEnabled ? (
-                      <div style={{ marginTop: "1rem" }}>
+                      <div className="mt-4">
                         <RepeatableTable
                           addLabel="Adauga rand"
                           columns={[
@@ -1666,10 +1661,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {laxative === "Da" ? (
                       <LimitedTextarea
-                        className={styles.textarea}
                         name="laxative_explicatii"
                         placeholder="Detaliati..."
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.textarea} mt-4`}
                       />
                     ) : null}
                   </div>
@@ -1755,10 +1749,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {declansatoriOther ? (
                       <LimitedTextarea
-                        className={styles.textarea}
                         name="declansatori_altele_text"
                         placeholder="Specificati..."
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.textarea} mt-4`}
                       />
                     ) : null}
                   </div>
@@ -1844,10 +1837,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {bauturiOther ? (
                       <LimitedTextarea
-                        className={styles.textarea}
                         name="bauturi_altele_text"
                         placeholder="Specificati..."
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.textarea} mt-4`}
                       />
                     ) : null}
                   </div>
@@ -1901,10 +1893,9 @@ export function IntakeQuestionnaire({
                     </div>
                     {pofteOther ? (
                       <LimitedTextarea
-                        className={styles.textarea}
                         name="pofte_altele_text"
                         placeholder="Specificati..."
-                        style={{ marginTop: "1rem" }}
+                        className={`${styles.textarea} mt-4`}
                       />
                     ) : null}
                   </div>

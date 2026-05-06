@@ -1,6 +1,6 @@
 # Fortress hardening
 
-This document is the production baseline for the Camelia deployment after the MFA/rate-limit hardening work.
+This document is the production baseline for the Camelia deployment after the Phase 1 and Phase 2 fortress hardening work.
 
 ## Application controls already enforced
 
@@ -13,12 +13,22 @@ This document is the production baseline for the Camelia deployment after the MF
 - Public auth, booking, lookup, upload, webhook, and cron surfaces now use atomic Postgres rate limiting through `public.enforce_rate_limit(...)`.
 - Security-sensitive cookies now use explicit `SameSite`, `Secure`, and `__Host-` naming where compatible.
 - Security events are written into `security_audit_events`.
+- Production CSP is now designed for strict mode:
+  - no `unsafe-inline` in production
+  - nonce-driven dynamic surfaces for `admin`, `account`, and booking
+  - SRI enabled for App Router bundles
+  - public exact-design runtime injection removed from live routes
+- Admin now includes a read-only `/admin/security` observability page for security audit events, rate-limit activity, and calendar sync issues.
+- Patient-owned tables now use stricter patient-scoped RLS with `FORCE ROW LEVEL SECURITY`.
 
 ## Required rollout steps
 
 ### 1. Run the new database migration
 
-Apply `supabase/migrations/0018_fortress_hardening.sql` before deploying the app code.
+Apply both migrations before deploying the app code:
+
+- `supabase/migrations/0018_fortress_hardening.sql`
+- `supabase/migrations/0019_fortress_phase2_rls.sql`
 
 ### 2. Rotate and separate production secrets
 
@@ -90,6 +100,27 @@ Install the shared snippet as `/etc/nginx/snippets/camelia-next-proxy.conf`.
   - keep a written rotation procedure
   - test secret rotation for cron, webhook, and questionnaire encryption keys in staging first
 
+## Restore drill cadence
+
+Run a formal restore drill at least once per month:
+
+1. Restore the latest database backup into a disposable environment.
+2. Restore a sample from private storage buckets:
+   - `generated-pdfs`
+   - `patient-analyses`
+3. Verify that:
+   - patient-owned rows are still readable only by the correct patient account
+   - admin document preview routes still stream files correctly
+   - appointment reference codes still resolve through lookup
+4. Destroy the disposable environment after validation and note the restore timestamp.
+
+## Secret rotation cadence
+
+- Rotate `CRON_SECRET`, `RESEND_WEBHOOK_SECRET`, and `GOOGLE_CALENDAR_WEBHOOK_TOKEN` every 90 days or immediately after any webhook incident.
+- Rotate `APPOINTMENT_RESUME_SECRET` and `QUESTIONNAIRE_PAYLOAD_ENCRYPTION_KEY` every 180 days, with a staging rehearsal first.
+- Rotate `SUPABASE_SERVICE_ROLE_KEY` immediately after any host compromise, leaked backup, or suspicious admin activity.
+- Re-issue `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` whenever the Google service account access path changes or after incident response.
+
 ## Incident checklist
 
 ### Suspected admin compromise
@@ -111,6 +142,17 @@ Install the shared snippet as `/etc/nginx/snippets/camelia-next-proxy.conf`.
 1. Rotate `CRON_SECRET`, `RESEND_WEBHOOK_SECRET`, and `GOOGLE_CALENDAR_WEBHOOK_TOKEN`.
 2. Review the last blocked and failed audit events.
 3. Re-check proxy rate limits and host-based routing.
+
+## Post-incident validation checklist
+
+After secrets are rotated or access is restored:
+
+1. Confirm `/admin` still redirects non-`aal2` sessions to `/admin/mfa`.
+2. Confirm `/admin/security` loads and shows fresh events.
+3. Confirm patient booking, lookup, account login, and analysis upload still work.
+4. Confirm private document preview routes return `no-store` responses.
+5. Confirm Google Calendar sync can recover from `needs_retry` without new auth errors.
+6. Confirm webhook endpoints reject invalid signatures and accept valid ones.
 
 ## Validation after every production deploy
 

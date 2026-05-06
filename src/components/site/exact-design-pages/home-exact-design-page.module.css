@@ -1,0 +1,23 @@
+.root {}
+
+:global([data-design-page="home"]) {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbf9f4;
+            color: #31332c;
+        }
+        :global([data-design-page="home"] h1), :global([data-design-page="home"] h2), :global([data-design-page="home"] h3), :global([data-design-page="home"] .font-headline) {
+            font-family: 'Newsreader', serif;
+        }
+        :global([data-design-page="home"] .text-shadow-ambient) {
+            text-shadow: 0px 4px 12px rgba(49, 51, 44, 0.05);
+        }
+        :global([data-design-page="home"] .box-shadow-ambient) {
+            box-shadow: 0px 12px 32px rgba(49, 51, 44, 0.05);
+        }
+        :global([data-design-page="home"] .ghost-border) {
+            border: 1px solid rgba(177, 179, 169, 0.15);
+        }
+
+:global([data-design-page="home"] .designInline1) { font-variation-settings: 'FILL' 0; }
+:global([data-design-page="home"] .designInline2) { font-variation-settings: 'FILL' 0; }
+:global([data-design-page="home"] .designInline3) { font-variation-settings: 'FILL' 0; }

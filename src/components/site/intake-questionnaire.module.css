@@ -133,16 +133,31 @@
 
 .progressTrack {
   margin-top: 1.5rem;
-  height: 0.3rem;
-  border-radius: 999px;
-  background: #e2e3d9;
-  overflow: hidden;
 }
 
-.progressBar {
-  height: 100%;
+.progressMeter {
+  appearance: none;
+  background: #e2e3d9;
+  border: 0;
   border-radius: 999px;
+  display: block;
+  height: 0.3rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.progressMeter::-webkit-progress-bar {
+  background: #e2e3d9;
+  border-radius: 999px;
+}
+
+.progressMeter::-webkit-progress-value {
   background: #5f5e5e;
+}
+
+.progressMeter::-moz-progress-bar {
+  background: #5f5e5e;
+  border-radius: 999px;
 }
 
 .panel {

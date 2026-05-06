@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { CalendarCheck, Facebook, Instagram } from "lucide-react";
 
@@ -131,7 +130,8 @@ export function PublicFooter() {
         <div className={styles.logoRail}>
           <div aria-hidden="true" className={styles.railLine} />
           <Link aria-label="Dr. Camelia Stefanescu - Acasa" className={styles.logoCard} href="/">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               alt=""
               className={styles.logo}
               height={70}

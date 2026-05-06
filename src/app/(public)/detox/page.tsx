@@ -1,10 +1,9 @@
-import { ExactDesignPage } from "@/components/site/exact-design-page";
+import { connection } from "next/server";
 
-export default function DetoxPage() {
-  return (
-    <ExactDesignPage
-      fileName="detox_fiziologic.html"
-      version="detox-fiziologic-2026-design-v2"
-    />
-  );
+import { DetoxExactDesignPage } from "@/components/site/exact-design-pages/detox-exact-design-page";
+
+export default async function DetoxPage() {
+  await connection();
+
+  return <DetoxExactDesignPage />;
 }

@@ -416,9 +416,7 @@ function QuestionnaireBlock({
                   <p>{gauge.label}</p>
                   <span>{gauge.valueLabel}</span>
                 </div>
-                <div className="gauge-track">
-                  <div className="gauge-fill" style={{ width: `${(gauge.value / 5) * 100}%` }} />
-                </div>
+                <progress className="gauge-meter" max={5} value={gauge.value} />
                 {gauge.description ? <p className="gauge-description">{gauge.description}</p> : null}
               </div>
             ))}

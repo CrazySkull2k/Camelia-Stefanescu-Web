@@ -176,6 +176,21 @@ function appointmentStatusClass(value: string) {
   return "bg-[#e2e3d9] text-[#5e6058]";
 }
 
+function getActivityBucketFill(bucket: {
+  count: number;
+  isPeak: boolean;
+}) {
+  if (bucket.isPeak) {
+    return "#735a42";
+  }
+
+  if (bucket.count > 0) {
+    return "rgba(115, 90, 66, 0.45)";
+  }
+
+  return "#e2e3d9";
+}
+
 function getPersonLabel(appointment: AppointmentRow) {
   return appointment.patients?.full_name ?? appointment.contact_name ?? "Pacient";
 }
@@ -752,15 +767,29 @@ export default async function AdminDashboardPage() {
                 >
                   <div className="flex w-full flex-1 items-end">
                     <div
-                      className={`relative w-full overflow-hidden rounded-t-[1.4rem] transition-all duration-300 ${
+                      className={`relative h-full w-full overflow-hidden rounded-t-[1.4rem] transition-all duration-300 ${
                         bucket.isPeak
-                          ? "bg-[#735a42] shadow-[0px_16px_32px_rgba(115,90,66,0.18)]"
+                          ? "shadow-[0px_16px_32px_rgba(115,90,66,0.18)]"
                           : bucket.count > 0
-                            ? "bg-[#735a42]/45 group-hover:bg-[#735a42]/60"
-                            : "bg-[#e2e3d9]"
+                            ? "group-hover:opacity-90"
+                            : ""
                       }`}
-                      style={{ height: `${bucket.height}%` }}
                     >
+                      <svg
+                        aria-hidden="true"
+                        className="block h-full w-full"
+                        preserveAspectRatio="none"
+                        viewBox="0 0 100 100"
+                      >
+                        <rect
+                          fill={getActivityBucketFill(bucket)}
+                          height={bucket.height}
+                          rx="16"
+                          width="100"
+                          x="0"
+                          y={100 - bucket.height}
+                        />
+                      </svg>
                       <span
                         className={`absolute left-1/2 top-3 -translate-x-1/2 rounded-full px-2 py-1 text-[10px] font-black ${
                           bucket.isPeak ? "bg-[#ffdcbd] text-[#654d35]" : "bg-[#fbf9f4]/82 text-[#31332c]"

@@ -43,7 +43,7 @@ export default function ContactPage() {
                     </div>
                     <div className="item_content">
                       <h3 className="item_title">Email</h3>
-                      <p className="item_info mb-0" style={{ fontSize: 16 }}>
+                      <p className="item_info mb-0 text-[16px]">
                         {siteContact.email}
                       </p>
                     </div>
@@ -54,7 +54,7 @@ export default function ContactPage() {
                     </div>
                     <div className="item_content">
                       <h3 className="item_title">Locatie</h3>
-                      <p className="item_info mb-0" style={{ fontSize: 15 }}>
+                      <p className="item_info mb-0 text-[15px]">
                         {siteContact.address}
                       </p>
                     </div>

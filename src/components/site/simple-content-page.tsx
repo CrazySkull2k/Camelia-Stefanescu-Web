@@ -63,9 +63,9 @@ export function SimpleContentPage({
                   <Image
                     src={image}
                     alt={imageAlt ?? title}
+                    className="h-auto w-full"
                     width={640}
                     height={720}
-                    style={{ width: "100%", height: "auto" }}
                   />
                 </div>
               </div>

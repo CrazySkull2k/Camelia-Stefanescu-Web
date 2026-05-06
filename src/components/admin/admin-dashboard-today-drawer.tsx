@@ -131,14 +131,11 @@ export function AdminDashboardTodayDrawer({
         >
           {appointments.length ? (
             <div className="grid gap-2">
-              {appointments.map((appointment, index) => (
+              {appointments.map((appointment) => (
                 <Link
                   className="group grid gap-3 rounded-2xl bg-[#31332c] px-4 py-3 ring-1 ring-white/8 transition duration-300 hover:bg-[#383a33] sm:grid-cols-[auto_1fr_auto] sm:items-center"
                   href={appointment.href}
                   key={appointment.id}
-                  style={{
-                    transitionDelay: open ? `${160 + index * 45}ms` : "0ms",
-                  }}
                 >
                   <span className="font-serif text-2xl leading-none text-[#faf7f6]">
                     {appointment.time}

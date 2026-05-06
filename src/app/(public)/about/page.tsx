@@ -73,7 +73,7 @@ export default async function AboutPage({ searchParams }: AboutPageProps) {
         ]}
       />
 
-      <section className="about_section section_space_lg" style={{ paddingBottom: 0 }}>
+      <section className="about_section section_space_lg pb-0">
         <div className="container">
           <div className="row align-items-center justify-content-lg-between">
             <div className="col-lg-6 order-lg-last">
@@ -84,21 +84,21 @@ export default async function AboutPage({ searchParams }: AboutPageProps) {
                     "/site/theme/assets/images/about/about_image_1-min.jpg"
                   }
                   alt={introImage.alt || getCmsText(intro, "title")}
+                  className="h-auto w-full"
                   width={640}
                   height={720}
-                  style={{ width: "100%", height: "auto" }}
                 />
               </div>
             </div>
             <div className="col-lg-6">
               <div className="hero_content_wrap">
-                <h1 className="heading_text" style={{ lineHeight: "70px" }}>
+                <h1 className="heading_text leading-[70px]">
                   {getCmsText(intro, "title")}
                 </h1>
                 <br />
                 <ul className="info_list unordered_list_block mb-4">
                   {credentials.map((credential) => (
-                    <li key={credential} style={{ lineHeight: "40px" }}>
+                    <li key={credential} className="leading-[40px]">
                       <span className="info_icon">
                         <i className="fa-light fa-circle-check" />
                       </span>
@@ -112,7 +112,7 @@ export default async function AboutPage({ searchParams }: AboutPageProps) {
         </div>
       </section>
 
-      <section className="service_details_section section_space_lg" style={{ paddingBottom: "3%" }}>
+      <section className="service_details_section section_space_lg pb-[3%]">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
@@ -148,9 +148,9 @@ export default async function AboutPage({ searchParams }: AboutPageProps) {
                   <Image
                     src={src ?? "/site/about/certificate-1.jpg"}
                     alt={image.alt || String(certificate.title ?? `Certificare ${index + 1}`)}
+                    className="h-auto w-full"
                     width={480}
                     height={360}
-                    style={{ width: "100%", height: "auto" }}
                   />
                 </div>
               </div>

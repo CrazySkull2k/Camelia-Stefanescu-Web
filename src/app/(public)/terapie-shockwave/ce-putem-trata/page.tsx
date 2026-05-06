@@ -1,10 +1,9 @@
-import { ExactDesignPage } from "@/components/site/exact-design-page";
+import { connection } from "next/server";
 
-export default function ShockwaveWhatWeTreatPage() {
-  return (
-    <ExactDesignPage
-      fileName="ce_putem_trata.html"
-      version="shockwave-what-we-treat-2026-design-v2"
-    />
-  );
+import { ShockwaveTreatmentsExactDesignPage } from "@/components/site/exact-design-pages/shockwave-treatments-exact-design-page";
+
+export default async function ShockwaveTreatmentsPage() {
+  await connection();
+
+  return <ShockwaveTreatmentsExactDesignPage />;
 }

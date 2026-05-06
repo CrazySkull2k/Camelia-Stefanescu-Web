@@ -1,0 +1,24 @@
+.root {}
+
+:global([data-design-page="shockwave-ce-este"] .material-symbols-outlined) {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        :global([data-design-page="shockwave-ce-este"] .organic-mask-hero) {
+            clip-path: path('M10,0 C80,0 100,20 100,50 C100,80 80,100 50,100 C20,100 0,80 0,50 C0,20 20,0 10,0 Z');
+            transform: scale(0.9);
+        }
+        :global([data-design-page="shockwave-ce-este"] .arched-mask) {
+            border-top-left-radius: 999px;
+            border-top-right-radius: 999px;
+        }
+        :global([data-design-page="shockwave-ce-este"] .blob-mask-1) {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        :global([data-design-page="shockwave-ce-este"] .blob-mask-2) {
+             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        :global([data-design-page="shockwave-ce-este"]) {
+            background-color: #fdf9f6;
+            color: #1c1b1a;
+            -webkit-font-smoothing: antialiased;
+        }

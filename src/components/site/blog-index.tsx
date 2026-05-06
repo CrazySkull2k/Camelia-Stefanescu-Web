@@ -41,9 +41,9 @@ export function BlogIndex({ posts, search }: BlogIndexProps) {
                               <Image
                                 src={image}
                                 alt={post.title}
+                                className="h-auto w-full"
                                 width={520}
                                 height={360}
-                                style={{ width: "100%", height: "auto" }}
                               />
                             </Link>
                           </div>
@@ -114,9 +114,9 @@ export function BlogIndex({ posts, search }: BlogIndexProps) {
                                 <Image
                                   src={image}
                                   alt={post.title}
+                                  className="h-auto w-full"
                                   width={110}
                                   height={86}
-                                  style={{ width: "100%", height: "auto" }}
                                 />
                               </Link>
                             </div>

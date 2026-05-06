@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@source "../../designs/*.html";
 
 :root {
   --background: #f4faf7;
@@ -161,6 +160,18 @@ body {
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.material-symbols-outlined[data-weight="fill"] {
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.font-newsreader {
+  font-family: "Newsreader", serif;
+}
+
+.Manrope {
+  font-family: "Manrope", sans-serif;
 }
 
 .public-content-shell {

@@ -1,10 +1,9 @@
-import { ExactDesignPage } from "@/components/site/exact-design-page";
+import { connection } from "next/server";
 
-export default function ShockwaveTreatmentModePage() {
-  return (
-    <ExactDesignPage
-      fileName="mod_tratament.html"
-      version="shockwave-treatment-mode-2026-design-v2"
-    />
-  );
+import { ShockwaveTreatmentModeExactDesignPage } from "@/components/site/exact-design-pages/shockwave-treatment-mode-exact-design-page";
+
+export default async function ShockwaveTreatmentModePage() {
+  await connection();
+
+  return <ShockwaveTreatmentModeExactDesignPage />;
 }

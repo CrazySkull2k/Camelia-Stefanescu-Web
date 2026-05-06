@@ -1,7 +1,7 @@
 "use client";
 
-import type { CSSProperties, ReactNode } from "react";
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, CalendarDays, ChevronLeft, ChevronRight } from "lucide-react";
 import clsx from "clsx";
 
@@ -174,6 +174,82 @@ function getCollapsedDayEvents<TEvent extends MorphCalendarEvent>(events: TEvent
   };
 }
 
+function getShiftClassName(
+  index: number,
+  activeDayIndex: number,
+  calendarStyles: typeof styles,
+) {
+  if (index < activeDayIndex) {
+    return (
+      [
+        undefined,
+        calendarStyles.calendarDayShiftLeft1,
+        calendarStyles.calendarDayShiftLeft2,
+        calendarStyles.calendarDayShiftLeft3,
+        calendarStyles.calendarDayShiftLeft4,
+        calendarStyles.calendarDayShiftLeft5,
+        calendarStyles.calendarDayShiftLeft6,
+      ][index + 1] ?? calendarStyles.calendarDayShiftLeft6
+    );
+  }
+
+  return (
+    [
+      undefined,
+      calendarStyles.calendarDayShiftRight1,
+      calendarStyles.calendarDayShiftRight2,
+      calendarStyles.calendarDayShiftRight3,
+      calendarStyles.calendarDayShiftRight4,
+      calendarStyles.calendarDayShiftRight5,
+      calendarStyles.calendarDayShiftRight6,
+    ][7 - index] ?? calendarStyles.calendarDayShiftRight6
+  );
+}
+
+function formatCssLength(value: number) {
+  return `${Math.round(value * 1000) / 1000}px`;
+}
+
+function buildMorphMetricDeclarations(metrics: MorphContentSourceMetrics | null) {
+  if (!metrics) {
+    return "";
+  }
+
+  const declarations: string[] = [];
+
+  if (metrics.dateNumber) {
+    declarations.push(`--morph-date-left:${formatCssLength(metrics.dateNumber.left)};`);
+    declarations.push(`--morph-date-top:${formatCssLength(metrics.dateNumber.top)};`);
+  }
+
+  if (metrics.countBadge) {
+    declarations.push(`--morph-count-height:${formatCssLength(metrics.countBadge.height)};`);
+    declarations.push(`--morph-count-right:${formatCssLength(metrics.countBadge.right)};`);
+    declarations.push(`--morph-count-top:${formatCssLength(metrics.countBadge.top)};`);
+    declarations.push(`--morph-count-width:${formatCssLength(metrics.countBadge.width)};`);
+  }
+
+  if (metrics.primaryRail) {
+    declarations.push(`--morph-rail-left:${formatCssLength(metrics.primaryRail.left)};`);
+    declarations.push(`--morph-rail-right:${formatCssLength(metrics.primaryRail.right)};`);
+    declarations.push(`--morph-rail-top:${formatCssLength(metrics.primaryRail.top)};`);
+  }
+
+  return declarations.join("");
+}
+
+function buildMorphCardRule(
+  selector: string,
+  frame: OverlayFrame | null,
+  metrics: MorphContentSourceMetrics | null = null,
+) {
+  if (!frame) {
+    return "";
+  }
+
+  return `${selector}{height:${formatCssLength(frame.height)};left:${formatCssLength(frame.left)};top:${formatCssLength(frame.top)};width:${formatCssLength(frame.width)};${buildMorphMetricDeclarations(metrics)}}`;
+}
+
 function DayTileContent<TEvent extends MorphCalendarEvent>({
   date,
   events,
@@ -234,7 +310,6 @@ function SelectedDayMorphContent<TEvent extends MorphCalendarEvent>({
   measurement = false,
   onClose,
   onSelectEvent,
-  sourceMetrics,
 }: {
   date: Date;
   events: TEvent[];
@@ -242,7 +317,6 @@ function SelectedDayMorphContent<TEvent extends MorphCalendarEvent>({
   measurement?: boolean;
   onClose: () => void;
   onSelectEvent?: (event: TEvent) => void;
-  sourceMetrics: MorphContentSourceMetrics | null;
 }) {
   const {
     extraEventsCount: collapsedExtraCount,
@@ -250,27 +324,6 @@ function SelectedDayMorphContent<TEvent extends MorphCalendarEvent>({
   } = getCollapsedDayEvents(events);
   const visibleEvents = expanded ? events : collapsedPreviewEvents;
   const disableActions = measurement || !expanded;
-  const dateNumberStyle = sourceMetrics?.dateNumber
-    ? ({
-        "--morph-date-left": `${sourceMetrics.dateNumber.left}px`,
-        "--morph-date-top": `${sourceMetrics.dateNumber.top}px`,
-      } as CSSProperties)
-    : undefined;
-  const countBadgeStyle = sourceMetrics?.countBadge
-    ? ({
-        "--morph-count-height": `${sourceMetrics.countBadge.height}px`,
-        "--morph-count-right": `${sourceMetrics.countBadge.right}px`,
-        "--morph-count-top": `${sourceMetrics.countBadge.top}px`,
-        "--morph-count-width": `${sourceMetrics.countBadge.width}px`,
-      } as CSSProperties)
-    : undefined;
-  const primaryRailStyle = sourceMetrics?.primaryRail
-    ? ({
-        "--morph-rail-left": `${sourceMetrics.primaryRail.left}px`,
-        "--morph-rail-right": `${sourceMetrics.primaryRail.right}px`,
-        "--morph-rail-top": `${sourceMetrics.primaryRail.top}px`,
-      } as CSSProperties)
-    : undefined;
 
   return (
     <div className={styles.morphInner}>
@@ -279,7 +332,6 @@ function SelectedDayMorphContent<TEvent extends MorphCalendarEvent>({
           styles.morphDateNumber,
           expanded && styles.morphDateNumberExpanded,
         )}
-        style={dateNumberStyle}
       >
         {date.getDate()}
       </span>
@@ -289,7 +341,6 @@ function SelectedDayMorphContent<TEvent extends MorphCalendarEvent>({
           styles.morphCountBadge,
           expanded && styles.morphCountBadgeExpanded,
         )}
-        style={countBadgeStyle}
       >
         {events.length}
       </span>
@@ -326,7 +377,6 @@ function SelectedDayMorphContent<TEvent extends MorphCalendarEvent>({
             collapsedExtraCount > 0 &&
             styles.morphPrimaryRailCollapsedStacked,
         )}
-        style={primaryRailStyle}
       >
         {visibleEvents.map((event) => (
           <button
@@ -481,6 +531,7 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
   const selectedOverlaySourceFrameRef = useRef<OverlayFrame | null>(null);
   const pendingSelectedDateKeyRef = useRef<string | null>(null);
   const lastRequestedDateKeyRef = useRef<string | null>(null);
+  const calendarInstanceId = useId().replace(/:/g, "");
 
   const eventsByDay = useMemo(() => {
     const grouped = new Map<string, TEvent[]>();
@@ -515,6 +566,29 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
   const selectedDateForMorph = parseDateKey(animatedSelectedDateKey);
   const isMorphExpanded =
     selectedDayPhase === "opening" || selectedDayPhase === "open";
+  const dynamicStyleRules = useMemo(() => {
+    const scope = `[data-morph-calendar="${calendarInstanceId}"]`;
+    const rules = [
+      buildMorphCardRule(
+        `${scope} [data-morph-card="active"]`,
+        selectedOverlayFrame,
+        selectedOverlaySourceMetrics,
+      ),
+      buildMorphCardRule(
+        `${scope} [data-morph-card="closing"]`,
+        closingMorph?.frame ?? null,
+        closingMorph?.sourceMetrics ?? null,
+      ),
+    ].filter(Boolean);
+
+    return rules.join("\n");
+  }, [
+    calendarInstanceId,
+    closingMorph?.frame,
+    closingMorph?.sourceMetrics,
+    selectedOverlayFrame,
+    selectedOverlaySourceMetrics,
+  ]);
 
   function clearSelectedDayAnimationTimer() {
     if (selectedDayAnimationTimeoutRef.current) {
@@ -1021,7 +1095,9 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
         "rounded-[2rem] border border-[#b1b3a9]/10 bg-white p-6 shadow-[0px_12px_32px_rgba(49,51,44,0.05)] md:p-8",
         className,
       )}
+      data-morph-calendar={calendarInstanceId}
     >
+      {dynamicStyleRules ? <style jsx global>{dynamicStyleRules}</style> : null}
       <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.28em] text-[#797c73]">
@@ -1144,10 +1220,6 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
                           const isSelected =
                             isActiveSelected || isClosingSelected;
                           const isMultiSelected = multiSelectedDateKeySet.has(day.key);
-                          const shift =
-                            index < activeDayIndex
-                              ? `-${(index + 1) * 125}%`
-                              : `${(7 - index) * 125}%`;
                           const motionClass = isSelected
                             ? styles.calendarDayPlaceholder
                             : morphsShareWeek
@@ -1158,12 +1230,18 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
                                 : selectedDayPhase === "closing"
                                   ? styles.calendarDayReturning
                                   : styles.calendarDayShifted;
+                          const shiftClass =
+                            motionClass === styles.calendarDayShifted &&
+                            activeDayIndex >= 0
+                              ? getShiftClassName(index, activeDayIndex, styles)
+                              : undefined;
 
                           return (
                             <button
                               className={clsx(
                                 styles.calendarDayBase,
                                 motionClass,
+                                shiftClass,
                                 "h-[5.5rem] rounded-[1.15rem] border text-left transition",
                                 isMultiSelected
                                   ? "border-[#ffdcbd] bg-[#fff3e6] ring-2 ring-[#ffdcbd]/80"
@@ -1177,13 +1255,6 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
                                 handleDayActivation(day.key, Boolean(dayEvents.length))
                               }
                               ref={(node) => setDayButtonRef(day.key, node)}
-                              style={
-                                !isSelected && !morphsShareWeek
-                                  ? ({
-                                      "--shift-x": shift,
-                                    } as CSSProperties)
-                                  : undefined
-                              }
                               type="button"
                             >
                               {renderDayTileContent(day, dayEvents)}
@@ -1195,15 +1266,11 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
                           <div
                             className={clsx(
                               styles.morphCard,
+                              styles.morphCardFrame,
                               styles.morphCardCollapsed,
                             )}
+                            data-morph-card="closing"
                             key={`closing-${closingMorph.dateKey}`}
-                            style={{
-                              height: `${closingMorph.frame.height}px`,
-                              left: `${closingMorph.frame.left}px`,
-                              top: `${closingMorph.frame.top}px`,
-                              width: `${closingMorph.frame.width}px`,
-                            }}
                           >
                             <SelectedDayMorphContent
                               date={parseDateKey(closingMorph.dateKey)}
@@ -1211,7 +1278,6 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
                               expanded={false}
                               onClose={() => finishClosingMorph(closingMorph.dateKey)}
                               onSelectEvent={onEventSelect}
-                              sourceMetrics={closingMorph.sourceMetrics}
                             />
                           </div>
                         ) : null}
@@ -1220,19 +1286,15 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
                           <div
                             className={clsx(
                               styles.morphCard,
+                              styles.morphCardFrame,
                               isMorphExpanded
                                 ? styles.morphCardExpanded
                                 : styles.morphCardCollapsed,
                               selectedDayPhase === "open" &&
                                 styles.morphCardInteractive,
                             )}
+                            data-morph-card="active"
                             onTransitionEnd={handleMorphTransitionEnd}
-                            style={{
-                              height: `${selectedOverlayFrame.height}px`,
-                              left: `${selectedOverlayFrame.left}px`,
-                              top: `${selectedOverlayFrame.top}px`,
-                              width: `${selectedOverlayFrame.width}px`,
-                            }}
                           >
                             {selectedDaySettledAtSource ? (
                               <DayTileContent
@@ -1246,7 +1308,6 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
                                 expanded={isMorphExpanded}
                                 onClose={closeSelectedDay}
                                 onSelectEvent={onEventSelect}
-                                sourceMetrics={selectedOverlaySourceMetrics}
                               />
                             )}
                           </div>

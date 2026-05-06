@@ -17,6 +17,7 @@ import {
   NotebookTabs,
   Search,
   Settings,
+  ShieldCheck,
   SquarePen,
 } from "lucide-react";
 import clsx from "clsx";
@@ -95,12 +96,19 @@ const secondaryNavigation: NavItem[] = [
     label: "Preturi",
     matchPrefix: true,
   },
+  {
+    href: "/admin/security",
+    icon: ShieldCheck,
+    label: "Security",
+    matchPrefix: true,
+  },
 ];
 
 const quickLinks: QuickLink[] = [
   { href: "/admin/calendar", label: "Calendar" },
   { href: "/admin/appointments", label: "Consultatii" },
-  { href: "/admin/content", label: "Continut" },
+  { href: "/admin/patients", label: "Pacienti" },
+  { href: "/admin/security", label: "Security" },
 ];
 
 const mobileNavigation: MobileNavItem[] = [
@@ -213,14 +221,14 @@ function getPageMeta(pathname: string) {
       href: "/admin/pricing",
     },
     {
-      description: "Active incarcate, bucket-uri, alt text si vizibilitatea fisierelor.",
-      heading: "Media",
-      href: "/admin/media",
-    },
-    {
       description: "Reguli pentru confirmarea programarilor si setari operationale esentiale.",
       heading: "Setari",
       href: "/admin/settings",
+    },
+    {
+      description: "Observability pentru auth, webhooks, rate limits si sincronizarea calendarului.",
+      heading: "Security",
+      href: "/admin/security",
     },
   ];
 

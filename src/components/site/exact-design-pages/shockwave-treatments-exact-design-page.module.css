@@ -1,0 +1,53 @@
+.root {}
+
+:global([data-design-page="shockwave-ce-putem-trata"] .glass-nav) {
+              background: rgba(253, 249, 246, 0.8);
+              backdrop-filter: blur(16px);
+              -webkit-backdrop-filter: blur(16px);
+          }
+          :global([data-design-page="shockwave-ce-putem-trata"] .organic-mask-1) {
+              mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.3,-46.3C90.8,-33.5,96.8,-18.1,96.5,-2.9C96.2,12.3,89.5,27.3,80.1,40.1C70.7,52.9,58.6,63.5,44.5,71.8C30.4,80.1,14.3,86.1,-1.5,88.7C-17.3,91.3,-32.8,90.5,-46.5,83.1C-60.2,75.7,-72.1,61.7,-80.7,46.1C-89.3,30.5,-94.6,13.3,-93.2,-3.4C-91.8,-20.1,-83.7,-36.3,-72.4,-49.4C-61.1,-62.5,-46.6,-72.5,-31.6,-78.9C-16.6,-85.3,-1.1,-88.1,13.8,-86.3C28.7,-84.5,43,-78.1,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+              mask-size: cover;
+              mask-position: center;
+              mask-repeat: no-repeat;
+          }
+          :global([data-design-page="shockwave-ce-putem-trata"] .hotspot) {
+              position: absolute;
+              width: 32px;
+              height: 32px;
+              background-color: #9a4028;
+              color: #ffffff;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: 'Manrope';
+              font-size: 14px;
+              font-weight: 700;
+              box-shadow: 0 4px 12px rgba(154, 64, 40, 0.3);
+              cursor: pointer;
+              transition: transform 0.3s ease, background-color 0.3s ease;
+              border: 2px solid rgba(255,255,255,0.6);
+          }
+          :global([data-design-page="shockwave-ce-putem-trata"] .hotspot:hover) {
+              transform: scale(1.15);
+              background-color: #386666;
+          }
+          :global([data-design-page="shockwave-ce-putem-trata"] .condition-row) {
+              transition: all 0.3s ease;
+              cursor: pointer;
+          }
+          :global([data-design-page="shockwave-ce-putem-trata"] .condition-row:hover) {
+              background-color: #f7f3f0;
+          }
+
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline1) { top: 66%; left: 45.8%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline2) { top: 79.5%; left: 37.8%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline3) { top: 69.5%; left: 49.8%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline4) { top: 75%; left: 34%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline5) { top: 55.5%; left: 72.2%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline6) { top: 88.3%; left: 60.8%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline7) { top: 48.8%; left: 60.5%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline8) { top: 30.5%; left: 55.4%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline9) { top: 12.2%; left: 65.4%; }
+:global([data-design-page="shockwave-ce-putem-trata"] .designInline10) { top: 21.5%; left: 63.2%; }

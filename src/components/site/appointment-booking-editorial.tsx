@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 
 import styles from "./appointment-booking-editorial.module.css";
 
@@ -344,6 +344,7 @@ export function AppointmentBookingEditorial({
   const canMovePrev = visibleMonth > startOfMonth(today);
   const calendarPanelRef = useRef<HTMLDivElement | null>(null);
   const [timePanelHeight, setTimePanelHeight] = useState<number | null>(null);
+  const bookingEditorialInstanceId = useId().replace(/:/g, "");
 
   useEffect(() => {
     const panel = calendarPanelRef.current;
@@ -369,13 +370,18 @@ export function AppointmentBookingEditorial({
     };
   }, []);
 
-  const timePanelStyle = timePanelHeight
-    ? ({ "--time-panel-height": `${timePanelHeight}px` } as React.CSSProperties)
-    : undefined;
+  const timePanelRule = useMemo(() => {
+    if (!timePanelHeight) {
+      return "";
+    }
+
+    return `[data-booking-editorial="${bookingEditorialInstanceId}"] .${styles.timePanel}{--time-panel-height:${timePanelHeight}px;}`;
+  }, [bookingEditorialInstanceId, timePanelHeight]);
 
   if (!availableServices.length) {
     return (
-      <div className={styles.root}>
+      <div className={styles.root} data-booking-editorial={bookingEditorialInstanceId}>
+        {timePanelRule ? <style jsx global>{timePanelRule}</style> : null}
         <div className={`${styles.alert} ${styles.alertError}`}>
           Nu exista servicii disponibile momentan pentru programare.
         </div>
@@ -384,7 +390,8 @@ export function AppointmentBookingEditorial({
   }
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} data-booking-editorial={bookingEditorialInstanceId}>
+      {timePanelRule ? <style jsx global>{timePanelRule}</style> : null}
       <div className={styles.infoBar}>
         <p className={styles.infoText}>
           {userEmail ? (
@@ -524,7 +531,7 @@ export function AppointmentBookingEditorial({
             })}
           </div>
 
-          <div className={styles.sectionHeader} style={{ marginTop: "1.25rem" }}>
+          <div className={`${styles.sectionHeader} mt-5`}>
             <h2 className={styles.sectionTitle}>2. Alege serviciul</h2>
             <span className={styles.sectionMeta}>
               {servicesInCategory.length} optiuni disponibile
@@ -655,7 +662,6 @@ export function AppointmentBookingEditorial({
 
               <div
                 className={`${styles.panel} ${styles.timePanel}`}
-                style={timePanelStyle}
               >
                 <div className={styles.slotList}>
                   {slotsState === "error" ? (
