@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 import { AdminCalendar } from "@/components/admin/admin-calendar";
 import { SetupNotice } from "@/components/admin/setup-notice";
 import { hasServerEnv } from "@/lib/env/server";
@@ -78,6 +80,7 @@ export default async function AdminCalendarPage() {
   await requireOwnerAdminAal2User();
 
   const { from, to } = getCalendarWindow();
+  const requestHeaders = await headers();
   const supabase = createSupabaseAdminClient();
   const [appointmentsResult, blocks, externalEvents, clinicSettings] = await Promise.all([
     supabase
@@ -165,6 +168,7 @@ export default async function AdminCalendarPage() {
       events={[...appointmentEvents, ...externalAppointmentEvents, ...blockEvents]}
       loadedFrom={from.toISOString()}
       loadedTo={to.toISOString()}
+      nonce={requestHeaders.get("x-nonce")}
     />
   );
 }

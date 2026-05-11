@@ -80,6 +80,7 @@ type MorphEventsCalendarProps<TEvent extends MorphCalendarEvent> = {
   requestedDateKey?: string | null;
   selectionMode?: "multi" | "single";
   sidePanelClassName?: string;
+  styleNonce?: string | null;
   title?: string;
 };
 
@@ -457,6 +458,7 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
   requestedDateKey,
   selectionMode = "single",
   sidePanelClassName,
+  styleNonce,
   title = "Calendar programari",
 }: MorphEventsCalendarProps<TEvent>) {
   const isMultiSelectionMode = selectionMode === "multi";
@@ -1097,7 +1099,12 @@ export function MorphEventsCalendar<TEvent extends MorphCalendarEvent>({
       )}
       data-morph-calendar={calendarInstanceId}
     >
-      {dynamicStyleRules ? <style jsx global>{dynamicStyleRules}</style> : null}
+      {dynamicStyleRules ? (
+        <style
+          dangerouslySetInnerHTML={{ __html: dynamicStyleRules }}
+          nonce={styleNonce ?? undefined}
+        />
+      ) : null}
       <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.28em] text-[#797c73]">

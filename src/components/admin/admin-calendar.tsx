@@ -110,6 +110,7 @@ type AdminCalendarProps = {
   events: AdminCalendarEvent[];
   loadedFrom: string;
   loadedTo: string;
+  nonce?: string | null;
 };
 
 type CalendarBlockSubmitState = {
@@ -458,6 +459,7 @@ export function AdminCalendar({
   events,
   loadedFrom,
   loadedTo,
+  nonce,
 }: AdminCalendarProps) {
   const router = useRouter();
   const todayKey = toDateKey(new Date());
@@ -1709,6 +1711,7 @@ export function AdminCalendar({
             : requestedCalendarDateKey
         }
         sidePanelClassName="h-[53rem] overflow-hidden"
+        styleNonce={nonce}
         title="Calendar operational"
       />
 

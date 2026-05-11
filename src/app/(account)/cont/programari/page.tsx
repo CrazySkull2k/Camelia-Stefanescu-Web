@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import { PatientAppointmentsCalendar } from "@/components/site/patient-appointments-calendar";
@@ -32,6 +33,7 @@ export default async function PatientAppointmentsPage({
 }: PatientAppointmentsPageProps) {
   const { appointment: requestedAppointmentId } = await searchParams;
   const { user, patient } = await getCurrentPatientAccount();
+  const requestHeaders = await headers();
 
   if (!user || !patient) {
     redirect("/cont/autentificare?redirectTo=/cont/programari");
@@ -62,6 +64,7 @@ export default async function PatientAppointmentsPage({
         description="Navigheaza pe luni si vezi rapid zilele in care ai rezervari, fara sa iesi din contul tau."
         initialAppointmentId={requestedAppointmentId}
         key={requestedAppointmentId ?? "calendar"}
+        nonce={requestHeaders.get("x-nonce")}
         title="Calendarul tau de programari"
       />
 

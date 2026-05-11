@@ -7,7 +7,8 @@
   justify-content: center;
   padding: 1.5rem;
   background: rgba(49, 51, 44, 0.3);
-  backdrop-filter: blur(8px);
+  pointer-events: auto;
+  isolation: isolate;
 }
 
 .modal {
@@ -19,6 +20,8 @@
   background: #fbf9f4;
   box-shadow: 0 28px 80px rgba(49, 51, 44, 0.28);
   color: #31332c;
+  position: relative;
+  z-index: 1;
   transition:
     width 0.34s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
@@ -59,6 +62,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.86);
   color: #735a42;
   cursor: pointer;
+  pointer-events: auto;
   transition:
     background 0.2s ease,
     box-shadow 0.2s ease,
@@ -138,6 +142,7 @@
   background: transparent;
   color: #797c73;
   cursor: pointer;
+  pointer-events: auto;
   transition:
     background 0.2s ease,
     color 0.2s ease;
@@ -168,6 +173,8 @@
   border-radius: 999px;
   border: 0;
   cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
   font-family: var(--app-font-sans);
   font-size: 0.95rem;
   font-weight: 700;
@@ -274,6 +281,7 @@
   height: 1.7rem;
   flex-shrink: 0;
   align-items: center;
+  pointer-events: auto;
 }
 
 .switch input {

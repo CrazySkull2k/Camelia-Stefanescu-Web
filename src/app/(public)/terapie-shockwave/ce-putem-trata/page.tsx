@@ -1,9 +1,5 @@
-import { connection } from "next/server";
-
 import { ShockwaveTreatmentsExactDesignPage } from "@/components/site/exact-design-pages/shockwave-treatments-exact-design-page";
 
-export default async function ShockwaveTreatmentsPage() {
-  await connection();
-
+export default function ShockwaveTreatmentsPage() {
   return <ShockwaveTreatmentsExactDesignPage />;
 }

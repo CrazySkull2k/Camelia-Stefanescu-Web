@@ -180,16 +180,46 @@ body {
     opacity 0.28s ease;
 }
 
+.public-content-shell > * {
+  transition:
+    filter 0.28s ease,
+    opacity 0.28s ease;
+}
+
+.public-page-wrapper {
+  position: relative;
+  isolation: isolate;
+}
+
+.public-page-wrapper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 99997;
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(49, 51, 44, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.28s ease;
+}
+
 html.cookie-consent-open,
 html.cookie-consent-open body {
   overflow: hidden;
 }
 
 html.cookie-consent-open .public-content-shell {
-  filter: blur(10px) grayscale(20%);
-  opacity: 0.8;
-  pointer-events: none;
   user-select: none;
+}
+
+html.cookie-consent-open .public-content-shell > * {
+  filter: blur(7px);
+  opacity: 0.78;
+}
+
+html.cookie-consent-open .public-page-wrapper::after {
+  opacity: 1;
 }
 
 a {

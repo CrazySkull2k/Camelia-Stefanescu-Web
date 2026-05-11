@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import {
   ArrowRight,
@@ -80,6 +81,7 @@ export default async function PatientDashboardPage() {
       listPatientPortalAppointments({ patientId: patient.id, limit: 12 }),
       getPatientQuestionnaireStatus(patient.id),
     ]);
+  const requestHeaders = await headers();
 
   const firstName =
     patient.full_name.split(/\s+/).find(Boolean) ??
@@ -482,6 +484,7 @@ export default async function PatientDashboardPage() {
           <PatientAppointmentsCalendar
             appointments={appointments}
             description="Ai si o vedere lunara a rezervarilor, ca sa vezi rapid zilele ocupate si detaliile fiecarei consultatii."
+            nonce={requestHeaders.get("x-nonce")}
             title="Calendarul tau de programari"
           />
         </section>

@@ -5,12 +5,16 @@ import { updateSupabaseSession } from "@/lib/supabase/middleware";
 
 type AppSurface = "admin" | "account" | "public";
 
+function matchesPathSegmentPrefix(pathname: string, prefix: string) {
+  return pathname === prefix || pathname.startsWith(`${prefix}/`);
+}
+
 function resolveSurface(pathname: string): AppSurface {
-  if (pathname.startsWith("/admin")) {
+  if (matchesPathSegmentPrefix(pathname, "/admin")) {
     return "admin";
   }
 
-  if (pathname.startsWith("/cont")) {
+  if (matchesPathSegmentPrefix(pathname, "/cont")) {
     return "account";
   }
 
@@ -111,7 +115,7 @@ function buildContentSecurityPolicy(
   ]);
   const styleSrc = joinDirectiveSources([
     "'self'",
-    nonce ? `'nonce-${nonce}'` : null,
+    !isDevelopment && nonce ? `'nonce-${nonce}'` : null,
     surface === "public" ? "https://fonts.googleapis.com" : null,
     isDevelopment ? "'unsafe-inline'" : null,
   ]);
@@ -152,7 +156,7 @@ function buildContentSecurityPolicy(
     "default-src 'self'",
     `script-src ${scriptSrc}`,
     `style-src ${styleSrc}`,
-    ...(isDevelopment ? [] : ["style-src-attr 'none'"]),
+    ...(isDevelopment ? ["style-src-attr 'unsafe-inline'"] : ["style-src-attr 'none'"]),
     `font-src ${fontSrc}`,
     `img-src ${imgSrc}`,
     `connect-src ${connectSrc}`,
@@ -210,10 +214,7 @@ export async function proxy(request: NextRequest) {
   const expectedHost = getExpectedHostForSurface(surface);
   const requestedHost = getRequestedHost(request);
   const requestHeaders = new Headers(request.headers);
-  const nonce =
-    process.env.NODE_ENV === "production" && requiresRequestNonce(surface)
-      ? createNonce()
-      : null;
+  const nonce = requiresRequestNonce(surface) ? createNonce() : null;
 
   if (expectedHost && !matchesHost(requestedHost, expectedHost)) {
     return NextResponse.redirect(buildSurfaceRedirect(request, expectedHost));
@@ -237,7 +238,7 @@ export async function proxy(request: NextRequest) {
 export const config = {
   matcher: [
     {
-      source: "/((?!_next/static|_next/image|favicon.ico|legacy/).*)",
+      source: "/((?!_next/static|_next/image|_next/webpack-hmr|favicon.ico|legacy/).*)",
       missing: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },

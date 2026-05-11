@@ -26,6 +26,7 @@ type PatientAppointmentsCalendarProps = {
   appointments: PatientPortalAppointment[];
   description?: string;
   initialAppointmentId?: string | null;
+  nonce?: string | null;
   title?: string;
 };
 
@@ -215,6 +216,7 @@ export function PatientAppointmentsCalendar({
   appointments,
   description = "Vezi rapid zilele ocupate si detaliile rezervarilor tale din luna selectata.",
   initialAppointmentId,
+  nonce,
   title = "Calendar programari",
 }: PatientAppointmentsCalendarProps) {
   const calendarAppointments = useMemo(
@@ -310,6 +312,7 @@ export function PatientAppointmentsCalendar({
           )}
         </div>
       )}
+      styleNonce={nonce}
       title={title}
     />
   );
