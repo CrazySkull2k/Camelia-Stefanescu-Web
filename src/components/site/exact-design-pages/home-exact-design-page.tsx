@@ -54,7 +54,7 @@ export function HomeExactDesignPage() {
             </div>
             <div className="lg:col-span-5 relative order-1 lg:order-2">
               <div className="aspect-[3/4] rounded-t-[12rem] rounded-b-xl overflow-hidden box-shadow-ambient relative group">
-                <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Dr. Camelia Stefanescu" data-alt="Professional, warm portrait of a blonde female doctor in an orange jacket with arms crossed, against a deep teal background." src="https://lh3.googleusercontent.com/aida/ADBb0uhjVkFykNE8SMP60EtGK7c-aoNL9ks7WP2YHxu18uNclNEFUPLvFxR1ewxghxK8U1kThBlZvvA2m1kUOmb3UqUzq-q-GC6YS0s80dFX9RFFrsMcglbs6eHeUWGCad3z8anJlCbs18TozeLvgxlkZBQWiJm0jxEmmb2GoqCO65d0-i7nT6kmvQyWgHeOjcy_SJarMnyTdNC8IBfjAWSPkpHYkWP79WoDxuAp8fGkuqTbmuGlFTdwwXVyIrKPUXqK7Pafi6P-jbF82A" />
+                <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Dr. Camelia Stefanescu" data-alt="Professional, warm portrait of a blonde female doctor in an orange jacket with arms crossed, against a deep teal background." src="/site/home/acasa.png" />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface/40 to-transparent mix-blend-overlay"></div>
               </div>
               <div className="absolute -bottom-8 -left-8 bg-surface-container-lowest p-6 rounded-2xl box-shadow-ambient hidden md:block ghost-border z-20">
