@@ -1,6 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
+import { buildRequestUrl } from "@/lib/http/request-url";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import {
   InvalidOriginError,
@@ -20,7 +21,7 @@ function buildAnalysesRedirect(request: Request, categoryKey: string, input?: {
   error?: string | null;
   uploaded?: boolean;
 }) {
-  const url = new URL("/cont/analize", request.url);
+  const url = buildRequestUrl(request, "/cont/analize");
   url.searchParams.set("tab", "incarcare");
   url.searchParams.set("category", categoryKey);
 
@@ -68,7 +69,7 @@ export async function POST(request: Request) {
 
   if (!user || !patient) {
     return NextResponse.redirect(
-      new URL("/cont/autentificare?redirectTo=/cont/analize", request.url),
+      buildRequestUrl(request, "/cont/autentificare?redirectTo=/cont/analize"),
       { status: 303 },
     );
   }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { buildRequestUrl } from "@/lib/http/request-url";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { log } from "@/lib/utils/logger";
@@ -16,7 +17,7 @@ function buildProfileRedirect(request: Request, input?: {
   error?: string | null;
   success?: string | null;
 }) {
-  const url = new URL("/cont/profil", request.url);
+  const url = buildRequestUrl(request, "/cont/profil");
 
   if (input?.success) {
     url.searchParams.set("success", input.success);
@@ -59,7 +60,7 @@ export async function POST(request: Request) {
 
   if (!user || !patient) {
     return NextResponse.redirect(
-      new URL("/cont/autentificare?redirectTo=/cont/profil", request.url),
+      buildRequestUrl(request, "/cont/autentificare?redirectTo=/cont/profil"),
       { status: 303 },
     );
   }

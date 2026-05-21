@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { hasServerEnv } from "@/lib/env/server";
+import { buildRequestUrl, getRequestUrl } from "@/lib/http/request-url";
 import { createSupabaseMutableServerClient } from "@/lib/supabase/server";
 import {
   getRequestAuditContext,
@@ -17,18 +18,18 @@ function sanitizeRedirectTo(value: string | null) {
 }
 
 function buildAdminDeniedRedirect(request: Request, message: string) {
-  const url = new URL("/admin/login", request.url);
+  const url = buildRequestUrl(request, "/admin/login");
   url.searchParams.set("error", message);
   return url;
 }
 
 export async function GET(request: Request) {
   if (!hasServerEnv()) {
-    return NextResponse.redirect(new URL("/admin/login", request.url));
+    return NextResponse.redirect(buildRequestUrl(request, "/admin/login"));
   }
 
   const auditContext = getRequestAuditContext(request);
-  const url = new URL(request.url);
+  const url = getRequestUrl(request);
   const code = url.searchParams.get("code");
   const redirectTo = sanitizeRedirectTo(url.searchParams.get("redirectTo"));
   const supabase = await createSupabaseMutableServerClient();
@@ -82,7 +83,7 @@ export async function GET(request: Request) {
 
     const assurance = await getAdminAuthAssurance();
     if (!assurance.isAal2) {
-      return NextResponse.redirect(new URL("/admin/mfa", request.url));
+      return NextResponse.redirect(buildRequestUrl(request, "/admin/mfa"));
     }
   } else {
     const currentUser = await getCurrentSessionUser();
@@ -101,5 +102,5 @@ export async function GET(request: Request) {
     });
   }
 
-  return NextResponse.redirect(new URL(redirectTo, request.url));
+  return NextResponse.redirect(buildRequestUrl(request, redirectTo));
 }

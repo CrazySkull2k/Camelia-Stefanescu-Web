@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { hasServerEnv } from "@/lib/env/server";
+import { buildRequestUrl } from "@/lib/http/request-url";
 import { streamPrivateStorageFile } from "@/lib/http/private-file-response";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { isUuid } from "@/lib/validation/uuid";
@@ -45,7 +46,7 @@ export async function GET(
 
   if (!user || !patient) {
     return NextResponse.redirect(
-      new URL("/cont/autentificare?redirectTo=/cont/chestionar", request.url),
+      buildRequestUrl(request, "/cont/autentificare?redirectTo=/cont/chestionar"),
       { status: 303 },
     );
   }

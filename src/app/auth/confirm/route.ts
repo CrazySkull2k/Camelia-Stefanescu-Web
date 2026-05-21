@@ -2,10 +2,11 @@ import type { EmailOtpType } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
 
 import { hasSupabaseEnv } from "@/lib/env/server";
+import { getRequestUrl } from "@/lib/http/request-url";
 import { createSupabaseMutableServerClient } from "@/lib/supabase/server";
 
 export async function GET(request: NextRequest) {
-  const redirectUrl = request.nextUrl.clone();
+  const redirectUrl = getRequestUrl(request);
   const next = request.nextUrl.searchParams.get("next") ?? "/cont/dashboard";
 
   if (!hasSupabaseEnv()) {

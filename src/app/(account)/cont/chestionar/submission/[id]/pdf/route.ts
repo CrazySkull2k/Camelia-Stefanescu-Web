@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { hasServerEnv } from "@/lib/env/server";
+import { buildRequestUrl } from "@/lib/http/request-url";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { isUuid } from "@/lib/validation/uuid";
 import {
@@ -65,7 +66,7 @@ export async function GET(
   const { user, patient } = await getCurrentPatientAccount();
 
   if (!user || !patient) {
-    return NextResponse.redirect(new URL("/cont/autentificare", request.url));
+    return NextResponse.redirect(buildRequestUrl(request, "/cont/autentificare"));
   }
 
   const { id } = await params;

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { hasSupabaseEnv } from "@/lib/env/server";
+import { buildRequestUrl } from "@/lib/http/request-url";
 import {
   InvalidOriginError,
   RateLimitExceededError,
@@ -62,7 +63,9 @@ export async function POST(request: Request) {
       windowMs: 5 * 60 * 1000,
     });
 
-    const callbackUrl = new URL("/auth/callback", requestOrigin ?? request.url);
+    const callbackUrl = requestOrigin
+      ? new URL("/auth/callback", requestOrigin)
+      : buildRequestUrl(request, "/auth/callback");
     callbackUrl.searchParams.set("redirectTo", redirectTo);
 
     const supabase = await createSupabaseMutableServerClient();

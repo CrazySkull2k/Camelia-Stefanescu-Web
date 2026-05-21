@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { hasSupabaseEnv } from "@/lib/env/server";
+import { buildRequestUrl } from "@/lib/http/request-url";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { createSupabaseMutableServerClient } from "@/lib/supabase/server";
@@ -20,7 +21,7 @@ function buildLoginRedirect(request: Request, input?: {
   error?: string | null;
   redirectTo?: string | null;
 }) {
-  const url = new URL("/cont/autentificare", request.url);
+  const url = buildRequestUrl(request, "/cont/autentificare");
 
   if (input?.redirectTo && input.redirectTo.startsWith("/")) {
     url.searchParams.set("redirectTo", input.redirectTo);
@@ -124,7 +125,10 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.redirect(
-      new URL(redirectTo.startsWith("/") ? redirectTo : "/cont/dashboard", request.url),
+      buildRequestUrl(
+        request,
+        redirectTo.startsWith("/") ? redirectTo : "/cont/dashboard",
+      ),
       { status: 303 },
     );
   } catch (error) {

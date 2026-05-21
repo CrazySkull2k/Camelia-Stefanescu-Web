@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { getPublicSiteUrl } from "@/lib/env/client";
 import { hasSupabaseEnv } from "@/lib/env/server";
+import { buildRequestUrl } from "@/lib/http/request-url";
 import { assertAllowedOrigin } from "@/lib/security/origin";
 import { applyRateLimit } from "@/lib/security/rate-limit";
 import { createSupabaseMutableServerClient } from "@/lib/supabase/server";
@@ -21,7 +22,7 @@ function buildRegisterRedirect(request: Request, input?: {
   error?: string | null;
   redirectTo?: string | null;
 }) {
-  const url = new URL("/cont/inregistrare", request.url);
+  const url = buildRequestUrl(request, "/cont/inregistrare");
 
   if (input?.redirectTo && input.redirectTo.startsWith("/")) {
     url.searchParams.set("redirectTo", input.redirectTo);
@@ -134,7 +135,7 @@ export async function POST(request: Request) {
       userAgent: auditContext.userAgent,
     });
 
-    const successUrl = new URL("/cont/autentificare", request.url);
+    const successUrl = buildRequestUrl(request, "/cont/autentificare");
     successUrl.searchParams.set(
       "success",
       "Verifica emailul pentru a-ti confirma contul.",
