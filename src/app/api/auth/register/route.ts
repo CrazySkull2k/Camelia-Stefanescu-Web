@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   const auditContext = getRequestAuditContext(request);
 
   try {
-    assertAllowedOrigin(request.headers.get("origin"), "public");
+    assertAllowedOrigin(request.headers.get("origin"), "account");
   } catch (error) {
     await writeSecurityAuditEvent({
       action: "auth.register",
@@ -57,7 +57,7 @@ export async function POST(request: Request) {
         reason: error instanceof Error ? error.message : "origin-mismatch",
       },
       result: "blocked",
-      surface: "public",
+      surface: "account",
       userAgent: auditContext.userAgent,
     });
 
@@ -111,7 +111,7 @@ export async function POST(request: Request) {
           reason: error.message,
         },
         result: "failed",
-        surface: "public",
+        surface: "account",
         userAgent: auditContext.userAgent,
       });
 
@@ -130,7 +130,7 @@ export async function POST(request: Request) {
       entityType: "auth",
       ip: auditContext.ip,
       result: "allowed",
-      surface: "public",
+      surface: "account",
       userAgent: auditContext.userAgent,
     });
 

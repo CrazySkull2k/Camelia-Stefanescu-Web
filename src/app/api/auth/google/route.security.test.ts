@@ -94,4 +94,27 @@ describe("google auth init hardening", () => {
 
     expect(response.status).toBe(429);
   });
+
+  it("allows account-origin Google auth for patient redirects", async () => {
+    mockAssertAllowedOrigin.mockImplementation(() => {});
+    mockApplyRateLimit.mockResolvedValue(undefined);
+
+    const { POST } = await import("@/app/api/auth/google/route");
+    const response = await POST(
+      new Request("https://cont.example.com/api/auth/google", {
+        body: JSON.stringify({ redirectTo: "/cont/dashboard" }),
+        headers: {
+          "Content-Type": "application/json",
+          origin: "https://cont.example.com",
+        },
+        method: "POST",
+      }),
+    );
+
+    expect(response.status).toBe(200);
+    expect(mockAssertAllowedOrigin).toHaveBeenCalledWith(
+      "https://cont.example.com",
+      "account",
+    );
+  });
 });

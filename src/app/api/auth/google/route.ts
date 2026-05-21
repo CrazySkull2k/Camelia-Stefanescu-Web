@@ -19,12 +19,24 @@ function sanitizeRedirectTo(value: string | null | undefined) {
   return value && value.startsWith("/") ? value : "/cont/dashboard";
 }
 
+function resolveAuthSurface(redirectTo: string) {
+  if (redirectTo.startsWith("/admin")) {
+    return "admin" as const;
+  }
+
+  if (redirectTo.startsWith("/cont")) {
+    return "account" as const;
+  }
+
+  return "public" as const;
+}
+
 export async function POST(request: Request) {
   const body = (await request.json().catch(() => null)) as
     | { redirectTo?: string }
     | null;
   const redirectTo = sanitizeRedirectTo(body?.redirectTo ?? null);
-  const surface = redirectTo.startsWith("/admin") ? "admin" : "public";
+  const surface = resolveAuthSurface(redirectTo);
   const auditContext = getRequestAuditContext(request);
 
   try {
