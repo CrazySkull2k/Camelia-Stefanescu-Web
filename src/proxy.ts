@@ -22,7 +22,17 @@ function resolveSurface(pathname: string): AppSurface {
 }
 
 function normalizeHost(value: string | null | undefined) {
-  return value?.trim().toLowerCase() || null;
+  const host = value?.trim().toLowerCase();
+
+  if (!host) {
+    return null;
+  }
+
+  try {
+    return new URL(host.includes("://") ? host : `https://${host}`).host;
+  } catch {
+    return host.replace(/^https?:\/\//, "").split("/")[0] || null;
+  }
 }
 
 function getRequestedHost(request: NextRequest) {
@@ -56,12 +66,21 @@ function matchesHost(requestHost: string | null, expectedHost: string | null) {
 function buildSurfaceRedirect(request: NextRequest, host: string) {
   const url = request.nextUrl.clone();
   const forwardedProto = request.headers.get("x-forwarded-proto");
+  const normalizedHost = normalizeHost(host) ?? host;
 
   if (forwardedProto) {
     url.protocol = `${forwardedProto.replace(/:$/, "")}:`;
   }
 
-  url.host = host;
+  try {
+    const parsedHost = new URL(`https://${normalizedHost}`);
+    url.hostname = parsedHost.hostname;
+    url.port = parsedHost.port;
+  } catch {
+    url.host = normalizedHost;
+    url.port = "";
+  }
+
   return url;
 }
 
