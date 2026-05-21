@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { NextRequest, NextResponse } from "next/server";
 
 vi.mock("@/lib/supabase/middleware", () => ({
@@ -6,6 +6,11 @@ vi.mock("@/lib/supabase/middleware", () => ({
 }));
 
 describe("surface CSP hardening", () => {
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.resetModules();
+  });
+
   it("keeps admin preview as the only same-origin iframe exception", async () => {
     const { proxy } = await import("@/proxy");
 
@@ -29,5 +34,31 @@ describe("surface CSP hardening", () => {
 
     expect(csp).not.toContain("connect-src 'self' https: wss:");
     expect(csp).toContain("frame-ancestors 'none'");
+  });
+
+  it("redirects account subdomain root into the patient dashboard", async () => {
+    vi.stubEnv("ACCOUNT_HOSTNAME", "cont.example.com");
+
+    const { proxy } = await import("@/proxy");
+    const response = await proxy(
+      new NextRequest("https://cont.example.com/"),
+    );
+
+    expect(response.status).toBe(307);
+    expect(response.headers.get("location")).toBe(
+      "https://cont.example.com/cont/dashboard",
+    );
+  });
+
+  it("redirects admin subdomain root into the admin panel", async () => {
+    vi.stubEnv("ADMIN_HOSTNAME", "admin.example.com");
+
+    const { proxy } = await import("@/proxy");
+    const response = await proxy(
+      new NextRequest("https://admin.example.com/"),
+    );
+
+    expect(response.status).toBe(307);
+    expect(response.headers.get("location")).toBe("https://admin.example.com/admin");
   });
 });

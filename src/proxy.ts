@@ -9,18 +9,6 @@ function matchesPathSegmentPrefix(pathname: string, prefix: string) {
   return pathname === prefix || pathname.startsWith(`${prefix}/`);
 }
 
-function resolveSurface(pathname: string): AppSurface {
-  if (matchesPathSegmentPrefix(pathname, "/admin")) {
-    return "admin";
-  }
-
-  if (matchesPathSegmentPrefix(pathname, "/cont")) {
-    return "account";
-  }
-
-  return "public";
-}
-
 function normalizeHost(value: string | null | undefined) {
   const host = value?.trim().toLowerCase();
 
@@ -63,6 +51,35 @@ function matchesHost(requestHost: string | null, expectedHost: string | null) {
   return requestHost === expectedHost || requestHost.startsWith(`${expectedHost}:`);
 }
 
+function matchesConfiguredHost(requestHost: string | null, expectedHost: string | null) {
+  return Boolean(
+    requestHost &&
+      expectedHost &&
+      (requestHost === expectedHost ||
+        requestHost.startsWith(`${expectedHost}:`)),
+  );
+}
+
+function resolveSurface(pathname: string, requestHost: string | null): AppSurface {
+  if (matchesPathSegmentPrefix(pathname, "/admin")) {
+    return "admin";
+  }
+
+  if (matchesPathSegmentPrefix(pathname, "/cont")) {
+    return "account";
+  }
+
+  if (matchesConfiguredHost(requestHost, normalizeHost(process.env.ADMIN_HOSTNAME))) {
+    return "admin";
+  }
+
+  if (matchesConfiguredHost(requestHost, normalizeHost(process.env.ACCOUNT_HOSTNAME))) {
+    return "account";
+  }
+
+  return "public";
+}
+
 function buildSurfaceRedirect(request: NextRequest, host: string) {
   const url = request.nextUrl.clone();
   const forwardedProto = request.headers.get("x-forwarded-proto");
@@ -82,6 +99,22 @@ function buildSurfaceRedirect(request: NextRequest, host: string) {
   }
 
   return url;
+}
+
+function getSurfaceRootRedirectPath(surface: AppSurface, pathname: string) {
+  if (pathname !== "/") {
+    return null;
+  }
+
+  if (surface === "admin") {
+    return "/admin";
+  }
+
+  if (surface === "account") {
+    return "/cont/dashboard";
+  }
+
+  return null;
 }
 
 function isSameOriginFrameAllowed(surface: AppSurface, pathname: string) {
@@ -229,14 +262,28 @@ function applySurfaceSecurityHeaders(
 }
 
 export async function proxy(request: NextRequest) {
-  const surface = resolveSurface(request.nextUrl.pathname);
-  const expectedHost = getExpectedHostForSurface(surface);
   const requestedHost = getRequestedHost(request);
+  const surface = resolveSurface(request.nextUrl.pathname, requestedHost);
+  const expectedHost = getExpectedHostForSurface(surface);
   const requestHeaders = new Headers(request.headers);
   const nonce = requiresRequestNonce(surface) ? createNonce() : null;
 
   if (expectedHost && !matchesHost(requestedHost, expectedHost)) {
     return NextResponse.redirect(buildSurfaceRedirect(request, expectedHost));
+  }
+
+  const rootRedirectPath = getSurfaceRootRedirectPath(
+    surface,
+    request.nextUrl.pathname,
+  );
+  if (rootRedirectPath) {
+    const redirectUrl = buildSurfaceRedirect(
+      request,
+      expectedHost ?? requestedHost ?? request.nextUrl.host,
+    );
+    redirectUrl.pathname = rootRedirectPath;
+    redirectUrl.search = "";
+    return NextResponse.redirect(redirectUrl);
   }
 
   if (nonce) {
