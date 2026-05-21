@@ -50,7 +50,7 @@ export async function POST(request: Request) {
   const auditContext = getRequestAuditContext(request);
 
   try {
-    assertAllowedOrigin(request.headers.get("origin"), "public");
+    assertAllowedOrigin(request.headers.get("origin"), "public-or-account");
 
     const formData = await request.formData();
     const parsed = publicAppointmentSchema.parse({

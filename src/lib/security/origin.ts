@@ -2,7 +2,12 @@ import { getPublicSiteUrl } from "@/lib/env/client";
 
 import { InvalidOriginError } from "@/lib/security/errors";
 
-export type AppOriginSurface = "account" | "admin" | "any" | "public";
+export type AppOriginSurface =
+  | "account"
+  | "admin"
+  | "any"
+  | "public"
+  | "public-or-account";
 
 function normalizeOrigin(value: string) {
   return value.replace(/\/$/, "");
@@ -22,6 +27,21 @@ function resolveConfiguredOrigin(value: string, fallbackProtocol: string) {
   return normalizeOrigin(`${fallbackProtocol}//${trimmed}`);
 }
 
+function getPublicOriginAliases(origin: string) {
+  const aliases = new Set<string>([origin]);
+  const url = new URL(origin);
+
+  if (url.hostname.startsWith("www.")) {
+    url.hostname = url.hostname.slice(4);
+    aliases.add(normalizeOrigin(url.origin));
+  } else {
+    url.hostname = `www.${url.hostname}`;
+    aliases.add(normalizeOrigin(url.origin));
+  }
+
+  return aliases;
+}
+
 function getAllowedOriginsBySurface() {
   const publicOrigin = new URL(getPublicSiteUrl()).origin;
   const protocol = new URL(publicOrigin).protocol;
@@ -35,7 +55,11 @@ function getAllowedOriginsBySurface() {
   const accountOrigins = new Set<string>([
     accountOrigin ?? normalizedPublicOrigin,
   ]);
-  const publicOrigins = new Set<string>([normalizedPublicOrigin]);
+  const publicOrigins = getPublicOriginAliases(normalizedPublicOrigin);
+  const publicOrAccountOrigins = new Set<string>([
+    ...publicOrigins,
+    ...accountOrigins,
+  ]);
   const allOrigins = new Set<string>([
     ...publicOrigins,
     ...adminOrigins,
@@ -47,6 +71,7 @@ function getAllowedOriginsBySurface() {
     admin: adminOrigins,
     any: allOrigins,
     public: publicOrigins,
+    "public-or-account": publicOrAccountOrigins,
   } satisfies Record<AppOriginSurface, Set<string>>;
 }
 
