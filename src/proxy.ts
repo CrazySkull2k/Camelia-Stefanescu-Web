@@ -60,6 +60,51 @@ function matchesConfiguredHost(requestHost: string | null, expectedHost: string 
   );
 }
 
+function isAccountHostInternalPath(pathname: string) {
+  return (
+    pathname === "/" ||
+    matchesPathSegmentPrefix(pathname, "/auth") ||
+    matchesPathSegmentPrefix(pathname, "/cont") ||
+    matchesPathSegmentPrefix(pathname, "/api/account") ||
+    matchesPathSegmentPrefix(pathname, "/api/auth") ||
+    matchesPathSegmentPrefix(pathname, "/site") ||
+    pathname === "/favicon.ico"
+  );
+}
+
+function isAdminHostInternalPath(pathname: string) {
+  return (
+    pathname === "/" ||
+    matchesPathSegmentPrefix(pathname, "/admin") ||
+    matchesPathSegmentPrefix(pathname, "/auth") ||
+    matchesPathSegmentPrefix(pathname, "/api/admin") ||
+    matchesPathSegmentPrefix(pathname, "/api/auth") ||
+    matchesPathSegmentPrefix(pathname, "/site") ||
+    pathname === "/favicon.ico"
+  );
+}
+
+function shouldRedirectToPublicHost(pathname: string, requestHost: string | null) {
+  const accountHost = normalizeHost(process.env.ACCOUNT_HOSTNAME);
+  const adminHost = normalizeHost(process.env.ADMIN_HOSTNAME);
+
+  if (
+    matchesConfiguredHost(requestHost, accountHost) &&
+    !isAccountHostInternalPath(pathname)
+  ) {
+    return true;
+  }
+
+  if (
+    matchesConfiguredHost(requestHost, adminHost) &&
+    !isAdminHostInternalPath(pathname)
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
 function resolveSurface(pathname: string, requestHost: string | null): AppSurface {
   if (matchesPathSegmentPrefix(pathname, "/admin")) {
     return "admin";
@@ -115,6 +160,10 @@ function getSurfaceRootRedirectPath(surface: AppSurface, pathname: string) {
   }
 
   return null;
+}
+
+function getPublicHost() {
+  return normalizeHost(process.env.NEXT_PUBLIC_SITE_URL);
 }
 
 function isSameOriginFrameAllowed(surface: AppSurface, pathname: string) {
@@ -263,6 +312,16 @@ function applySurfaceSecurityHeaders(
 
 export async function proxy(request: NextRequest) {
   const requestedHost = getRequestedHost(request);
+  const publicHost = getPublicHost();
+
+  if (
+    publicHost &&
+    requestedHost !== publicHost &&
+    shouldRedirectToPublicHost(request.nextUrl.pathname, requestedHost)
+  ) {
+    return NextResponse.redirect(buildSurfaceRedirect(request, publicHost));
+  }
+
   const surface = resolveSurface(request.nextUrl.pathname, requestedHost);
   const expectedHost = getExpectedHostForSurface(surface);
   const requestHeaders = new Headers(request.headers);

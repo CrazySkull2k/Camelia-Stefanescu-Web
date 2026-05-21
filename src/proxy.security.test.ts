@@ -50,6 +50,34 @@ describe("surface CSP hardening", () => {
     );
   });
 
+  it("keeps public pages canonical on the public host instead of the account host", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://example.com");
+    vi.stubEnv("ACCOUNT_HOSTNAME", "cont.example.com");
+
+    const { proxy } = await import("@/proxy");
+    const response = await proxy(
+      new NextRequest("https://cont.example.com/programare?service=nutritie"),
+    );
+
+    expect(response.status).toBe(307);
+    expect(response.headers.get("location")).toBe(
+      "https://example.com/programare?service=nutritie",
+    );
+  });
+
+  it("keeps account routes on the account host", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://example.com");
+    vi.stubEnv("ACCOUNT_HOSTNAME", "cont.example.com");
+
+    const { proxy } = await import("@/proxy");
+    const response = await proxy(
+      new NextRequest("https://cont.example.com/cont/dashboard"),
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("x-camelia-surface")).toBe("account");
+  });
+
   it("redirects admin subdomain root into the admin panel", async () => {
     vi.stubEnv("ADMIN_HOSTNAME", "admin.example.com");
 
