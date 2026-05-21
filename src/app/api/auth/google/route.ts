@@ -37,10 +37,11 @@ export async function POST(request: Request) {
     | null;
   const redirectTo = sanitizeRedirectTo(body?.redirectTo ?? null);
   const surface = resolveAuthSurface(redirectTo);
+  const requestOrigin = request.headers.get("origin");
   const auditContext = getRequestAuditContext(request);
 
   try {
-    assertAllowedOrigin(request.headers.get("origin"), surface);
+    assertAllowedOrigin(requestOrigin, surface);
 
     if (!hasSupabaseEnv()) {
       return NextResponse.json(
@@ -61,7 +62,7 @@ export async function POST(request: Request) {
       windowMs: 5 * 60 * 1000,
     });
 
-    const callbackUrl = new URL("/auth/callback", request.url);
+    const callbackUrl = new URL("/auth/callback", requestOrigin ?? request.url);
     callbackUrl.searchParams.set("redirectTo", redirectTo);
 
     const supabase = await createSupabaseMutableServerClient();
