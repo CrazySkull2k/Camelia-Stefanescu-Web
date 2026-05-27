@@ -13,7 +13,7 @@ export function NutritionServicesExactDesignPage() {
       <div className="pt-32 pb-24 px-8 max-w-[1440px] mx-auto">
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-40 items-start">
           <div className="lg:col-span-5 relative">
-            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Close-up of fresh organic salad in a ceramic bowl on a rustic linen cloth with soft natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHSi3eKUYf54KPXBHLx05M-3kd1f8PlvRPlVTQD-p_kG3hO3CctmX6KOPzr21SeujE5VLR56u9C08RMYEmh0BrLlVNOE476Yo2edmHaPYQ3B-wyxsTEhS-JvDtgNT03KtgJkFZcPaQ_C82vPToxNGNa7AjsXIisV3nko5_8FfhwVJ2Sji6TPJf3cpb9x90bJFrY6MEoLm4JY30sXTN3AQydvSQWh3vQButNCSTON97OTXrC2bpkP72GFwd6a7k0VqN-vk31J5b9-E" /></div>
+            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover object-[78%_center]" alt="Primul pas catre sanatate prin nutritie" data-alt="Primul pas catre sanatate prin nutritie" src="/site/nutrition-services/primul-pas-catre-sanatate.png" /></div>
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-fixed rounded-full flex items-center justify-center p-6 text-center editorial-shadow"><span className="font-headline italic text-on-secondary-container text-lg">Echilibru prin știință și empatie</span></div>
           </div>
           <div className="lg:col-span-7 lg:pl-20 pt-16">
@@ -63,10 +63,10 @@ export function NutritionServicesExactDesignPage() {
                 <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
               </button>
             </div>
-            <div className="order-1 lg:order-2"><div className="aspect-[16/10] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Elegant flat lay of vibrant healthy vegetables including kale, sweet potatoes, and avocado on a minimalist light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCePsnuFhxZZLN01Kf0qkV2Ae2fS7hbNRwjvx83shZ_E5QYAh7-bGZ8v664yZ-LVxGIaevhnv3kbhPjpPA7VHlciXiJATIiWLbKU1bA1CCiHQVl65Lf3jciF8Ca57Z-pBZaISWMQ-BpG1uUsr94knZc1H5eilDiT-R1MiDkJFzHljkJNonwrIJK5Xkdx_sHJ4p-u7tynjdyoRXxEey3VKjCJRwj6pl0Jk36dLcJI3yTX2bqS2TiKtOA7C_liqrMqRPrwhRM2sOcOgo" /></div></div>
+            <div className="order-1 lg:order-2"><div className="aspect-[16/10] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover object-[center_28%]" alt="Nutritie pentru slabit" data-alt="Nutritie pentru slabit" src="/site/nutrition-services/nutritie-pentru-slabit.png" /></div></div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center bg-surface-container-low rounded-[4rem] p-12 lg:p-24">
-            <div className="lg:col-span-5"><div className="aspect-square rounded-[3rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Zen-like composition with clear glass of water, essential oils, and a sprig of lavender on a soft linen surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC5tuO3TE4R5vh8lmDuG_PoSGQeXawI0R6c5sNjhg-QuTQqkCbkeWFcHgwS-Fwe0N9mH-HBttlgDN9ZiGbSao_8GdCks9XVycOM327maGx-qOUB62o0HbYB80BbJZ2FnDStXcw6l3l8mJpd9cOZWyUv03EwCrkIY5FQcZRnwrX3eWyvRp608-L01gp9YGNbAVUPli1J9EW94gkWlRE9SE3KQoqwk73aOYnEy23vQrZ-b6d_KOAizfbbwVnZ_bOPhz_5pRYcXdNJew" /></div></div>
+            <div className="lg:col-span-5"><div className="aspect-square rounded-[3rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" alt="Nutritie clinica" data-alt="Nutritie clinica" src="/site/nutrition-services/nutritie-clinica.png" /></div></div>
             <div className="lg:col-span-7 space-y-10 lg:pl-12">
               <div className="flex items-center gap-4 text-outline font-label text-[10px] uppercase tracking-[0.2em]">
                 <span className="w-8 h-[1px] bg-outline/40"></span>
@@ -107,11 +107,7 @@ export function NutritionServicesExactDesignPage() {
               <div className="pt-6"><button className="bg-primary text-on-primary px-12 py-5 rounded-full font-label text-[11px] uppercase tracking-[0.2em] hover:bg-primary-dim transition-all">Solicită Evaluarea</button></div>
             </div>
             <div className="relative">
-              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" data-alt="Dynamic shot of a focused athlete in a minimalist gym with high ceilings and soft dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX0qHYOnG63_dsXqhiNiJoXUimPYgfwFiSE6pAKrF9CtL5MrhreHJFTfrBd3ZPHe8lIlTfFcOz9GXh80MEwWq1svmD0odsadSsAy53VA-jcO82bgGuV-kcmMfmN95W2MCSAw7psYx3kK5Paz4gPDKMtsBYzGkD-R31EsNzXtqyC373k29C-9x-elkB_-wr9j46J1IJXLx_t5pXY0jupAtBrKfcdawEEPKxwN4TNCOWdXRAeAvZ9HxJaFzEXMRjxnD3_XHkUXw6Mn4" /></div>
-              <div className="absolute top-16 -left-12 bg-surface-bright/90 backdrop-blur-md p-10 rounded-3xl editorial-shadow max-w-[280px]">
-                <span className="material-symbols-outlined text-secondary text-4xl mb-5">bolt</span>
-                <p className="font-headline text-lg italic text-on-surface">"Combustibilul corect transformă efortul în excelență."</p>
-              </div>
+              <div className="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" alt="Nutritie sportiva" data-alt="Nutritie sportiva" src="/site/nutrition-services/nutritie-sportiv.png" /></div>
             </div>
           </div>
         </section>

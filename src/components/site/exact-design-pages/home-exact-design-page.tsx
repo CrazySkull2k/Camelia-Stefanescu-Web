@@ -143,7 +143,7 @@ export function HomeExactDesignPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-surface-bright/80 backdrop-blur-[24px] rounded-3xl p-8 box-shadow-ambient ghost-border flex flex-col relative">
               <div className="flex items-center gap-4 mb-6 z-10">
-                <div className="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden"><img className="w-full h-full object-cover" alt="Iulian" data-alt="Portrait of a smiling man in casual attire against a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMcktXAMhAYpIIU81h4rAfG3lPPt2GAgBm_NKaO0bMl1BQMyZN1F7MRJo9OczJDDLpS87WsqwADdbIoSvtQ881iafA3o4uSBtIY_v6ltGyHvdb3heB4VhOJTZiDBL4BzTAM8uR6K3IKTCio50WLiNVDcFAUPpJ0WY-UwEzY4KPU5TgqAkM79YhP-l8nwPP3BiHE4QLlz0VONmm8j7lV2KkymmF_hLjWbdHT2zM_AEmDRWMYWmch8rRN0cyp8peM3qZtZ2Y2ZzbW6w" /></div>
+                <div className="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shadow-sm" aria-hidden="true"><span className="font-headline text-xl font-semibold leading-none">I</span></div>
                 <div>
                   <h4 className="font-headline text-lg text-on-surface">Iulian</h4>
                   <p className="font-body text-label-sm uppercase tracking-wider text-on-surface-variant">Pacient Nutriție</p>
@@ -153,7 +153,7 @@ export function HomeExactDesignPage() {
             </div>
             <div className="bg-surface-bright/80 backdrop-blur-[24px] rounded-3xl p-8 box-shadow-ambient ghost-border flex flex-col relative transform md:translate-y-6">
               <div className="flex items-center gap-4 mb-6 z-10">
-                <div className="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden"><img className="w-full h-full object-cover" alt="Delia" data-alt="Portrait of a smiling woman with medium hair in a warm setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD94UbuwKT5Iqmelv6hhUvmMLjjc7crEWu_z1XrVHNq_MrfONL8mD3vj6JH-wyuTJp7c9Ymwmz5qOWbZcBaRBTxef3E-GnX-s9hJoHveEQtG9KFZ1hR_iLVHFDp4bmkpQ5tT8lxQ6_KfKCCnZxBfgS21K53ln0s2uAh1vkHVMV_5vaDGYLyfvO3F47W3BbLos4f4avrThbxxY0YhHEBnGWiAJd3CQovj_n0SA9Sg2ZlUPGztOugaihYYfUAitq_cp2LubwqznTZ33s" /></div>
+                <div className="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center shadow-sm" aria-hidden="true"><span className="font-headline text-xl font-semibold leading-none">D</span></div>
                 <div>
                   <h4 className="font-headline text-lg text-on-surface">Delia</h4>
                   <p className="font-body text-label-sm uppercase tracking-wider text-on-surface-variant">Pacient Diagnostic Celular</p>
@@ -163,7 +163,7 @@ export function HomeExactDesignPage() {
             </div>
             <div className="bg-surface-bright/80 backdrop-blur-[24px] rounded-3xl p-8 box-shadow-ambient ghost-border flex flex-col relative">
               <div className="flex items-center gap-4 mb-6 z-10">
-                <div className="w-12 h-12 rounded-full bg-surface-container-high overflow-hidden"><img className="w-full h-full object-cover" alt="Magda" data-alt="Portrait of an older woman smiling gently in soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUn6WXtegVESxWjR953OicyRy24WZzrzoSVD5_VRpAVbzD2L39rZNZoSXE-xFuDIr2SxPwYc3okFUoI7XQwnloXJs9Kkci03aJI4pMTASymxoMVJ2AhnDv0EF7xUFbOu6lPNB-ANtLmWOppJ8JQWtRODkLWOPAwcayc3ys12SfPRT2S43Z-gef1jA7TSZPq_IGT8Gbk_f8brAUU5kHW8zEo0bv7o8KNjfSnGC0cRnQjQi3AXTXxxuoacjFTMr6A8eTLAKG4FC2JY" /></div>
+                <div className="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm" aria-hidden="true"><span className="font-headline text-xl font-semibold leading-none">M</span></div>
                 <div>
                   <h4 className="font-headline text-lg text-on-surface">Magda</h4>
                   <p className="font-body text-label-sm uppercase tracking-wider text-on-surface-variant">Pacient Shockwave</p>

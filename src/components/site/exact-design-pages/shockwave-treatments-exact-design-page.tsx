@@ -11,76 +11,61 @@ export function ShockwaveTreatmentsExactDesignPage() {
       data-cms-override-version="shockwave-ce-putem-trata-2026-design-v2"
     >
       <div>
-        <section className="pt-12 pb-16 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <section className="pt-32 pb-20 px-6 md:px-12 max-w-[1240px] mx-auto">
+          <div className="mx-auto mb-10 max-w-4xl text-center">
+            <h1 className="font-headline text-5xl md:text-7xl font-light mb-5 leading-tight italic text-[#2B2B2B]">
+              Ce putem{" "}
+              <span className="text-primary font-medium">trata</span>
+            </h1>
+            <p className="mx-auto max-w-3xl font-body text-lg text-on-surface-variant font-light leading-relaxed">O abordare modernă și neinvazivă pentru afecțiunile musculo-scheletale. Terapia Shockwave oferă rezultate remarcabile acolo unde alte tratamente au eșuat, redându-vă libertatea de mișcare.</p>
+          </div>
           <div className="w-full bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-[0_32px_64px_-12px_rgba(28,27,26,0.08)] border border-outline-variant/30">
-            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[900px]">
-              <div className="lg:col-span-7 relative bg-[#f7f3f0] overflow-hidden">
-                <img className="absolute inset-0 w-full h-full object-cover z-0 mix-blend-multiply opacity-90" alt="Anatomical mapping" src="https://lh3.googleusercontent.com/aida/ADBb0uiBZPODpdDe4DC31vA-wSDZFdiMf2XtZqbPOEevQkhK8onh4BEiLBV_mgfMRHywM2ojrqihVgfJGcq7qCpdDE9w_L3mQarpDPw5mvLhuS-oSTDBuYWag-YFK4WwP9_sZ2T8xoPXznqDEMHBI5pX4ZVdjY21ICk6hrE0kC1hd_gNR3rtsqBuTBbrRgytVNNebK7ztc7MD60dhi4cIHriNHEhGh8mHDrcwUy2nt_7HvcRw513_nnSq85UIBaqUL4d4EF6cV24ns36UA" />
-                <div className="absolute inset-0 bg-gradient-to-b from-[#f7f3f0]/80 via-transparent to-transparent z-0 pointer-events-none"></div>
-                <div className="relative z-10 p-10 lg:p-16 h-full flex flex-col pointer-events-none">
-                  <div className="max-w-xl pointer-events-auto">
-                    <h1 className="font-headline text-5xl md:text-7xl font-light mb-6 leading-tight italic text-[#2B2B2B]">
-                       Ce putem 
-                      <span className="text-primary font-medium">trata</span>
-                    </h1>
-                    <p className="font-body text-lg text-on-surface-variant font-light leading-relaxed">O abordare modernă și neinvazivă pentru afecțiunile musculo-scheletale. Terapia Shockwave oferă rezultate remarcabile acolo unde alte tratamente au eșuat, redându-vă libertatea de mișcare.</p>
-                  </div>
-                  <div className="absolute inset-0 pointer-events-auto">
-                    <div className="hotspot designInline1">1</div>
-                    <div className="hotspot designInline2">2</div>
-                    <div className="hotspot designInline3">3</div>
-                    <div className="hotspot designInline4">4</div>
-                    <div className="hotspot designInline5">5</div>
-                    <div className="hotspot designInline6">6</div>
-                    <div className="hotspot designInline7">7</div>
-                    <div className="hotspot designInline8">8</div>
-                    <div className="hotspot designInline9">9</div>
-                    <div className="hotspot designInline10">10</div>
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 lg:h-[760px]">
+              <div className="relative h-[430px] sm:h-[560px] lg:col-span-7 lg:h-full bg-[#f7f3f0] overflow-hidden">
+                <img className="absolute inset-0 w-full h-full scale-125 object-contain object-center lg:scale-100 lg:object-cover lg:object-[35%_center] z-0" alt="Puncte tratate prin terapia shockwave" src="/site/shockwave/points.png" />
               </div>
-              <div className="lg:col-span-5 bg-surface-container-lowest p-10 lg:p-16 flex flex-col justify-center">
-                <h2 className="font-headline text-3xl text-[#2B2B2B] mb-8">Afecțiuni vizate frecvent</h2>
-                <div className="flex-grow flex flex-col">
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">1</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Epicondilita laterală</span>
+              <div className="bg-surface-container-lowest p-8 lg:col-span-5 lg:px-12 lg:py-10 flex min-h-0 flex-col justify-start">
+                <h2 className="font-headline text-3xl text-[#2B2B2B] mb-5">Afecțiuni vizate frecvent</h2>
+                <div className="flex min-h-0 flex-col">
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">1</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Epicondilita laterală</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">2</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Leziuni ale coifului rotatorilor</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">2</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Leziuni ale coifului rotatorilor</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">3</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Epicondilita medială</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">3</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Epicondilita medială</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">4</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Puncte trigger</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">4</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Puncte trigger</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">5</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Pseudoartroză</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">5</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Pseudoartroză</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">6</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Bursita trohanteriană</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">6</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Bursita trohanteriană</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">7</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Tendinita patelară</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">7</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Tendinita patelară</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">8</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Periostita tibială</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">8</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Periostita tibială</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 border-b border-outline-variant/20 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">9</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Fascita plantară</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl border-b border-outline-variant/20 px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">9</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Fascita plantară</span>
                   </div>
-                  <div className="condition-row flex items-center gap-6 py-4 px-4 rounded-xl">
-                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-xl">10</span>
-                    <span className="font-body text-[1.1rem] text-[#2B2B2B]">Tendinita ahileană</span>
+                  <div className="condition-row flex items-center gap-5 rounded-xl px-4 py-2.5">
+                    <span className="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary font-headline italic shrink-0 text-lg">10</span>
+                    <span className="font-body text-[1.05rem] text-[#2B2B2B]">Tendinita ahileană</span>
                   </div>
                 </div>
               </div>

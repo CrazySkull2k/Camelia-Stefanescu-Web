@@ -18,23 +18,22 @@ export function ShockwaveWhatIsExactDesignPage() {
               <span className="font-label text-primary tracking-[0.3em] uppercase text-sm mb-8 block font-bold">Terapie Inovativă</span>
               <h1 className="font-headline font-bold text-on-surface mb-8">
                 <span className="block text-[4.5rem] md:text-[6rem] leading-[0.9] tracking-tight">Ce este terapia</span>
-                <span className="block text-[5rem] md:text-[7rem] leading-[0.9] italic text-primary pr-12 text-right transform -rotate-2">cu unde</span>
-                <span className="block text-[6rem] md:text-[8.5rem] leading-[0.8] tracking-tighter indent-12">de șoc?</span>
+                <span className="block text-[4.5rem] md:text-[6rem] leading-[0.9] tracking-tight">cu unde de șoc?</span>
               </h1>
             </div>
             <div className="lg:col-span-4 lg:col-start-9 relative z-10 pt-12">
               <div className="relative w-full aspect-[4/5] rounded-t-[100px] rounded-br-[100px] overflow-hidden shadow-2xl z-20 border-4 border-surface">
-                <img className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-700 ease-out" alt="Terapie medicală modernă" data-alt="Close up of advanced medical technology device with warm soft clinical lighting, shallow depth of field, premium healthcare setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjBrRuxb_lAJAC2lAZ2sNVHPsEwsWhMaQoTRJo9cAjiSDPxliqCga1zvgXFLPBHwVUwydy_PJjHxo61RuHel3R3Nc1KjG9j6G81e5jEFdYLTz85cbmd_N-ySTO2OSZ5LWTd4ZIluZ2B6gNAeZUO6lVYgr0nxpJwP6uAwJ8RSGGZpI9eIsZJtolJbhPYbUk_64M4wfW1zkFLQJ5PvUsFMJkfvdmXMbZjBY2YPhomjIoP6Nyz-U8QKP40pQ_IMdC3xAuX7JrYshSlR4" />
+                <img className="w-full h-full object-cover scale-105 hover:scale-100 transition-transform duration-700 ease-out" alt="Aparat pentru terapia shockwave intr-o sala de tratament" data-alt="Shockwave therapy device in a warm clinical treatment room" src="/site/shockwave/ce-este-terapia-shockwave.png" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent mix-blend-overlay"></div>
               </div>
-              <div className="absolute -bottom-16 -left-32 w-[240px] aspect-square rounded-full overflow-hidden shadow-xl z-30 border-8 border-surface hidden lg:block"><img className="w-full h-full object-cover" alt="Detail shot" data-alt="Abstract close up of clinical texture, soft focus, warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzzSVP4KuwZ_6aIIzOaFxdIk8rxQQ8l4YbjRiGOFsWhkQphjv-sb4OjKgNC20WutqmTjQv2xJHhEr-13sfo83lGtJ5S2Y-dXnAgD4FZPuQ7oWC0hKy1zh4DMZROCc0YuXnl4nwk9_JZbITjPI_6ImkWXQoBFqCFkDDxsT4ThNRhis_7F5LhhWCRbeqswZvMfM1sIQO02R0PJum0SEK04FsgICuKFMQsszh1RqG57e0suZ70EDmlnWkvyxhqQl3cAGqfOwv5wTmdZs" /></div>
+              <div className="absolute -bottom-16 -left-32 w-[240px] aspect-square rounded-full overflow-hidden shadow-xl z-30 border-8 border-surface hidden lg:block"><img className="w-full h-full object-cover" alt="Capul aplicatorului shockwave" data-alt="Close up of a shockwave therapy applicator tool" src="/site/shockwave/shockwave-tool.png" /></div>
             </div>
             <div className="lg:col-span-5 lg:col-start-3 mt-8 lg:-mt-16 relative z-30 pl-8 lg:pl-0">
               <div className="bg-surface/90 backdrop-blur-md p-8 rounded-2xl shadow-lg border border-surface-variant">
                 <p className="font-body font-light text-xl text-on-surface-variant leading-relaxed">
-                   O abordare medicală 
-                  <span className="font-medium text-on-surface italic">premium</span>
-                   care folosește unde acustice de înaltă energie pentru a stimula procesele naturale de vindecare ale corpului, depășind metodele tradiționale prin eficiență și precizie. 
+                  O abordare medicală{" "}
+                  <span className="font-medium text-on-surface italic">premium</span>{" "}
+                  care folosește unde acustice de înaltă energie pentru a stimula procesele naturale de vindecare ale corpului, depășind metodele tradiționale prin eficiență și precizie.
                 </p>
               </div>
             </div>
@@ -43,19 +42,19 @@ export function ShockwaveWhatIsExactDesignPage() {
         <section className="py-24 bg-surface-container-lowest relative">
           <div className="max-w-screen-xl mx-auto px-6 md:px-12 lg:px-24">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-              <div className="order-2 md:order-1 relative"><div className="aspect-square blob-mask-1 overflow-hidden bg-surface-container relative"><img className="w-full h-full object-cover" alt="Regenerare celulară" data-alt="Abstract microscopic view of cellular regeneration with warm amber and subtle teal tones, soft organic shapes, medical science art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzzSVP4KuwZ_6aIIzOaFxdIk8rxQQ8l4YbjRiGOFsWhkQphjv-sb4OjKgNC20WutqmTjQv2xJHhEr-13sfo83lGtJ5S2Y-dXnAgD4FZPuQ7oWC0hKy1zh4DMZROCc0YuXnl4nwk9_JZbITjPI_6ImkWXQoBFqCFkDDxsT4ThNRhis_7F5LhhWCRbeqswZvMfM1sIQO02R0PJum0SEK04FsgICuKFMQsszh1RqG57e0suZ70EDmlnWkvyxhqQl3cAGqfOwv5wTmdZs" /></div></div>
+              <div className="order-2 md:order-1 relative"><div className="aspect-square blob-mask-1 overflow-hidden bg-surface-container relative"><img className="w-full h-full object-cover" alt="Regenerare celulară" data-alt="Cellular regeneration visual for shockwave therapy" src="/site/shockwave/cell.png" /></div></div>
               <div className="order-1 md:order-2 pt-12 md:pl-8">
                 <h2 className="font-headline text-[1.75rem] font-bold text-on-surface mb-8 leading-tight">Vindecare Accelerată la Nivel Celular</h2>
                 <div className="space-y-6 font-body font-light text-lg text-on-surface-variant leading-relaxed">
                   <p>
-                     Terapia Shockwave declanșează o 
+                    Terapia Shockwave declanșează o{" "}
                     <span className="font-medium text-primary">reacție biologică profundă</span>
-                    . Undele acustice penetrează țesutul, stimulând metabolismul local și circulația sanguină. 
+                    . Undele acustice penetrează țesutul, stimulând metabolismul local și circulația sanguină.
                   </p>
                   <p>
-                     Acest proces favorizează eliberarea 
+                    Acest proces favorizează eliberarea{" "}
                     <span className="font-medium text-primary">factorilor de creștere</span>
-                    , esențiali pentru regenerarea celulară și vindecarea rapidă a afecțiunilor cronice ale aparatului locomotor. 
+                    , esențiali pentru regenerarea celulară și vindecarea rapidă a afecțiunilor cronice ale aparatului locomotor.
                   </p>
                 </div>
               </div>
@@ -91,11 +90,11 @@ export function ShockwaveWhatIsExactDesignPage() {
                   <div className="relative z-10 pl-8">
                     <h2 className="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-8 italic leading-tight text-secondary">Expertiză și Protocoale Recunoscute Internațional</h2>
                     <p className="font-body font-light text-lg text-on-surface-variant leading-relaxed mb-8">
-                       Protocoalele noastre de tratament se aliniază standardelor riguroase stabilite de liderii mondiali în domeniu, inclusiv lucrările de pionierat ale 
-                      <span className="font-medium text-on-surface">Profesorului Wolfgang Schaden</span>
-                       și recomandările Societății Internaționale pentru Tratamentul Medical cu Unde de Șoc (
+                      Protocoalele noastre de tratament se aliniază standardelor riguroase stabilite de liderii mondiali în domeniu, inclusiv lucrările de pionierat ale{" "}
+                      <span className="font-medium text-on-surface">Profesorului Wolfgang Schaden</span>{" "}
+                      și recomandările Societății Internaționale pentru Tratamentul Medical cu Unde de Șoc (
                       <span className="font-medium text-primary">ISMST</span>
-                      ). 
+                      ).
                     </p>
                     <div className="flex items-center gap-4 border-t border-outline-variant/30 pt-6">
                       <span className="material-symbols-outlined text-primary">verified</span>

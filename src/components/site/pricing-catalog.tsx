@@ -93,14 +93,6 @@ export function PricingCatalog({
         aria-labelledby={`pricing-tab-${activeCategory.slug}`}
         className={styles.panel}
       >
-        <div className={styles.heading}>
-          <p className={styles.headingEyebrow}>Catalog public</p>
-          <h2 className={styles.title}>{activeCategory.name}</h2>
-          {activeCategory.description ? (
-            <p className={styles.description}>{activeCategory.description}</p>
-          ) : null}
-        </div>
-
         <div className={styles.sections}>
           {activeCategory.sections.map((section, index) => (
             <section key={section.id} className={styles.sectionBlock}>

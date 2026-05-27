@@ -39,14 +39,7 @@ export function CellularDiagnosisExactDesignPage() {
               <div className="w-full lg:w-1/2 relative">
                 <div className="aspect-[4/5] bg-stone/10 border border-stone/20 rounded-t-full rounded-b-[4rem] overflow-hidden p-4 relative">
                   <div className="absolute inset-0 bg-terracotta/5 mix-blend-overlay"></div>
-                  <div className="w-full h-full rounded-t-full rounded-b-[3.5rem] bg-ink/50 flex flex-col items-center justify-center p-12 text-center border border-stone/10">
-                    <span className="material-symbols-outlined text-terracotta text-6xl mb-8 font-light">biotech</span>
-                    <div className="font-headline text-7xl mb-4 font-light italic">
-                      200
-                      <span className="text-terracotta not-italic">+</span>
-                    </div>
-                    <p className="font-label text-sm uppercase tracking-widest text-surface-light/60">Milioane de măsurători</p>
-                  </div>
+                  <img className="w-full h-full rounded-t-full rounded-b-[3.5rem] object-cover border border-stone/10" alt="Arcada Global Diagnostics" src="/site/cellular-diagnosis/arch.png" />
                 </div>
               </div>
               <div className="w-full lg:w-1/2 space-y-12">
@@ -85,7 +78,7 @@ export function CellularDiagnosisExactDesignPage() {
               </div>
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] translate-y-[99%] pointer-events-none"><svg className="relative block w-[calc(100%+1.3px)] h-[80px] md:h-[120px]" data-name="Layer 1" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#1C1C1A" transform="scale(1, -1) translate(0, -120)"></path></svg></div>
+          <div className="absolute bottom-0 left-0 z-20 w-full overflow-hidden leading-[0] translate-y-[99%] pointer-events-none"><svg className="relative block w-[calc(100%+1.3px)] h-[80px] md:h-[120px]" data-name="Layer 1" preserveAspectRatio="none" viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#1C1C1A" transform="scale(1, -1) translate(0, -120)"></path></svg></div>
         </section>
         <section className="py-32 md:pt-48 md:pb-32 px-6 relative bg-stone/20">
           <div className="max-w-4xl mx-auto text-center space-y-12">

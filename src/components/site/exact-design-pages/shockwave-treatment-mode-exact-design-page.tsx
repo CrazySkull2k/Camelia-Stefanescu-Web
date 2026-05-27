@@ -32,9 +32,9 @@ export function ShockwaveTreatmentModeExactDesignPage() {
               <div className="absolute top-0 right-0 -z-10 select-none overflow-hidden opacity-[0.03] pointer-events-none w-full h-full flex items-center justify-end"><span className="font-headline text-[25vw] leading-none whitespace-nowrap -rotate-90 origin-right translate-x-[40%] text-on-surface">01 SW</span></div>
             </div>
             <div className="lg:col-span-5 h-[50vh] lg:h-[80vh] relative z-10 p-4 lg:p-8 order-first lg:order-last">
-              <div className="w-full h-full relative overflow-hidden shadow-2xl organic-blob">
-                <img className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-[2000ms] hover:scale-105" alt="Clinical treatment setting" data-alt="close up of clinical physical therapy setting with medical equipment and soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1T35P8MnH00a1IL05t6GVXAlteBMfYInVjAHVJRF6C4SpmIjcV8dgdpG5w9r95Tvs_DyBzg92s63vH5neDNhaO0hrSInRpCN01MR779xZtZYScOJkynt0xeGpOXYTNh6lOeMnz9D6vmhxFaI3L1fUDYSzqYXURX3tG0DLuiDFU6dmh8dpTF0WNIj5GtSTzOjZ0467hoYL07b5JXiQb3m8jxvNuEBdt_fZOFdWUhFk6f6Y_D3HY7lRjigv-1PiAMHPh5RmpHv9ovA" />
-                <div className="absolute inset-0 bg-terracotta/20 mix-blend-multiply"></div>
+              <div className="group w-full h-full relative overflow-hidden shadow-2xl organic-blob">
+                <img className="w-full h-full object-cover grayscale opacity-90 transition-all duration-[2000ms] group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100" alt="Aplicarea terapiei shockwave in timpul tratamentului" data-alt="Shockwave treatment mode hero image" src="/site/shockwave/mod-tratament.png" />
+                <div className="pointer-events-none absolute inset-0 bg-terracotta/20 mix-blend-multiply transition-opacity duration-[2000ms] group-hover:opacity-0"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-60 lg:hidden"></div>
               </div>
               <div className="absolute top-1/4 -right-12 w-[120%] h-[120%] bg-surface-variant/30 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
@@ -55,9 +55,9 @@ export function ShockwaveTreatmentModeExactDesignPage() {
                  de Aplicare
               </h2>
               <p className="font-body text-lg text-on-surface-variant leading-relaxed">
-                 Tratamentul începe prin aplicarea unui gel conductor cu ultrasunete pe zona afectată. Apoi, aplicatorul este poziționat cu precizie, administrând între 
+                Tratamentul începe prin aplicarea unui gel conductor cu ultrasunete pe zona afectată. Apoi, aplicatorul este poziționat cu precizie, administrând între{" "}
                 <strong className="text-terracotta font-semibold">500 și 3000 de impulsuri</strong>
-                , în funcție de patologia specifică tratată. 
+                , în funcție de patologia specifică tratată.
               </p>
             </div>
             <div className="lg:w-1/2 lg:pl-16 space-y-8 relative lg:mt-24">
@@ -70,7 +70,7 @@ export function ShockwaveTreatmentModeExactDesignPage() {
                 <li className="flex items-start gap-6 border-b border-surface-variant pb-6">
                   <span className="font-headline italic text-2xl text-terracotta min-w-[2rem]">I.</span>
                   <span>
-                    Durata unei ședințe: 
+                    Durata unei ședințe:{" "}
                     <strong className="text-on-surface font-medium">8-15 minute</strong>
                     .
                   </span>
@@ -78,7 +78,7 @@ export function ShockwaveTreatmentModeExactDesignPage() {
                 <li className="flex items-start gap-6 border-b border-surface-variant pb-6">
                   <span className="font-headline italic text-2xl text-terracotta min-w-[2rem]">II.</span>
                   <span>
-                    Interval: O ședință la fiecare 
+                    Interval: O ședință la fiecare{" "}
                     <strong className="text-on-surface font-medium">7-10 zile</strong>
                     .
                   </span>
@@ -86,9 +86,9 @@ export function ShockwaveTreatmentModeExactDesignPage() {
                 <li className="flex items-start gap-6">
                   <span className="font-headline italic text-2xl text-terracotta min-w-[2rem]">III.</span>
                   <span>
-                    Protocol recomandat: 
-                    <strong className="text-on-surface font-medium">3-6 ședințe</strong>
-                     pentru eficiență maximă.
+                    Protocol recomandat:{" "}
+                    <strong className="text-on-surface font-medium">3-6 ședințe</strong>{" "}
+                    pentru eficiență maximă.
                   </span>
                 </li>
               </ul>
@@ -106,22 +106,22 @@ export function ShockwaveTreatmentModeExactDesignPage() {
                 <span className="italic font-bold">Germană MTS</span>
               </h2>
               <p className="font-body text-lg text-on-surface-variant leading-relaxed">
-                 Utilizăm exclusiv echipament de ultimă generație de la 
+                Utilizăm exclusiv echipament de ultimă generație de la{" "}
                 <strong className="text-on-surface font-medium">MTS Germania</strong>
-                , recunoscut la nivel global pentru precizie și fiabilitate. Aceeași tehnologie este implementată și în prestigiosul centru de traumatologie 
+                , recunoscut la nivel global pentru precizie și fiabilitate. Aceeași tehnologie este implementată și în prestigiosul centru de traumatologie{" "}
                 <strong className="text-on-surface font-medium">AUVA din Meidling, Viena</strong>
-                . 
+                .
               </p>
             </div>
             <div className="lg:w-1/2 relative w-full">
-              <img className="w-full aspect-square md:aspect-[4/3] object-cover rounded-[2rem] shadow-xl grayscale hover:grayscale-0 transition-all duration-700" alt="Medical Technology" data-alt="macro shot of modern clinical medical equipment with metallic finishes and soft clinical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-tCWOTbhctCg1AdL9LR7c4XGTOnwzbnThZ3dc4jzl25o5A82uCANN8xW4svf1g03PkgiYAOtuZxnS427eZ1BQj2SE5Wr4Jx9IpS8ADJ_N2zKnwfJz4D-6PMnEA2s_1GeFxtEC7uimP5oonv8tzO3izBqZxhlgFRdP3sXqATNZYZBqptUqVUt3vn0CCbtFp1woqYjX4Cn4mC6bkygEzLr7S1kFOsvlr9LMZM-cC4wp14FOCxEaPPBrh7-eMYlz3O4Qxjwk5smvbEY" />
+              <img className="w-full aspect-square md:aspect-[4/3] object-cover rounded-[2rem] shadow-xl grayscale hover:grayscale-0 transition-all duration-700" alt="Aparat pentru terapia shockwave" data-alt="Shockwave treatment mode technology image" src="/site/shockwave/mod-tratament-2.png" />
               <div className="lg:absolute -bottom-16 -left-16 bg-surface p-8 rounded-2xl shadow-2xl max-w-sm border border-surface-variant mt-8 lg:mt-0">
                 <span className="font-label text-xs tracking-[0.1em] uppercase text-outline mb-2 block">Avertismente</span>
                 <h3 className="font-headline text-2xl mb-4 italic">Efecte Secundare</h3>
                 <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-4">
-                   Efectele secundare sunt 
+                  Efectele secundare sunt{" "}
                   <span className="italic text-terracotta">rare și tranzitorii</span>
-                  . În cazuri excepționale: 
+                  . În cazuri excepționale:
                 </p>
                 <ul className="space-y-2 font-body text-sm text-on-surface-variant">
                   <li className="flex items-center gap-2">

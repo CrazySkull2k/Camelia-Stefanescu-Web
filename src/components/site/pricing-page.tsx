@@ -18,18 +18,8 @@ export function PricingPage({
   heroDescription,
   heroEyebrow,
   heroTitle = "Preturi",
-  introBody,
-  introTitle,
   initialCategorySlug,
 }: PricingPageProps) {
-  const sectionCount = categories.reduce((total, category) => total + category.sections.length, 0);
-  const serviceCount = categories.reduce(
-    (total, category) =>
-      total +
-      category.sections.reduce((sectionTotal, section) => sectionTotal + section.items.length, 0),
-    0,
-  );
-
   return (
     <main className={styles.page}>
       <div className={styles.container}>
@@ -41,40 +31,7 @@ export function PricingPage({
             {heroDescription ? (
               <p className={styles.heroDescription}>{heroDescription}</p>
             ) : null}
-
-            <div className={styles.metricRow} aria-label="Rezumat catalog preturi">
-              <div className={styles.metricCard}>
-                <span className={styles.metricValue}>{categories.length}</span>
-                <span className={styles.metricLabel}>Categorii</span>
-              </div>
-              <div className={styles.metricCard}>
-                <span className={styles.metricValue}>{sectionCount}</span>
-                <span className={styles.metricLabel}>Sectiuni</span>
-              </div>
-              <div className={styles.metricCard}>
-                <span className={styles.metricValue}>{serviceCount}</span>
-                <span className={styles.metricLabel}>Servicii</span>
-              </div>
-            </div>
           </div>
-
-          {introTitle || introBody ? (
-            <aside className={styles.introCard}>
-              {introTitle ? <h2 className={styles.introTitle}>{introTitle}</h2> : null}
-              {introBody ? <p className={styles.introBody}>{introBody}</p> : null}
-            </aside>
-          ) : (
-            <aside className={styles.introCard}>
-              <p className={styles.introKicker}>Categorii active</p>
-              <div className={styles.introPills}>
-                {categories.map((category) => (
-                  <span key={category.id} className={styles.introPill}>
-                    {category.name}
-                  </span>
-                ))}
-              </div>
-            </aside>
-          )}
         </header>
 
         <PricingCatalog

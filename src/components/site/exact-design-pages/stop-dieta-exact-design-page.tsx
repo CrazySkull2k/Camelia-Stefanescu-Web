@@ -32,7 +32,7 @@ export function StopDietaExactDesignPage() {
           </div>
           <div className="w-full md:w-7/12 relative">
             <div className="aspect-[4/3] md:aspect-[16/11] overflow-hidden shadow-2xl relative z-10 transition-transform duration-1000 designInline1">
-              <img className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-1000" alt="High-end clinical aesthetic workspace with medical charts and soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3bPCdeQZIwmxaQrvCq0DkRyea6k2daiJeezGJLOkLNWWJlBS9T5cRh8i-waj53Z-Udg4L1ngZwkUolhrgPhgT2AbhYzTppd3_ujR8o88p7bLUGGYrFjQKqIPWNijFH6823xn5KUAsLk0i23ASpjb6edhGjJ2Ie9XOrBwCafrEs4IjcgwPNHMie2cYn8eXF-NTz8t8SdUMKOlrcy4kAt-0w0NH379q6oNFK8WlypvaSK0SbZQB2QOsmt4eDaT3qrnsOj8igd8avV0" />
+              <img className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-1000" alt="Program Stop Dieta Online" src="/site/stop-dieta/stopdieta-online.png" />
               <div className="absolute inset-0 bg-gradient-to-tr from-surface/20 to-transparent mix-blend-overlay"></div>
             </div>
             <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-secondary-container rounded-full -z-0 blur-3xl opacity-50"></div>
@@ -51,9 +51,9 @@ export function StopDietaExactDesignPage() {
               <span className="material-symbols-outlined text-3xl text-secondary designInline2">vital_signs</span>
               <h3 className="font-headline text-title-lg text-on-surface">Procesul de Vindecare</h3>
               <p className="font-body text-body-md text-on-surface-variant leading-relaxed">
-                 Prin urmare, revenirea organismului la un metabolism corect, care să asigure menținerea unei greutăți optime, va necesita o perioadă de cel puțin 
-                <strong>3 luni</strong>
-                 de aplicare a principiilor programului de Recalibrare a Răspunsului Hormonal. 
+                Prin urmare, revenirea organismului la un metabolism corect, care să asigure menținerea unei greutăți optime, va necesita o perioadă de cel puțin{" "}
+                <strong>3 luni</strong>{" "}
+                de aplicare a principiilor programului de Recalibrare a Răspunsului Hormonal.
               </p>
             </div>
           </div>
@@ -93,7 +93,7 @@ export function StopDietaExactDesignPage() {
             <div className="max-w-4xl relative z-10 space-y-8">
               <p className="font-headline text-headline-sm md:text-headline-md text-on-tertiary-container italic leading-relaxed">"Voi fi lângă tine pentru a-ți ghida pașii, pentru a te sprijini când obosești și voi fi prima care te va felicita pentru succes."</p>
               <div className="flex flex-col items-center space-y-3">
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest shadow-sm"><img className="w-full h-full object-cover" alt="Close up of a warm, professional smiling female doctor looking directly at the camera, soft lighting" data-alt="Close up of a warm, professional smiling female doctor looking directly at the camera, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcrFNXUvydgqhipAxZVo3ePp_Mqe9w-7VDMOcEtWQrbuJyQYwCg4Z0xzFZg5JsKSmnWXj3wWxR_vkDTZaqyeD5_O0y6_0NyHyjQguCVh_1NkL0hhqNvzQsYcF-6gt_VsOTnm9e1UXMjVOIl-wzg2fUtm_lew1ZAU-llexr589bFgozUAd2393QKddAZy8yDwZOkK1zrXaITpZJXrZQyPJZ5pBgR1vcuzK0QQaXp_3FXzZjnVQqK7b1NWKFbKodvyldiMqMHUVfhTY" /></div>
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest shadow-sm"><img className="w-full h-full object-cover object-[center_30%]" alt="Dr. Camelia Ștefănescu" data-alt="Dr. Camelia Ștefănescu" src="/site/stop-dieta/stopdieta.png" /></div>
                 <div>
                   <span className="block font-headline text-title-md text-on-tertiary-container">Dr. Camelia Ștefănescu</span>
                   <span className="block font-label text-label-sm text-on-tertiary-container/70 uppercase tracking-widest mt-1">Medic Specialist</span>
