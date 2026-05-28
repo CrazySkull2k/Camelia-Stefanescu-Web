@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element, react/no-unescaped-entities */
 import clsx from "clsx";
+import Link from "next/link";
 
+import { AnimatedStatValue } from "./animated-stat-value";
 import styles from "./home-exact-design-page.module.css";
 
 export function HomeExactDesignPage() {
@@ -14,10 +16,6 @@ export function HomeExactDesignPage() {
         <section className="relative pt-12 pb-24 md:pt-24 md:pb-32 px-6 md:px-12 max-w-screen-2xl mx-auto overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             <div className="lg:col-span-7 z-10 flex flex-col justify-center order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-tertiary-container text-on-tertiary-container rounded-full w-max mb-8 ghost-border">
-                <span className="material-symbols-outlined text-sm">spa</span>
-                <span className="font-label text-[0.6875rem] uppercase tracking-[0.05em] font-semibold">Sanctuarul tău de bine</span>
-              </div>
               <h1 className="font-headline text-5xl md:text-7xl lg:text-[5rem] leading-[1.1] text-on-surface mb-8 tracking-tight font-light">
                  Dr. Camelia Stefanescu 
                 <div className="mt-6 flex flex-col gap-2">
@@ -45,11 +43,10 @@ export function HomeExactDesignPage() {
               </h1>
               <p className="font-body text-body-md text-on-surface-variant max-w-xl mb-12 leading-relaxed text-lg">O abordare integrativă pentru sănătatea ta, combinând expertiza medicală cu soluții personalizate pentru un echilibru durabil.</p>
               <div className="flex flex-col sm:flex-row gap-6">
-                <button className="bg-primary hover:bg-primary-dim text-on-primary font-body text-sm font-medium tracking-wide px-8 py-4 rounded-full transition-colors duration-300 w-full sm:w-auto text-center relative overflow-hidden group">
-                  <span className="relative z-10">Programează o consultație</span>
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-secondary-container/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </button>
-                <button className="bg-surface-container hover:bg-surface-container-high text-on-surface font-body text-sm font-medium tracking-wide px-8 py-4 rounded-full transition-colors duration-300 w-full sm:w-auto text-center">Află mai multe</button>
+                <Link href="/programare" className={`${styles.primaryCta} inline-flex min-h-[3.25rem] w-full items-center justify-center gap-[0.55rem] rounded-full bg-[#262b28] px-[1.35rem] py-0 text-center font-body text-[0.92rem] font-bold text-white no-underline transition-[transform,background-color,border-color,box-shadow] duration-150 ease-in-out hover:-translate-y-px hover:bg-[#353b37] sm:w-auto`} style={{ color: "#fff" }}>
+                  <span style={{ color: "#fff" }}>Programează o consultație</span>
+                </Link>
+                <Link href="/about" className="bg-surface-container hover:bg-surface-container-high text-on-surface font-body text-sm font-medium tracking-wide px-8 py-4 rounded-full transition-colors duration-300 w-full sm:w-auto text-center">Află mai multe</Link>
               </div>
             </div>
             <div className="lg:col-span-5 relative order-1 lg:order-2">
@@ -75,24 +72,30 @@ export function HomeExactDesignPage() {
               <div className="hidden md:block absolute top-1/2 left-1/3 w-[1px] h-2/3 -translate-y-1/2 bg-outline-variant/20"></div>
               <div className="hidden md:block absolute top-1/2 right-1/3 w-[1px] h-2/3 -translate-y-1/2 bg-outline-variant/20"></div>
               <div className="flex flex-col items-center text-center group px-8">
-                <div className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight">
-                  20
-                  <span className="text-[3rem] align-top text-secondary/60">+</span>
-                </div>
+                <AnimatedStatValue
+                  value={20}
+                  suffix="+"
+                  className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight"
+                  suffixClassName="text-[3rem] align-top text-secondary/60"
+                />
                 <p className="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">ani de experienta</p>
               </div>
               <div className="flex flex-col items-center text-center group px-8 border-t border-outline-variant/20 pt-8 md:border-none md:pt-0">
-                <div className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight">
-                  840
-                  <span className="text-[3rem] align-top text-secondary/60">+</span>
-                </div>
+                <AnimatedStatValue
+                  value={840}
+                  suffix="+"
+                  className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight"
+                  suffixClassName="text-[3rem] align-top text-secondary/60"
+                />
                 <p className="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">pacienti ajutati</p>
               </div>
               <div className="flex flex-col items-center text-center group px-8 border-t border-outline-variant/20 pt-8 md:border-none md:pt-0">
-                <div className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight">
-                  98
-                  <span className="text-[3rem] align-top text-secondary/60">%</span>
-                </div>
+                <AnimatedStatValue
+                  value={98}
+                  suffix="%"
+                  className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight"
+                  suffixClassName="text-[3rem] align-top text-secondary/60"
+                />
                 <p className="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">clienti multumiti</p>
               </div>
             </div>
@@ -105,33 +108,33 @@ export function HomeExactDesignPage() {
             <p className="font-body text-body-md text-on-surface-variant text-lg">Abordăm sănătatea din mai multe unghiuri pentru a oferi soluții complete și eficiente, adaptate nevoilor tale unice.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full">
+            <Link aria-label="Descopera Diagnostic Celular" href="/diagnozacel" className="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full no-underline">
               <div className="w-16 h-16 rounded-2xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center mb-8"><span className="material-symbols-outlined text-3xl designInline1">biotech</span></div>
               <h3 className="font-headline text-title-lg text-on-surface mb-4">Diagnostic Celular</h3>
               <p className="font-body text-body-md text-on-surface-variant flex-grow mb-8">Analiză profundă la nivel celular pentru a înțelege cauzele fundamentale ale dezechilibrelor din organismul tău.</p>
-              <a className="font-body text-sm font-medium text-secondary hover:text-secondary-dim flex items-center gap-2 transition-colors" href="#">
+              <span className="font-body text-sm font-medium text-secondary group-hover:text-secondary-dim flex items-center gap-2 transition-colors">
                  Descoperă 
                 <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
-              </a>
-            </div>
-            <div className="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full transform md:-translate-y-8">
+              </span>
+            </Link>
+            <Link aria-label="Descopera Nutritie" href="/serviciinutritie" className="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full transform md:-translate-y-8 no-underline">
               <div className="w-16 h-16 rounded-2xl bg-secondary-container text-on-secondary-container flex items-center justify-center mb-8"><span className="material-symbols-outlined text-3xl designInline2">nutrition</span></div>
               <h3 className="font-headline text-title-lg text-on-surface mb-4">Nutriție</h3>
               <p className="font-body text-body-md text-on-surface-variant flex-grow mb-8">Planuri alimentare personalizate create de un medic nutriționist-dietetician pentru a susține vindecarea și vitalitatea.</p>
-              <a className="font-body text-sm font-medium text-secondary hover:text-secondary-dim flex items-center gap-2 transition-colors" href="#">
+              <span className="font-body text-sm font-medium text-secondary group-hover:text-secondary-dim flex items-center gap-2 transition-colors">
                  Descoperă 
                 <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
-              </a>
-            </div>
-            <div className="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full">
+              </span>
+            </Link>
+            <Link aria-label="Descopera Shockwave" href="/terapie-shockwave" className="bg-surface-container-lowest rounded-3xl p-10 box-shadow-ambient ghost-border group hover:bg-surface-bright transition-colors duration-300 flex flex-col h-full no-underline">
               <div className="w-16 h-16 rounded-2xl bg-surface-container text-on-surface flex items-center justify-center mb-8"><span className="material-symbols-outlined text-3xl designInline3">waves</span></div>
               <h3 className="font-headline text-title-lg text-on-surface mb-4">Shockwave</h3>
               <p className="font-body text-body-md text-on-surface-variant flex-grow mb-8">Terapie modernă non-invazivă pentru reducerea durerii și stimularea procesului natural de vindecare a țesuturilor.</p>
-              <a className="font-body text-sm font-medium text-secondary hover:text-secondary-dim flex items-center gap-2 transition-colors" href="#">
+              <span className="font-body text-sm font-medium text-secondary group-hover:text-secondary-dim flex items-center gap-2 transition-colors">
                  Descoperă 
                 <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
-              </a>
-            </div>
+              </span>
+            </Link>
           </div>
         </section>
         <section className="py-24 px-6 md:px-12 max-w-screen-2xl mx-auto relative">

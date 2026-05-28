@@ -1,5 +1,12 @@
 .root {}
 
+.primaryCta,
+.primaryCta:hover,
+.primaryCta:focus-visible,
+.primaryCta:visited {
+  color: #fff !important;
+}
+
 :global([data-design-page="home"]) {
             font-family: 'Manrope', sans-serif;
             background-color: #fbf9f4;

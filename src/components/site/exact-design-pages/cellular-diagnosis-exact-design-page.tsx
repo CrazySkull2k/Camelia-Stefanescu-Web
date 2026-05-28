@@ -11,7 +11,7 @@ export function CellularDiagnosisExactDesignPage() {
       data-cms-override-version="diagnoza-celulara-2026-design-v2"
     >
       <div className="flex-grow w-full overflow-hidden">
-        <section className="relative pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden bg-surface-light">
+        <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden bg-surface-light">
           <div className="absolute top-0 right-0 w-2/3 md:w-1/2 h-[70vh] bg-stone/30 rounded-bl-[10rem] -z-10"></div>
           <div className="absolute top-40 right-10 w-96 h-96 bg-terracotta/15 rounded-full blur-3xl -z-10 mix-blend-multiply"></div>
           <div className="absolute bottom-20 left-0 w-1/3 h-[50vh] bg-surface-dark/5 rounded-tr-[8rem] -z-10"></div>
@@ -28,7 +28,7 @@ export function CellularDiagnosisExactDesignPage() {
                 </h1>
                 <div className="md:ml-24 max-w-lg border-l border-terracotta/40 pl-8 py-1"><p className="font-body text-base md:text-lg leading-relaxed text-ink-light font-light">Măsurarea și analizarea stării energetice a celulelor cu o precizie microscopică. Tehnologie avansată în slujba echilibrului tău.</p></div>
               </div>
-              <div className="lg:col-span-5 relative mt-16 lg:mt-0 -mx-6 md:mx-0"><div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[3/4] lg:-ml-12 z-10"><img className="w-full h-full object-cover mask-fluid scale-[1.15] shadow-2xl origin-center" alt="Global Diagnostics Technology" src="https://lh3.googleusercontent.com/aida/ADBb0ui3eR3Fj0Szmbr80HnyXjubcJIPxuTE4yW1viuwyXIDmWLnk2A3wusCj67SH4gNHT1zOqptPXdA9o54PAG75_8wVuUBTTOUlTx7sePgeqS9CLpbdZVsbgvBhT2EPzu7Vi2fE0DMkSLfO3ZXewDBrgazr0ij0Gd3CH0XfXNKsWkFVVrVYrqXwY32qKPjtqaxxml1HokHTkxD28nN061htSalUU6DoDfM7yQf9YubwsvQUTD4n__uW-Dy2ORi9zMhEf_yEaKVOSLI6g" /></div></div>
+              <div className="hidden lg:col-span-5 lg:block relative -mx-6 md:mx-0"><div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[3/4] lg:-ml-12 z-10"><img className="w-full h-full object-cover mask-fluid scale-[1.15] shadow-2xl origin-center" alt="Global Diagnostics Technology" src="https://lh3.googleusercontent.com/aida/ADBb0ui3eR3Fj0Szmbr80HnyXjubcJIPxuTE4yW1viuwyXIDmWLnk2A3wusCj67SH4gNHT1zOqptPXdA9o54PAG75_8wVuUBTTOUlTx7sePgeqS9CLpbdZVsbgvBhT2EPzu7Vi2fE0DMkSLfO3ZXewDBrgazr0ij0Gd3CH0XfXNKsWkFVVrVYrqXwY32qKPjtqaxxml1HokHTkxD28nN061htSalUU6DoDfM7yQf9YubwsvQUTD4n__uW-Dy2ORi9zMhEf_yEaKVOSLI6g" /></div></div>
             </div>
           </div>
         </section>
@@ -39,7 +39,7 @@ export function CellularDiagnosisExactDesignPage() {
               <div className="w-full lg:w-1/2 relative">
                 <div className="aspect-[4/5] bg-stone/10 border border-stone/20 rounded-t-full rounded-b-[4rem] overflow-hidden p-4 relative">
                   <div className="absolute inset-0 bg-terracotta/5 mix-blend-overlay"></div>
-                  <img className="w-full h-full rounded-t-full rounded-b-[3.5rem] object-cover border border-stone/10" alt="Arcada Global Diagnostics" src="/site/cellular-diagnosis/arch.png" />
+                  <img className="w-full h-full rounded-t-full rounded-b-[3.5rem] object-cover border border-stone/10" alt="Arcada Global Diagnostics" src="/site/cellular-diagnosis/diagnoza-cel-pat.png" />
                 </div>
               </div>
               <div className="w-full lg:w-1/2 space-y-12">

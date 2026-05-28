@@ -30,19 +30,19 @@ function TikTokIcon() {
 
 const socialLinks = [
   {
-    href: "https://www.tiktok.com/",
+    href: "https://www.tiktok.com/@camelia.stefanescu",
     icon: TikTokIcon,
     label: "Urmareste-ne pe TikTok",
     title: "TikTok",
   },
   {
-    href: "https://www.instagram.com/",
+    href: "https://www.instagram.com/dr.cameliastefanescu/",
     icon: Instagram,
     label: "Urmareste-ne pe Instagram",
     title: "Instagram",
   },
   {
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/DrCameliaStefanescu",
     icon: Facebook,
     label: "Urmareste-ne pe Facebook",
     title: "Facebook",
