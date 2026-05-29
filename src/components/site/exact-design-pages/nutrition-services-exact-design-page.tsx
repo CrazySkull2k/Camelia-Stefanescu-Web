@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import clsx from "clsx";
+import Link from "next/link";
 
 import styles from "./nutrition-services-exact-design-page.module.css";
 
@@ -24,7 +25,7 @@ export function NutritionServicesExactDesignPage() {
                 <div className="p-10 bg-surface-container-low rounded-3xl space-y-5">
                   <span className="material-symbols-outlined text-primary text-3xl">assignment_turned_in</span>
                   <h3 className="font-label text-[11px] uppercase tracking-[0.2em] font-bold">Chestionar Nutrițional</h3>
-                  <p className="font-body text-sm leading-relaxed text-on-surface-variant">O analiză exhaustivă a obiceiurilor alimentare actuale și a sensibilităților.</p>
+                  <p className="font-body text-sm leading-relaxed text-on-surface-variant">O analiza completa a obiceiurilor alimentare actuale.</p>
                 </div>
                 <div className="p-10 bg-surface-container-low rounded-3xl space-y-5">
                   <span className="material-symbols-outlined text-primary text-3xl">clinical_notes</span>
@@ -58,10 +59,10 @@ export function NutritionServicesExactDesignPage() {
                   <span className="font-body text-[#5e6058]">Educație pentru menținere pe viață</span>
                 </div>
               </div>
-              <button className="flex items-center gap-4 group font-label text-[12px] uppercase tracking-[0.2em] font-bold text-primary pt-4">
+              <Link href="/stopdieta" className="flex items-center gap-4 group font-label text-[12px] uppercase tracking-[0.2em] font-bold text-primary pt-4 no-underline">
                  Detalii Program 
                 <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
-              </button>
+              </Link>
             </div>
             <div className="order-1 lg:order-2"><div className="aspect-[16/10] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover object-[center_28%]" alt="Nutritie pentru slabit" data-alt="Nutritie pentru slabit" src="/site/nutrition-services/nutritie-pentru-slabit.png" /></div></div>
           </div>
@@ -104,7 +105,7 @@ export function NutritionServicesExactDesignPage() {
                   <div className="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Rezistență Sporită</div>
                 </div>
               </div>
-              <div className="pt-6"><button className="bg-primary text-on-primary px-12 py-5 rounded-full font-label text-[11px] uppercase tracking-[0.2em] hover:bg-primary-dim transition-all">Solicită Evaluarea</button></div>
+              <div className="pt-6"><Link href="/programare" className="inline-flex bg-primary text-on-primary px-12 py-5 rounded-full font-label text-[11px] uppercase tracking-[0.2em] hover:bg-primary-dim transition-all no-underline">Solicită Evaluarea</Link></div>
             </div>
             <div className="relative">
               <div className="aspect-[4/5] rounded-[2rem] overflow-hidden editorial-shadow"><img className="w-full h-full object-cover" alt="Nutritie sportiva" data-alt="Nutritie sportiva" src="/site/nutrition-services/nutritie-sportiv.png" /></div>
@@ -116,8 +117,8 @@ export function NutritionServicesExactDesignPage() {
             <h2 className="font-headline text-6xl text-on-surface italic leading-tight text-7xl md:text-8xl">Începe călătoria ta către o viață echilibrată</h2>
             <p className="font-body text-lg text-on-surface-variant leading-relaxed">Suntem aici să te ghidăm cu expertiză clinică și o abordare profund umană. Programează astăzi prima ta discuție.</p>
             <div className="flex flex-wrap justify-center gap-8 pt-8">
-              <button className="bg-primary text-on-primary px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] hover:shadow-xl transition-all">Programare Online</button>
-              <button className="bg-surface-container-lowest text-on-surface px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] border border-outline-variant/30 hover:bg-surface-container transition-all">Contactează-ne</button>
+              <Link href="/programare" className="inline-flex bg-primary text-on-primary px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] hover:shadow-xl transition-all no-underline">Programare Online</Link>
+              <Link href="/contact" className="inline-flex bg-surface-container-lowest text-on-surface px-14 py-5 rounded-full font-label text-[12px] uppercase tracking-[0.2em] border border-outline-variant/30 hover:bg-surface-container transition-all no-underline">Contactează-ne</Link>
             </div>
           </div>
         </section>

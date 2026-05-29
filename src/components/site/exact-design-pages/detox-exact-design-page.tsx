@@ -34,7 +34,7 @@ export function DetoxExactDesignPage() {
           <div className="absolute inset-0 bg-surface-container-low/50 -z-20 skew-y-3 origin-top-left transform scale-110"></div>
           <div className="max-w-[1200px] mx-auto relative">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div className="order-2 md:order-1 relative h-[500px] w-full"><img className="absolute inset-0 w-full h-full object-cover rounded-tr-[12rem] rounded-bl-[12rem] shadow-xl sepia-[0.2] contrast-125" alt="Tehnologia Vitalfeld" src="/site/detox/vitafeld.png" /></div>
+              <div className="order-2 md:order-1 relative h-[500px] w-full"><img className="absolute inset-0 w-full h-full object-cover rounded-tr-[12rem] rounded-bl-[12rem] shadow-xl sepia-[0.2] contrast-125" alt="Tehnologia Vitalfeld" src="/site/detox/craniuGlobal.jpg" /></div>
               <div className="order-1 md:order-2 text-left md:-ml-24 relative z-10 bg-background/80 backdrop-blur-sm p-12 shadow-2xl rounded-tr-[4rem] rounded-bl-[4rem]">
                 <span className="font-body text-[11px] uppercase tracking-[0.15em] text-tertiary font-bold mb-4 block">Abordare Integrativă</span>
                 <h2 className="font-headline text-5xl md:text-6xl font-bold leading-[0.9] text-on-surface mb-8 tracking-tighter">
@@ -89,7 +89,7 @@ export function DetoxExactDesignPage() {
             </div>
             <div className="lg:col-span-6 relative mt-16 lg:mt-0">
               <div className="w-full h-[600px] lg:h-[900px] relative">
-                <div className="absolute top-0 right-0 w-3/4 h-2/3 z-20"><img className="w-full h-full object-cover rounded-tl-[12rem] rounded-br-[4rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" alt="Aparatura medicala pentru detox fiziologic" src="/site/detox/aparatura-medicala-1.png" /></div>
+                <div className="absolute top-0 right-0 w-3/4 h-2/3 z-20"><img className="w-full h-full object-cover rounded-tl-[12rem] rounded-br-[4rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" alt="Aparatura medicala GLOBAL DIAGNOSTICS" src="/site/detox/pozaGlobal.png" /></div>
                 <div className="absolute bottom-0 left-0 w-2/3 h-1/2 z-10 bg-secondary/10 overflow-hidden rounded-tr-[4rem] rounded-bl-[12rem]"><img className="w-full h-full object-cover mix-blend-multiply opacity-60" alt="Detaliu aparatura medicala" src="/site/detox/aparatura-medicala-2.png" /></div>
               </div>
             </div>

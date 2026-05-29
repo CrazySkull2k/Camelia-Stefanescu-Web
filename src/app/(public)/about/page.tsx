@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { AboutVideoLightbox } from "@/components/site/about-video-lightbox";
 import { PageHero } from "@/components/site/page-hero";
 import { resolvePublicMediaUrl } from "@/lib/media";
 import {
@@ -88,6 +89,7 @@ export default async function AboutPage({ searchParams }: AboutPageProps) {
                   width={640}
                   height={720}
                 />
+                <AboutVideoLightbox />
               </div>
             </div>
             <div className="col-lg-6">

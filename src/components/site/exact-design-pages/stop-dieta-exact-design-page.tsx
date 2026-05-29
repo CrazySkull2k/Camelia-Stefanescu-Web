@@ -23,10 +23,8 @@ export function StopDietaExactDesignPage() {
               <span className="font-label text-xs uppercase tracking-[0.25em] text-secondary font-semibold">Nutriție & Echilibru Hormonal</span>
             </div>
             <h1 className="font-headline text-5xl md:text-7xl lg:text-[5.5rem] text-on-surface leading-[1.05] tracking-tight">
-              <span className="block text-primary/70 text-4xl md:text-5xl lg:text-6xl mb-2 font-medium tracking-normal">Servicii</span>
+              <span className="block text-primary/70 text-4xl md:text-5xl lg:text-6xl mb-2 font-medium tracking-normal">Servicii Online</span>
               <span className="italic font-light text-on-surface">Stop Dieta</span>
-              <br />
-              <span className="block mt-4 font-medium text-transparent bg-clip-text bg-gradient-to-r from-on-surface to-primary">Online</span>
             </h1>
             <p className="font-body text-lg md:text-xl text-on-surface-variant max-w-md font-light leading-relaxed border-l-4 border-surface-variant pl-6">O abordare medicală personalizată pentru recalibrarea răspunsului hormonal, disponibilă oriunde te-ai afla.</p>
           </div>

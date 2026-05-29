@@ -28,7 +28,7 @@ const navigationItems: NavItem[] = [
   {
     children: [
       { href: "/serviciinutritie", id: "nutrition-services", label: "Servicii de Nutritie" },
-      { href: "/stopdieta", id: "stop-dieta", label: "Stop Dieta Online" },
+      { href: "/stopdieta", id: "stop-dieta", label: "Servicii Online - Stop Dieta" },
       { href: "/detox", id: "detox", label: "Detox Fiziologic" },
     ],
     id: "nutrition",

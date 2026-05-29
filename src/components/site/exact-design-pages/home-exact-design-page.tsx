@@ -73,21 +73,21 @@ export function HomeExactDesignPage() {
               <div className="hidden md:block absolute top-1/2 right-1/3 w-[1px] h-2/3 -translate-y-1/2 bg-outline-variant/20"></div>
               <div className="flex flex-col items-center text-center group px-8">
                 <AnimatedStatValue
-                  value={20}
+                  value={15}
                   suffix="+"
                   className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight"
                   suffixClassName="text-[3rem] align-top text-secondary/60"
                 />
-                <p className="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">ani de experienta</p>
+                <p className="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">ani de experienta in domeniu</p>
               </div>
               <div className="flex flex-col items-center text-center group px-8 border-t border-outline-variant/20 pt-8 md:border-none md:pt-0">
                 <AnimatedStatValue
-                  value={840}
+                  value={1000}
                   suffix="+"
                   className="font-headline text-[4rem] md:text-[5rem] text-primary leading-none mb-4 font-light group-hover:text-secondary transition-colors duration-500 tracking-tight"
                   suffixClassName="text-[3rem] align-top text-secondary/60"
                 />
-                <p className="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">pacienti ajutati</p>
+                <p className="font-body text-label-md uppercase tracking-[0.1em] text-on-surface-variant font-medium">pacienti ajutati anual</p>
               </div>
               <div className="flex flex-col items-center text-center group px-8 border-t border-outline-variant/20 pt-8 md:border-none md:pt-0">
                 <AnimatedStatValue

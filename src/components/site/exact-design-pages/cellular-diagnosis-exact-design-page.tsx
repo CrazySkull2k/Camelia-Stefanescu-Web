@@ -28,7 +28,20 @@ export function CellularDiagnosisExactDesignPage() {
                 </h1>
                 <div className="md:ml-24 max-w-lg border-l border-terracotta/40 pl-8 py-1"><p className="font-body text-base md:text-lg leading-relaxed text-ink-light font-light">Măsurarea și analizarea stării energetice a celulelor cu o precizie microscopică. Tehnologie avansată în slujba echilibrului tău.</p></div>
               </div>
-              <div className="hidden lg:col-span-5 lg:block relative -mx-6 md:mx-0"><div className="relative w-full aspect-[4/5] md:aspect-square lg:aspect-[3/4] lg:-ml-12 z-10"><img className="w-full h-full object-cover mask-fluid scale-[1.15] shadow-2xl origin-center" alt="Global Diagnostics Technology" src="https://lh3.googleusercontent.com/aida/ADBb0ui3eR3Fj0Szmbr80HnyXjubcJIPxuTE4yW1viuwyXIDmWLnk2A3wusCj67SH4gNHT1zOqptPXdA9o54PAG75_8wVuUBTTOUlTx7sePgeqS9CLpbdZVsbgvBhT2EPzu7Vi2fE0DMkSLfO3ZXewDBrgazr0ij0Gd3CH0XfXNKsWkFVVrVYrqXwY32qKPjtqaxxml1HokHTkxD28nN061htSalUU6DoDfM7yQf9YubwsvQUTD4n__uW-Dy2ORi9zMhEf_yEaKVOSLI6g" /></div></div>
+              <div className="lg:col-span-5 relative mt-8 lg:mt-0 -mx-2 md:mx-0">
+                <div className="relative w-full aspect-video sm:aspect-[4/5] md:aspect-[16/10] lg:aspect-[3/4] lg:-ml-12 z-10 overflow-hidden rounded-[2.5rem] md:rounded-[4rem] shadow-2xl bg-surface-dark/10">
+                  <video
+                    aria-label="Video diagnoza celulara Global Diagnostics"
+                    autoPlay
+                    className="w-full h-full object-cover"
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    src="/site/cellular-diagnosis/VidDiagnoza.mp4"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -45,10 +58,8 @@ export function CellularDiagnosisExactDesignPage() {
               <div className="w-full lg:w-1/2 space-y-12">
                 <div>
                   <h2 className="font-headline text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">
-                    <span className="italic font-light">Tehnologie</span>
-                     de
-                    <br />
-                    precizie clinică. 
+                    <span className="block italic font-light">Tehnologie</span>
+                    <span className="block">de precizie clinică.</span>
                   </h2>
                   <p className="font-body text-lg leading-relaxed text-surface-light/80 font-light mb-6">Pentru a analiza starea energetică a organismului uman, GLOBAL DIAGNOSTICS transmite prin intermediul unor electrozi microcurenți ce interacționează cu câmpurile bioelectrice specifice ale organelor corpului.</p>
                   <p className="font-body text-lg leading-relaxed text-surface-light/80 font-light">Sunt astfel evidențiate carențele și nevoile organismului, precum și alți factori care pot influența negativ starea de sănătate, comparându-se răspunsurile energetice primite cu informațiile existente în baza de date a aparatului.</p>
@@ -84,7 +95,7 @@ export function CellularDiagnosisExactDesignPage() {
           <div className="max-w-4xl mx-auto text-center space-y-12">
             <div className="inline-block p-4 rounded-full bg-white shadow-sm border border-stone/50 mb-4"><span className="material-symbols-outlined text-terracotta text-4xl block">visibility</span></div>
             <h2 className="font-headline text-5xl md:text-6xl text-ink font-light tracking-tight">
-              Viziune 
+              Viziune{" "}
               <span className="italic text-terracotta">Clinică</span>
             </h2>
             <div className="space-y-8 font-body text-xl md:text-2xl leading-relaxed text-ink-light font-light">

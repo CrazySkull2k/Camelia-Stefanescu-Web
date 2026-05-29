@@ -75,8 +75,8 @@ export function ShockwaveWhatIsExactDesignPage() {
               </div>
               <div className="bg-surface-container-low p-12 rounded-xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500"><span className="material-symbols-outlined text-[120px] text-primary" data-weight="fill">air</span></div>
-                <h3 className="font-headline text-2xl font-bold text-on-surface mb-4 relative z-10">Sistem cu Aer Comprimat</h3>
-                <p className="font-body font-light text-on-surface-variant leading-relaxed relative z-10">Pentru terapia radială, sistemele noastre utilizează aer comprimat de înaltă precizie pentru a dispersa energia pe suprafețe mai extinse, ideal pentru tratarea afecțiunilor musculare superficiale.</p>
+                <h3 className="font-headline text-2xl font-bold text-on-surface mb-4 relative z-10">Reacție fiziologică imediată</h3>
+                <p className="font-body font-light text-on-surface-variant leading-relaxed relative z-10">Sub influența undelor de șoc organismul răspunde prin producerea unor proteine specifice - factori de creștere - stimulându-se formarea de către organism în zona tratată de noi vase sangvine. Drept urmare, începe astfel procesul de vindecare a țesuturilor tratate continuând mai apoi într-un mod accelerat.</p>
               </div>
             </div>
           </div>
