@@ -170,6 +170,7 @@ export const legacyServiceOfferings: ServiceOffering[] = [
     title: "Recalibrarea Răspunsului Hormonal - program de nutritie online",
     priceAmount: 2300,
     subtitle: "4 luni",
+    durationMinutes: 45,
     featureBullets: [
       "Online",
       "8 ședințe individuale prin Zoom, WhatsApp sau telefon, stabilite de comun acord la interval de 2 săptămâni una de cealaltă.",
@@ -205,7 +206,7 @@ export const legacyServiceOfferings: ServiceOffering[] = [
     title: "Nutriție clinică",
     priceAmount: 350,
     subtitle: "Ședință",
-    durationMinutes: 60,
+    durationMinutes: 45,
     featureBullets: [
       "Evaluare nutrițională / chestionar",
       "Verificare și interpretare analize de laborator",
@@ -225,7 +226,7 @@ export const legacyServiceOfferings: ServiceOffering[] = [
     title: "Nutriție sportivă",
     priceAmount: 350,
     subtitle: "Ședință",
-    durationMinutes: 60,
+    durationMinutes: 45,
     featureBullets: [
       "Evaluare nutrițională / chestionar",
       "Verificare și interpretare analize de laborator",
@@ -246,7 +247,7 @@ export const legacyServiceOfferings: ServiceOffering[] = [
     title: "Nutriție la cabinet – Recalibrarea Răspunsului Hormonal",
     priceAmount: 350,
     subtitle: "Ședință",
-    durationMinutes: 60,
+    durationMinutes: 45,
     featureBullets: [
       "Evaluare nutrițională / chestionar",
       "Cântărire, IMC",
@@ -269,6 +270,7 @@ export const legacyServiceOfferings: ServiceOffering[] = [
     title: "Recalibrarea Răspunsului Hormonal – Stimulare Metabolică / Detox Fiziologic",
     priceAmount: 3500,
     subtitle: "Program",
+    durationMinutes: 45,
     featureBullets: [
       "Program de nutriție pentru slăbire la cabinet",
       "Ședință inițială: evaluare + analize + BIA + diagnoză + stimulare metabolică",

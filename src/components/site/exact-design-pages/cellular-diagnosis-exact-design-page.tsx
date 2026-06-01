@@ -33,7 +33,7 @@ export function CellularDiagnosisExactDesignPage() {
                   <video
                     aria-label="Video diagnoza celulara Global Diagnostics"
                     autoPlay
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover scale-[1.75] origin-center sm:scale-[1.45] md:scale-[1.35] lg:scale-[1.28]"
                     loop
                     muted
                     playsInline
