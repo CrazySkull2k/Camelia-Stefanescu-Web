@@ -6,6 +6,8 @@ import { resolvePublicMediaUrl } from "@/lib/media";
 import { formatDate } from "@/lib/utils/dates";
 import type { BlogPost } from "@/modules/blog/types";
 
+import styles from "./blog-index.module.css";
+
 type BlogIndexProps = {
   posts: BlogPost[];
   search?: string;
@@ -24,39 +26,37 @@ export function BlogIndex({ posts, search }: BlogIndexProps) {
         ]}
       />
 
-      <section className="blog_section section_space_lg">
+      <section className={`blog_section section_space_lg ${styles.blogIndex}`}>
         <div className="container">
           <div className="row">
             <div className="col-lg-8">
-              <div className="row">
+              <div className={`row ${styles.cardsGrid}`}>
                 {posts.length ? (
                   posts.map((post) => {
                     const image = resolvePublicMediaUrl(post.image) ?? DEFAULT_BLOG_COVER;
 
                     return (
-                      <div className="col-md-6" key={post.id}>
-                        <div className="blog_item">
+                      <div className={`col-md-6 ${styles.cardColumn}`} key={post.id}>
+                        <div className={`blog_item ${styles.card}`}>
                           <div className="blog_image">
-                            <Link className="blog_image_wrap" href={`/blog/${post.slug}`}>
+                            <Link
+                              className={`blog_image_wrap ${styles.imageWrap}`}
+                              href={`/blog/${post.slug}`}
+                            >
                               <Image
                                 src={image}
                                 alt={post.title}
-                                className="h-auto w-full"
+                                className={styles.cardImage}
                                 width={520}
                                 height={360}
                               />
                             </Link>
                           </div>
-                          <div className="blog_content">
-                            {post.categoryName ? (
-                              <ul className="post_category unordered_list">
-                                <li>{post.categoryName}</li>
-                              </ul>
-                            ) : null}
+                          <div className={`blog_content ${styles.cardContent}`}>
                             <h3 className="item_title">
                               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                             </h3>
-                            {post.excerpt ? <p>{post.excerpt}</p> : null}
+                            <p className={styles.excerpt}>{post.excerpt ?? ""}</p>
                             <Link className="btn-link" href={`/blog/${post.slug}`}>
                               <span className="btn_text">Citeste mai mult</span>
                               <span className="btn_icon">
@@ -108,13 +108,16 @@ export function BlogIndex({ posts, search }: BlogIndexProps) {
 
                       return (
                         <li key={post.id}>
-                          <div className="blog_item_small">
-                            <div className="blog_image">
-                              <Link className="blog_image_wrap" href={`/blog/${post.slug}`}>
+                          <div className={`blog_item_small ${styles.smallCard}`}>
+                            <div className={`blog_image ${styles.smallImageShell}`}>
+                              <Link
+                                className={`blog_image_wrap ${styles.smallImageWrap}`}
+                                href={`/blog/${post.slug}`}
+                              >
                                 <Image
                                   src={image}
                                   alt={post.title}
-                                  className="h-auto w-full"
+                                  className={styles.smallImage}
                                   width={110}
                                   height={86}
                                 />

@@ -1,5 +1,32 @@
 .root {}
 
+.heroVideo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(3.42);
+  transform-origin: center;
+}
+
+@media (min-width: 640px) {
+  .heroVideo {
+    transform: scale(2.55);
+  }
+}
+
+@media (min-width: 768px) {
+  .heroVideo {
+    transform: scale(2.05);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroVideo {
+    transform: scale(1.58);
+  }
+}
+
 :global([data-design-page="diagnoza-celulara"] .material-symbols-outlined) {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
